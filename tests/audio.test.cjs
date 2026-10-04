@@ -1,6 +1,6 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert'),path=require('path');
 class El{constructor(){this.children=[];this.attrs={};this.style={setProperty(){}};this.classList={add(){},remove(){},toggle(){}};this.value='';this.checked=false;this.textContent='';this.events={};this.dataset={};}setAttribute(k,v){this.attrs[k]=v;}removeAttribute(k){delete this.attrs[k];}append(...n){this.children.push(...n);}replaceChildren(...n){this.children=n;}addEventListener(k,fn){this.events[k]=fn;}}
-const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');const ids={};for(const [,id]of html.matchAll(/id="([^"]+)"/g))ids[id]=new El();
+const html=fs.readFileSync(path.join(__dirname,'..','public','index.html'),'utf8');const ids={};for(const [,id]of html.matchAll(/id="([^"]+)"/g))ids[id]=new El();
 const defaults={chords:'F7, C7',tuning:'4',frets:'12',labels:'notes',toneFilter:'all',bpm:'80',beats:'4',groove:'straight',pianoVolume:'65',drumsVolume:'45'};for(const[k,v]of Object.entries(defaults))ids[k].value=v;ids.pianoEnabled.checked=ids.drumsEnabled.checked=true;
 const timers=new Map(),intervals=new Map(),nodes=[];let nextTimer=1;
 class Param{constructor(){this.value=0;this.calls=[];}check(v,t){assert(Number.isFinite(v),'Non-finite parameter');assert(Number.isFinite(t)&&t>=0,'Invalid time');}setValueAtTime(v,t){this.check(v,t);this.value=v;this.calls.push(['set',v,t]);}linearRampToValueAtTime(v,t){this.check(v,t);this.value=v;this.calls.push(['linear',v,t]);}exponentialRampToValueAtTime(v,t){this.check(v,t);assert(v>0);this.value=v;this.calls.push(['exp',v,t]);}setTargetAtTime(v,t,c){this.check(v,t);assert(c>0);this.calls.push(['target',v,t,c]);}cancelScheduledValues(t){assert(t>=0);}}
@@ -9,7 +9,7 @@ class Audio{constructor(){this.currentTime=0;this.sampleRate=48000;this.state='s
 const translatedNodes=[...html.matchAll(/data-i18n="([^"]+)"/g)].map(([,key])=>{const e=new El();e.dataset.i18n=key;return e;});const ariaNodes=[...html.matchAll(/data-i18n-aria="([^"]+)"/g)].map(([,key])=>{const e=new El();e.dataset.i18nAria=key;return e;});let savedPrefs=null;
 const doc={documentElement:{lang:''},getElementById:id=>{assert(ids[id],'Missing '+id);return ids[id];},createElement:()=>new El(),createElementNS:()=>new El(),createTextNode:t=>({textContent:t}),querySelectorAll:q=>q==='[data-i18n]'?translatedNodes:q==='[data-i18n-aria]'?ariaNodes:[],addEventListener(){}};
 const context=vm.createContext({document:doc,window:{AudioContext:Audio},setInterval:(f,ms)=>{const id=nextTimer++;intervals.set(id,f);return id;},clearInterval:id=>intervals.delete(id),setTimeout:(f,ms)=>{assert(ms>=0);const id=nextTimer++;timers.set(id,{fn:f,ms});return id;},clearTimeout:id=>timers.delete(id),localStorage:{getItem:()=>null,setItem:(key,value)=>{savedPrefs=JSON.parse(value);}}});
-vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);
+vm.runInContext(fs.readFileSync(path.join(__dirname,'..','public','app.js'),'utf8'),context);
 const run=code=>vm.runInContext(code,context),chord=s=>JSON.parse(run(`JSON.stringify(parseChord(${JSON.stringify(s)}))`));
 assert.deepStrictEqual(chord('F7').tones.map(t=>t.name),['F','A','C','Eb']);assert.deepStrictEqual(chord('F#maj7').tones.map(t=>t.name),['F#','A#','C#','E#']);
 (async()=>{await run('start()');assert.strictEqual(intervals.size,1);assert.strictEqual(ids.play.attrs['aria-pressed'],'true');assert(nodes.some(n=>n.kind==='noise'));assert(nodes.filter(n=>n.kind==='oscillator'&&n.wave).length===4,'F7 four piano notes');assert(timers.size===1,'First visual beat scheduled');
@@ -23,6 +23,8 @@ run('stop()');assert.strictEqual(timers.size,0);assert.strictEqual(intervals.siz
 ids.groove.value='swing';let before=nodes.length;run('scheduleBeat(0,audio.currentTime+.1,playEpoch)');let noise=nodes.slice(before).filter(n=>n.kind==='noise');assert.strictEqual(noise.length,2);assert(Math.abs(noise[1].started-noise[0].started-.5)<1e-10,'Swing offbeat: 2/3 of .75 seconds');run('stop()');
 ids.pianoEnabled.checked=false;ids.drumsEnabled.checked=false;before=nodes.length;await run('start()');assert(!nodes.slice(before).some(n=>n.started!==undefined),'Both muted: no scheduled voices');run('stop()');
 ids.pianoEnabled.checked=true;ids.drumsEnabled.checked=true;ids.chords.value='C7 F7 C7 C7 F7 F7 C7 C7 G7 F7 C7 G7';run('render()');assert.strictEqual(ids.progression.children.length,12);run('transpose(1)');assert(ids.chords.value.startsWith('Db7'));assert.strictEqual(ids.progression.children.length,12);
+// Transposition keeps the writer's accidentals: sharps stay sharps, mixed or flat input uses flats.
+ids.chords.value='C#m7 F#7';run('render();transpose(2)');assert.strictEqual(ids.chords.value,'D#m7 | G#7');ids.chords.value='Bbmaj7 F#7';run('render();transpose(1)');assert.strictEqual(ids.chords.value,'Bmaj7 | G7');
 ids.chords.value='C/E';await run('start()');assert(ids.error.textContent.length>0);assert.strictEqual(intervals.size,0);
 ids.chords.value='Dm7 G7 Cmaj7';ids.beats.value='2';run('render()');await run('start()');assert.strictEqual(run('beatsPerChord()'),2);run('stop()');
 // Stale asynchronous starts cannot restart after a stop.

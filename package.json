@@ -1,10 +1,12 @@
 {
   "name": "bass-chord-lab",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "Offline bass chord visualizer with synthesized piano and drums",
   "scripts": {
-    "test": "node tests/audio.test.cjs"
+    "test": "node tests/audio.test.cjs",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
   },
   "engines": {
     "node": ">=18"

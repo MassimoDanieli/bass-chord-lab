@@ -4,7 +4,7 @@
 
 ## English
 
-Download the repository and open `index.html` in Safari or Chrome. No installation, build, external samples or Internet connection is required. Select **EN / IT** at the top; English is the initial language and the chosen language is remembered when browser storage is available.
+Download the repository and open `public/index.html` in Safari or Chrome. No installation, build, external samples or Internet connection is required. Select **EN / IT** at the top; English is the initial language and the chosen language is remembered when browser storage is available.
 
 Enter a progression such as `Dm7 | G7 | Cmaj7` and press **Show on fretboard**, or Cmd/Ctrl + Enter. Click a chord to study it alone; Shift + click adds or removes chords from a comparison.
 
@@ -24,7 +24,7 @@ Chord symbols use international notation with sharps and flats. Supported chord 
 
 ### Development
 
-Production code lives in `index.html` and has no dependencies. With Node.js 18 or newer:
+Production code lives in `public/` (`index.html`, `styles.css`, `app.js`) and has no dependencies. With Node.js 18 or newer:
 
 ```sh
 npm test
@@ -32,9 +32,11 @@ npm test
 
 Tests simulate the DOM and Web Audio APIs to check chord spelling, sequencing, audio scheduling, cancellation and EN / IT behavior, including language changes during playback. Layout and sound still need checks in a real browser.
 
-For a local HTTP preview, run `python3 -m http.server 8000` from this directory and open http://localhost:8000.
+For a local HTTP preview, run `python3 -m http.server 8000` from `public/` and open http://localhost:8000, or `npm run dev` to preview through Wrangler.
 
-This is a static site. To publish using GitHub Pages, select `main` and `/ (root)` in the repository's Pages settings. Pushing this code does not automatically enable Pages.
+### Deployment
+
+The site is deployed as static assets on Cloudflare Workers; `wrangler.jsonc` points at `public/`. Every push to `main` is built and deployed automatically once the repository is connected in the Cloudflare dashboard (Workers & Pages → Create → Import a repository; no build command, deploy command `npx wrangler deploy`). A manual deploy from a machine logged in with Wrangler is `npm run deploy`.
 
 ---
 
@@ -44,7 +46,7 @@ Una piccola app offline per studiare gli accordi sulla tastiera del basso e suon
 
 ### Avvio
 
-Scarica il repository e apri `index.html` con Safari o Chrome. Non servono installazioni, servizi esterni o una connessione Internet. Usa il selettore **EN / IT** in alto: la lingua iniziale è inglese e la scelta viene ricordata quando lo storage locale è disponibile. Premi **Avvia base** per abilitare l'audio.
+Scarica il repository e apri `public/index.html` con Safari o Chrome. Non servono installazioni, servizi esterni o una connessione Internet. Usa il selettore **EN / IT** in alto: la lingua iniziale è inglese e la scelta viene ricordata quando lo storage locale è disponibile. Premi **Avvia base** per abilitare l'audio.
 
 ### Funzioni
 
@@ -75,7 +77,7 @@ La batteria è in 4/4: cassa su 1 e 3, rullante su 2 e 4, hi-hat a ottavi. Lo sw
 
 ### Sviluppo e verifica
 
-HTML, CSS e JavaScript sono contenuti in `index.html`; nessuna dipendenza di produzione e nessun build necessario.
+HTML, CSS e JavaScript sono in `public/` (`index.html`, `styles.css`, `app.js`); nessuna dipendenza di produzione e nessun build necessario.
 
 Con Node.js 18 o successivo:
 
@@ -85,14 +87,14 @@ npm test
 
 I test verificano la logica degli accordi, la sequenza e la programmazione audio usando DOM e Web Audio simulati. Non sostituiscono le prove del layout e l'ascolto in un browser reale.
 
-Per una prova locale via HTTP:
+Per una prova locale via HTTP, da `public/`:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Apri http://localhost:8000.
+Apri http://localhost:8000. In alternativa `npm run dev` usa Wrangler.
 
 ### Pubblicazione
 
-È un sito statico. Per GitHub Pages si può usare il ramo `main` e la cartella `/ (root)` nelle impostazioni Pages del repository. Caricare il codice nel repository non attiva automaticamente GitHub Pages.
+Il sito è pubblicato come asset statici su Cloudflare Workers: `wrangler.jsonc` punta a `public/`. Una volta collegato il repository nella dashboard di Cloudflare (Workers & Pages → Create → Import a repository; nessun comando di build, comando di deploy `npx wrangler deploy`), ogni push su `main` viene pubblicato in automatico. Da una macchina autenticata con Wrangler si può anche usare `npm run deploy`.

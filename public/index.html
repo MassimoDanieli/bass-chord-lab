@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Bass Chord Lab</title>
+    <meta
+      name="description"
+      content="Compare chord progressions on the bass fretboard with a synthesized piano and drum backing. Works offline, EN / IT."
+    />
+    <meta name="theme-color" content="#10171c" />
+    <meta name="color-scheme" content="dark" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310171c'/%3E%3Ccircle cx='32' cy='32' r='17' fill='%2378e1ba'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23f6f9fa' stroke-width='2.5'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <div class="eyebrow">BASS CHORD LAB</div>
+          <h1 data-i18n="s0">Vedi gli accordi. Trova le note.</h1>
+          <p data-i18n="s1">Confronta gli accordi sulla tastiera del tuo basso.</p>
+        </div>
+        <span class="badge" data-i18n="s2">PROVA V3 · PIANO + DRUMS</span>
+        <div class="language-control">
+          <label for="language">Language / Lingua</label>
+          <select id="language" aria-label="Language / Lingua">
+            <option value="en">EN · English</option>
+            <option value="it">IT · Italiano</option>
+          </select>
+        </div>
+      </header>
+      <section class="panel" aria-label="Configurazione" data-i18n-aria="a0">
+        <form id="form">
+          <div class="entry">
+            <div class="field">
+              <label for="chords" data-i18n="s3">
+                La tua progressione · separa gli accordi con spazi, virgole o |
+              </label>
+              <textarea id="chords" spellcheck="false" aria-describedby="error" rows="2">
+F7, C7</textarea>
+            </div>
+            <button class="primary" type="submit" data-i18n="s4">Mostra sulla tastiera ↗</button>
+          </div>
+          <div class="examples">
+            <button type="button" data-chords="F7, C7">F7 / C7</button>
+            <button type="button" data-chords="Dm7, G7, Cmaj7" data-i18n="s5">II–V–I in Do</button>
+            <button type="button" data-chords="Am7, Dm7, E7">Am7 / Dm7 / E7</button>
+            <button type="button" data-chords="Bbmaj7, Ebmaj7">Bbmaj7 / Ebmaj7</button>
+            <button
+              type="button"
+              data-chords="C7 | F7 | C7 | C7 | F7 | F7 | C7 | C7 | G7 | F7 | C7 | G7"
+              data-i18n="s6"
+            >
+              Blues in Do · 12 battute
+            </button>
+            <button type="button" data-chords="Cmaj7 Am7 Dm7 G7 Em7 A7 Dm7 G7" data-i18n="s7">
+              Turnaround · 8 accordi
+            </button>
+          </div>
+        </form>
+        <div class="settings">
+          <label>
+            <span data-i18n="s8">Basso / accordatura</span>
+            <select id="tuning">
+              <option value="4" data-i18n="s9">4 corde · E A D G</option>
+              <option value="5" data-i18n="s10">5 corde · B E A D G</option>
+              <option value="drop" data-i18n="s11">4 corde · Drop D</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="s12">Tasti</span>
+            <select id="frets">
+              <option>12</option>
+              <option>15</option>
+              <option>24</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="s13">Nei pallini</span>
+            <select id="labels">
+              <option value="notes" data-i18n="s14">Nome della nota</option>
+              <option value="degrees" data-i18n="s15">Grado nell’accordo</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="s16">Note da mostrare</span>
+            <select id="toneFilter">
+              <option value="all" data-i18n="s17">Tutte le note dell’accordo</option>
+              <option value="triad" data-i18n="s18">Fondamentale, 3ª e 5ª</option>
+              <option value="root" data-i18n="s19">Solo fondamentali</option>
+              <option value="guide" data-i18n="s20">3ª e 7ª · guide tones</option>
+            </select>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="commonOnly" />
+            <span data-i18n="s21">Solo note comuni</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="others" />
+            <span data-i18n="s22">Tutte le altre note</span>
+          </label>
+        </div>
+        <div id="error" role="alert"></div>
+        <div class="toolbar">
+          <button type="button" id="transposeDown" data-i18n="s23">−1 semitono</button>
+          <button type="button" id="transposeUp" data-i18n="s24">+1 semitono</button>
+          <button type="button" id="selectAll" data-i18n="s25">Confronta tutti</button>
+          <button type="button" id="selectNone" data-i18n="s26">Deseleziona</button>
+          <button
+            type="button"
+            id="previous"
+            aria-label="Accordo precedente"
+            data-i18n="s27"
+            data-i18n-aria="a1"
+          >
+            ← Precedente
+          </button>
+          <button
+            type="button"
+            id="next"
+            aria-label="Accordo successivo"
+            data-i18n="s28"
+            data-i18n-aria="a2"
+          >
+            Successivo →
+          </button>
+        </div>
+        <p style="font-size: 13px" data-i18n="s29">
+          Clic su un accordo per studiarlo da solo. ⇧ Shift + clic per aggiungerlo o toglierlo dal
+          confronto.
+        </p>
+        <div
+          class="progression"
+          id="progression"
+          aria-label="Accordi della progressione"
+          data-i18n-aria="a3"
+        ></div>
+        <div id="selectionStatus" role="status"></div>
+        <div class="toolbar">
+          <button type="button" id="play" aria-pressed="false" data-i18n="s30">▶ Avvia base</button>
+          <label for="bpm">
+            BPM
+            <input id="bpm" type="number" min="30" max="300" value="80" />
+          </label>
+          <label for="beats">
+            <span data-i18n="s31">Beat per accordo</span>
+            <select id="beats">
+              <option value="2">2</option>
+              <option value="4" selected>4</option>
+              <option value="8">8</option>
+            </select>
+          </label>
+          <span id="playStatus" style="color: var(--muted); font-size: 13px" data-i18n="s32">
+            Piano e batteria · pronti
+          </span>
+        </div>
+        <div class="audio-controls">
+          <label>
+            <span data-i18n="s33">Ritmo · 4/4</span>
+            <select id="groove">
+              <option value="straight" data-i18n="s34">Dritto · pop / rock</option>
+              <option value="swing">Swing · blues</option>
+            </select>
+          </label>
+          <div class="instrument">
+            <label class="check">
+              <input type="checkbox" id="pianoEnabled" checked />
+              Piano
+            </label>
+            <label for="pianoVolume" data-i18n="s35">Volume piano</label>
+            <input id="pianoVolume" type="range" min="0" max="100" value="65" />
+          </div>
+          <div class="instrument">
+            <label class="check">
+              <input type="checkbox" id="drumsEnabled" checked />
+              <span data-i18n="s36">Batteria</span>
+            </label>
+            <label for="drumsVolume" data-i18n="s37">Volume batteria</label>
+            <input id="drumsVolume" type="range" min="0" max="100" value="45" />
+          </div>
+          <div class="beat-meter" aria-hidden="true">
+            <span class="beat-light">1</span>
+            <span class="beat-light">2</span>
+            <span class="beat-light">3</span>
+            <span class="beat-light">4</span>
+          </div>
+        </div>
+        <p class="hint" data-i18n="s38">
+          Premi Avvia base: il piano suona gli accordi, la batteria tiene il tempo. Puoi spegnere
+          ogni strumento. Il registro basso è libero per te. Suoni sintetizzati, senza download.
+        </p>
+      </section>
+      <section class="panel">
+        <div class="board-head">
+          <h2 id="boardTitle" data-i18n="s39">Tastiera</h2>
+          <p style="font-size: 13px" data-i18n="s40">
+            Corda più acuta in alto · tasto 0 = corda a vuoto
+          </p>
+        </div>
+        <div class="scroll" id="board"></div>
+        <div id="detail" role="status" data-i18n="s41">
+          Clicca un pallino per leggere i suoi gradi nei diversi accordi.
+        </div>
+        <div id="commonNotes"></div>
+        <div id="legend" class="legend"></div>
+        <p class="hint" data-i18n="s42">
+          Pallino diviso = nota comune a più accordi. Anello chiaro = fondamentale di almeno un
+          accordo. Passa sui pallini per i dettagli.
+        </p>
+      </section>
+      <details class="support">
+        <summary data-i18n="s43">Accordi supportati e come usarlo</summary>
+        <p data-i18n="s44">
+          Notazione internazionale: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La, B = Si. Diesis
+          # e bemolle b, anche ♯ e ♭. Esempi: F7, Bbmaj7, F#m7.
+        </p>
+        <p data-i18n="s45">
+          Maggiori, minori (m / min), 5, 6, m6, 7, maj7, m7, mMaj7, dim, dim7, m7b5 / ø7, aug / +,
+          sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7#5, 7b9, 7#9. Gli
+          accordi con basso indicato (C/E) non sono supportati in questa prova.
+        </p>
+        <p data-i18n="s48">
+          Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni
+          elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi
+          usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un
+          confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali
+          tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti
+          selezionati. La base è in 4/4: cassa su 1 e 3, rullante su 2 e 4, hi-hat a ottavi. Swing
+          ritarda il secondo ottavo. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente.
+          L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda.
+          Nessuna installazione e nessuna connessione necessaria. Le tue ultime impostazioni vengono
+          ricordate nel browser, quando disponibile.
+        </p>
+      </details>
+      <div class="footer">
+        <span data-i18n="s46">Fatto per esplorare la tastiera, una nota alla volta.</span>
+        <button type="button" id="reset" style="padding: 4px 10px; font-size: 12px" data-i18n="s47">
+          Ripristina F7 / C7
+        </button>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
