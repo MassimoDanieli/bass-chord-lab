@@ -42,7 +42,7 @@ This is a static site. To publish using GitHub Pages, select `main` and `/ (root
 
 Una piccola app offline per studiare gli accordi sulla tastiera del basso e suonare su una base di piano e batteria.
 
-#### Avvio
+### Avvio
 
 Scarica il repository e apri `index.html` con Safari o Chrome. Non servono installazioni, servizi esterni o una connessione Internet. Usa il selettore **EN / IT** in alto: la lingua iniziale è inglese e la scelta viene ricordata quando lo storage locale è disponibile. Premi **Avvia base** per abilitare l'audio.
 
