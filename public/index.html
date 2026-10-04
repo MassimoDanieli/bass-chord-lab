@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <noscript>
+      <p class="noscript">Bass Chord Lab needs JavaScript. · Bass Chord Lab richiede JavaScript.</p>
+    </noscript>
     <main>
       <header class="top">
         <h1>Bass Chord Lab</h1>
@@ -36,7 +39,14 @@
             La tua progressione · separa gli accordi con spazi, virgole o |
           </label>
           <div class="entry">
-            <textarea id="chords" spellcheck="false" aria-describedby="error" rows="1">
+            <textarea
+              id="chords"
+              spellcheck="false"
+              autocomplete="off"
+              autocapitalize="off"
+              aria-describedby="error"
+              rows="1"
+            >
 F7, C7</textarea>
             <button class="primary" type="submit" data-i18n="s4">Mostra</button>
           </div>
@@ -165,6 +175,7 @@ F7, C7</textarea>
           <div id="commonNotes"></div>
         </div>
         <div id="legend" class="legend"></div>
+        <p class="hint" data-i18n="s40">Corda più acuta in alto · tasto 0 = corda a vuoto</p>
         <p class="hint" data-i18n="s42">
           Pallino diviso = nota comune a più accordi. Anello chiaro = fondamentale di almeno un
           accordo. Passa sui pallini per i dettagli.

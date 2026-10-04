@@ -12,12 +12,18 @@ const context=vm.createContext({document:doc,window:{AudioContext:Audio},setInte
 vm.runInContext(fs.readFileSync(path.join(__dirname,'..','public','app.js'),'utf8'),context);
 const run=code=>vm.runInContext(code,context),chord=s=>JSON.parse(run(`JSON.stringify(parseChord(${JSON.stringify(s)}))`));
 assert.deepStrictEqual(chord('F7').tones.map(t=>t.name),['F','A','C','Eb']);assert.deepStrictEqual(chord('F#maj7').tones.map(t=>t.name),['F#','A#','C#','E#']);
+// Alternative spellings map onto the supported qualities; single-letter case still matters (M7 vs m7).
+for(const [input,quality] of [['CMaj7','maj7'],['CMAJ7','maj7'],['CM7','maj7'],['CΔ7','maj7'],['Cma7','maj7'],['Cmaj',''],['Cmin7','m7'],['CMIN7','m7'],['C-7','m7'],['C–7','m7'],['Cmi','m'],['C-','m'],['Cm7(b5)','m7b5'],['CØ7','m7b5'],['Co7','dim7'],['Co','dim'],['CDim','dim'],['C7(b9)','7b9'],['C7(#9)','7#9'],['C7+','7#5'],['Caug7','7#5'],['C7sus','7sus4'],['CSus4','sus4'],['Cm(maj7)','mMaj7'],['CminMaj7','mMaj7'],['Cadd2','add9']])assert.strictEqual(chord(input).quality,quality,input);
+assert.deepStrictEqual(chord('Bbo7').tones.map(t=>t.label),['R','b3','b5','bb7']);assert.strictEqual(chord('Db7').accidental,'b');assert.strictEqual(chord('C7').accidental,'');
+assert.throws(()=>chord('Cmaj7#11'));assert.throws(()=>chord('H7'));assert.throws(()=>chord('C/E'));
 (async()=>{await run('start()');assert.strictEqual(intervals.size,1);assert.strictEqual(ids.play.attrs['aria-pressed'],'true');assert(nodes.some(n=>n.kind==='noise'));assert(nodes.filter(n=>n.kind==='oscillator'&&n.wave).length===4,'F7 four piano notes');assert(timers.size===1,'First visual beat scheduled');
+const stepsBefore=ids.progression.children;savedPrefs=null;
 // Simulate the audio clock through the next chord; only one transport drives sound and fretboard.
 const collectVisual=()=>{for(const[id,t]of [...timers]){timers.delete(id);t.fn();}};
 collectVisual();assert(ids.playStatus.textContent.includes('F7'));
 for(let beat=1;beat<=4;beat++){run(`audio.currentTime=${.065+beat*.75-.05};schedule()`);collectVisual();}
 assert(ids.playStatus.textContent.includes('C7'));assert.strictEqual(run('cursor'),1);assert(ids.boardTitle.textContent.startsWith('C7'));assert.strictEqual(run('transportBeat'),5);
+assert.strictEqual(savedPrefs,null,'Playback does not rewrite preferences');assert.strictEqual(ids.progression.children,stepsBefore,'Chord buttons are reused during playback');assert.deepStrictEqual(ids.progression.children.map(b=>b.attrs['aria-pressed']),[false,true]);
 // Off-beat hat follows the swing fraction.
 run('stop()');assert.strictEqual(timers.size,0);assert.strictEqual(intervals.size,0);assert(nodes.filter(n=>n.started!==undefined).every(n=>n.stopped!==undefined));
 ids.groove.value='swing';let before=nodes.length;run('scheduleBeat(0,audio.currentTime+.1,playEpoch)');let noise=nodes.slice(before).filter(n=>n.kind==='noise');assert.strictEqual(noise.length,2);assert(Math.abs(noise[1].started-noise[0].started-.5)<1e-10,'Swing offbeat: 2/3 of .75 seconds');run('stop()');

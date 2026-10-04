@@ -71,6 +71,13 @@ summary:focus-visible {
 }
 
 /* Header: one quiet line, so the fretboard stays in the first screen. */
+.noscript {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border: 1px solid #ffb3a9;
+  border-radius: 8px;
+  color: #ffb3a9;
+}
 .top {
   display: flex;
   align-items: baseline;
@@ -280,7 +287,7 @@ h2 {
   align-items: end;
   gap: 8px 14px;
 }
-.view label span {
+.view label:not(.check) > span {
   display: block;
   margin-bottom: 3px;
 }
@@ -289,9 +296,6 @@ h2 {
   gap: 6px;
   align-items: center;
   padding-bottom: 6px;
-}
-.check span {
-  margin: 0 !important;
 }
 .check input {
   width: 15px;
@@ -387,7 +391,7 @@ summary {
   gap: 14px 28px;
   margin-top: 14px;
 }
-.audio-controls label span {
+.audio-controls label:not(.check) > span {
   display: block;
   margin-bottom: 3px;
 }

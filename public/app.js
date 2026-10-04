@@ -5,7 +5,6 @@ const translations = {
   en: {
     s0: 'See the chords. Find the notes.',
     s1: 'Compare chords on your bass fretboard.',
-    s2: 'PREVIEW V3 · PIANO + DRUMS',
     s3: 'Your progression · separate chords with spaces, commas or |',
     s4: 'Show',
     s5: 'II–V–I in C',
@@ -48,7 +47,7 @@ const translations = {
     s42: 'Split dot = a tone shared by several chords. Light ring = the root of at least one chord. Hover over dots for details.',
     s43: 'Supported chords and how to use it',
     s44: 'International notation: C, D, E, F, G, A, B. Sharps # and flats b, including ♯ and ♭. Examples: F7, Bbmaj7, F#m7.',
-    s45: 'Major, minor (m / min), 5, 6, m6, 7, maj7, m7, mMaj7, dim, dim7, m7b5 / ø7, aug / +, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7#5, 7b9, 7#9. Slash chords (C/E) are not supported in this preview.',
+    s45: 'Major, minor (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Slash chords (C/E) are not supported in this preview.',
     s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4: kick on 1 and 3, snare on 2 and 4, hi-hat on eighth notes. Swing delays the second eighth note. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation or Internet connection required. Your last settings are remembered in the browser when available.',
     s46: 'Explore the fretboard, one note at a time.',
     s47: 'Reset F7 / C7',
@@ -86,7 +85,6 @@ const translations = {
   it: {
     s0: 'Vedi gli accordi. Trova le note.',
     s1: 'Confronta gli accordi sulla tastiera del tuo basso.',
-    s2: 'PROVA V3 · PIANO + DRUMS',
     s3: 'La tua progressione · separa gli accordi con spazi, virgole o |',
     s4: 'Mostra',
     s5: 'II–V–I in Do',
@@ -129,7 +127,7 @@ const translations = {
     s42: 'Pallino diviso = nota comune a più accordi. Anello chiaro = fondamentale di almeno un accordo. Passa sui pallini per i dettagli.',
     s43: 'Accordi supportati e come usarlo',
     s44: 'Notazione internazionale: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La, B = Si. Diesis # e bemolle b, anche ♯ e ♭. Esempi: F7, Bbmaj7, F#m7.',
-    s45: 'Maggiori, minori (m / min), 5, 6, m6, 7, maj7, m7, mMaj7, dim, dim7, m7b5 / ø7, aug / +, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7#5, 7b9, 7#9. Gli accordi con basso indicato (C/E) non sono supportati in questa prova.',
+    s45: 'Maggiori, minori (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Gli accordi con basso indicato (C/E) non sono supportati in questa prova.',
     s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4: cassa su 1 e 3, rullante su 2 e 4, hi-hat a ottavi. Swing ritarda il secondo ottavo. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione e nessuna connessione necessaria. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
     s46: 'Fatto per esplorare la tastiera, una nota alla volta.',
     s47: 'Ripristina F7 / C7',
@@ -397,7 +395,7 @@ function scheduleBeat(beat, when, epoch) {
       cursor = index;
       if (beat % perChord === 0) {
         selected = new Set([cursor]);
-        render();
+        draw();
       }
       $('playStatus').textContent = tr('playing', {
         chord: chord.name,
@@ -451,7 +449,8 @@ function stop() {
 async function start() {
   stop();
   $('bpm').value = String(Math.min(300, Math.max(30, Number($('bpm').value) || 80)));
-  if (render() === false || !progression.length) return;
+  if (!parseProgression() || !progression.length) return;
+  // Playback follows one chord at a time, starting from the selected one.
   if (selected.size === 1) cursor = [...selected][0];
   selected = new Set([cursor]);
   render();
@@ -486,7 +485,7 @@ function transpose(delta) {
     if (!parsed.length) throw Error(tr('empty'));
     stop();
     // Keep the writer's accidental preference: a progression written in sharps stays in sharps.
-    const accidentals = parsed.map((c) => c.name[1]);
+    const accidentals = parsed.map((c) => c.accidental);
     const useSharps = accidentals.includes('#') && !accidentals.includes('b');
     const names = useSharps ? sharpNames : flatNames;
     $('chords').value = parsed.map((c) => names[mod(c.root + delta)] + c.quality).join(' | ');
@@ -695,33 +694,67 @@ const qualities = {
   ],
 };
 const mod = (n) => ((n % 12) + 12) % 12;
+// Other spellings of the supported qualities. Keys are matched after normalizeQuality().
+const aliases = {
+  maj: '',
+  ma7: 'maj7',
+  ma9: 'maj9',
+  M7: 'maj7',
+  M9: 'maj9',
+  Δ: 'maj7',
+  Δ7: 'maj7',
+  min: 'm',
+  min6: 'm6',
+  min7: 'm7',
+  min9: 'm9',
+  min11: 'm11',
+  min13: 'm13',
+  mi: 'm',
+  mi7: 'm7',
+  mi9: 'm9',
+  '-': 'm',
+  '-6': 'm6',
+  '-7': 'm7',
+  '-9': 'm9',
+  '-11': 'm11',
+  '-13': 'm13',
+  ø: 'm7b5',
+  ø7: 'm7b5',
+  Ø: 'm7b5',
+  Ø7: 'm7b5',
+  min7b5: 'm7b5',
+  '°': 'dim',
+  '°7': 'dim7',
+  o: 'dim',
+  o7: 'dim7',
+  '+': 'aug',
+  '7+': '7#5',
+  '+7': '7#5',
+  aug7: '7#5',
+  '7sus': '7sus4',
+  sus: 'sus4',
+  mmaj7: 'mMaj7',
+  'm(maj7)': 'mMaj7',
+  minmaj7: 'mMaj7',
+  madd9: 'm(add9)',
+  'm(add2)': 'm(add9)',
+  add2: 'add9',
+};
+function normalizeQuality(q) {
+  // Word-based qualities are case-insensitive (Maj7, MIN, Dim); single letters are not (M7 ≠ m7).
+  let out = /^(maj|min|dim|aug|sus|add)/i.test(q) ? q.toLowerCase() : q;
+  out = out.replace(/^(mi|-)maj7$/i, 'mMaj7');
+  // Parenthesised alterations: 7(b9), m7(b5), 7(#5).
+  out = out.replace(/\((b5|#5|b9|#9)\)$/, '$1');
+  return aliases[out] ?? out;
+}
 function parseChord(raw) {
-  const clean = raw.replaceAll('♭', 'b').replaceAll('♯', '#'),
+  const clean = raw.replaceAll('♭', 'b').replaceAll('♯', '#').replace(/[‒–—]/g, '-'),
     match = clean.match(/^([A-Ga-g])([#b]?)(.*)$/);
   if (!match) throw Error(tr('unknown', {raw}));
   const rootLetter = match[1].toUpperCase(),
-    acc = match[2];
-  let q = match[3];
-  const aliases = {
-    min: 'm',
-    min7: 'm7',
-    min9: 'm9',
-    min11: 'm11',
-    min13: 'm13',
-    M7: 'maj7',
-    M9: 'maj9',
-    Δ7: 'maj7',
-    Δ: 'maj7',
-    ø: 'm7b5',
-    ø7: 'm7b5',
-    '+': 'aug',
-    '°': 'dim',
-    '°7': 'dim7',
-    sus: 'sus4',
-    mmaj7: 'mMaj7',
-    madd9: 'm(add9)',
-  };
-  q = aliases[q] ?? q;
+    acc = match[2],
+    q = normalizeQuality(match[3]);
   if (!Object.hasOwn(qualities, q)) throw Error(tr('unsupported', {raw}));
   const root = mod(natural[rootLetter] + (acc === '#' ? 1 : acc === 'b' ? -1 : 0));
   const tones = qualities[q].map(([semi, degree]) => {
@@ -740,7 +773,7 @@ function parseChord(raw) {
       label: degree === 1 ? 'R' : (delta > 0 ? '#'.repeat(delta) : 'b'.repeat(-delta)) + degree,
     };
   });
-  return {name: rootLetter + acc + q, root, tones, quality: q};
+  return {name: rootLetter + acc + q, root, accidental: acc, tones, quality: q};
 }
 function svgNode(tag, attrs = {}, text) {
   const n = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -748,7 +781,8 @@ function svgNode(tag, attrs = {}, text) {
   if (text !== undefined) n.textContent = text;
   return n;
 }
-function render() {
+// Reads the textarea into `progression`. Returns false (and shows the error) when it does not parse.
+function parseProgression() {
   let parsed;
   try {
     const tokens = tokenize();
@@ -770,20 +804,26 @@ function render() {
     cursor = 0;
     selected = new Set(parsed.length <= 3 ? parsed.map((_, i) => i) : [0]);
   }
-  const unique = [...new Set(progression.map((c) => c.name))];
-  colors = unique.map((_, i) => colorAt(i));
-  const chords = [
-    ...new Set(
-      [...selected]
-        .sort((a, b) => a - b)
-        .map((i) => progression[i]?.name)
-        .filter(Boolean),
-    ),
-  ].map((name) => ({
-    ...progression.find((c) => c.name === name),
-    color: colors[unique.indexOf(name)],
-  }));
-  $('progression').replaceChildren(
+  return true;
+}
+// Parse, draw and remember the settings: what every user action calls.
+function render() {
+  if (!parseProgression()) return false;
+  draw();
+  savePreferences();
+  return true;
+}
+let drawnSignature = '';
+function drawProgression(unique) {
+  const list = $('progression');
+  if (drawnSignature === signature && list.children.length === progression.length) {
+    // Same sequence as last time (e.g. the backing moved on): only the selection changed.
+    for (let i = 0; i < progression.length; i++)
+      list.children[i].setAttribute('aria-pressed', selected.has(i));
+    return;
+  }
+  drawnSignature = signature;
+  list.replaceChildren(
     ...progression.map((c, i) => {
       const b = document.createElement('button');
       b.type = 'button';
@@ -807,6 +847,23 @@ function render() {
       return b;
     }),
   );
+}
+// Draws the progression, fretboard and legend from the current state. No parsing, no storage.
+function draw() {
+  const unique = [...new Set(progression.map((c) => c.name))];
+  colors = unique.map((_, i) => colorAt(i));
+  const chords = [
+    ...new Set(
+      [...selected]
+        .sort((a, b) => a - b)
+        .map((i) => progression[i]?.name)
+        .filter(Boolean),
+    ),
+  ].map((name) => ({
+    ...progression.find((c) => c.name === name),
+    color: colors[unique.indexOf(name)],
+  }));
+  drawProgression(unique);
   $('selectionStatus').textContent = tr('selection', {
     total: progression.length,
     selected: selected.size,
@@ -1018,8 +1075,6 @@ function render() {
       return card;
     }),
   );
-  savePreferences();
-  return true;
 }
 function savePreferences() {
   try {
@@ -1045,8 +1100,8 @@ function savePreferences() {
 $('language').addEventListener('change', () => {
   language = $('language').value === 'it' ? 'it' : 'en';
   applyLanguage();
-  render();
-  savePreferences();
+  // Saved separately: the choice must stick even while the progression does not parse.
+  if (!render()) savePreferences();
 });
 $('transposeDown').addEventListener('click', () => transpose(-1));
 $('transposeUp').addEventListener('click', () => transpose(1));
