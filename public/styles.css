@@ -87,6 +87,21 @@ summary:focus-visible {
   flex: 1;
 }
 
+.sister {
+  font-size: 13px;
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.sister:hover {
+  color: var(--text);
+}
+.sister:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+
 /* Progression entry */
 .compose > form > label {
   margin-bottom: 5px;
@@ -413,7 +428,8 @@ summary {
   main {
     padding: 12px 12px 32px;
   }
-  .top p {
+  .top p,
+  .top .sister {
     display: none;
   }
   .top h1 {
@@ -481,6 +497,7 @@ summary {
   .backing,
   .support,
   .footer,
+  .sister,
   #language,
   #selectionStatus {
     display: none;
