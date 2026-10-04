@@ -1,6 +1,7 @@
 {
   "name": "bass-chord-lab",
   "compatibility_date": "2026-10-01",
+  "routes": [{ "pattern": "chords.massimodanieli.com", "custom_domain": true }],
   "assets": {
     "directory": "./public",
     "not_found_handling": "404-page"
