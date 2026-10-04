@@ -36,7 +36,7 @@ For a local HTTP preview, run `python3 -m http.server 8000` from `public/` and o
 
 ### Deployment
 
-The site is deployed as static assets on Cloudflare Workers; `wrangler.jsonc` points at `public/`. Every push to `main` is built and deployed automatically once the repository is connected in the Cloudflare dashboard (Workers & Pages → Create → Import a repository; no build command, deploy command `npx wrangler deploy`). A manual deploy from a machine logged in with Wrangler is `npm run deploy`.
+The site is deployed as static assets on Cloudflare Workers; `wrangler.jsonc` points at `public/`. Every push to `main` is built and deployed automatically once the repository is connected in the Cloudflare dashboard (Workers & Pages → Create → Import a repository; build command `npm run build` (which only runs the tests), deploy command `npx wrangler deploy`). A manual deploy from a machine logged in with Wrangler is `npm run deploy`.
 
 ---
 
@@ -97,4 +97,4 @@ Apri http://localhost:8000. In alternativa `npm run dev` usa Wrangler.
 
 ### Pubblicazione
 
-Il sito è pubblicato come asset statici su Cloudflare Workers: `wrangler.jsonc` punta a `public/`. Una volta collegato il repository nella dashboard di Cloudflare (Workers & Pages → Create → Import a repository; nessun comando di build, comando di deploy `npx wrangler deploy`), ogni push su `main` viene pubblicato in automatico. Da una macchina autenticata con Wrangler si può anche usare `npm run deploy`.
+Il sito è pubblicato come asset statici su Cloudflare Workers: `wrangler.jsonc` punta a `public/`. Una volta collegato il repository nella dashboard di Cloudflare (Workers & Pages → Create → Import a repository; comando di build `npm run build` (esegue solo i test), comando di deploy `npx wrangler deploy`), ogni push su `main` viene pubblicato in automatico. Da una macchina autenticata con Wrangler si può anche usare `npm run deploy`.

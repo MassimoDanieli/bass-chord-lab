@@ -5,6 +5,7 @@
   "description": "Offline bass chord visualizer with synthesized piano and drums",
   "scripts": {
     "test": "node tests/audio.test.cjs",
+    "build": "npm test",
     "dev": "npx wrangler dev",
     "deploy": "npx wrangler deploy"
   },
