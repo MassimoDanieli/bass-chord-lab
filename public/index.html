@@ -18,34 +18,27 @@
   </head>
   <body>
     <main>
-      <header>
-        <div>
-          <div class="eyebrow">BASS CHORD LAB</div>
-          <h1 data-i18n="s0">Vedi gli accordi. Trova le note.</h1>
-          <p data-i18n="s1">Confronta gli accordi sulla tastiera del tuo basso.</p>
-        </div>
-        <span class="badge" data-i18n="s2">PROVA V3 · PIANO + DRUMS</span>
-        <div class="language-control">
-          <label for="language">Language / Lingua</label>
-          <select id="language" aria-label="Language / Lingua">
-            <option value="en">EN · English</option>
-            <option value="it">IT · Italiano</option>
-          </select>
-        </div>
+      <header class="top">
+        <h1>Bass Chord Lab</h1>
+        <p data-i18n="s0">Vedi gli accordi. Trova le note.</p>
+        <select id="language" aria-label="Language / Lingua">
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+        </select>
       </header>
-      <section class="panel" aria-label="Configurazione" data-i18n-aria="a0">
+
+      <section class="compose" aria-label="Configurazione" data-i18n-aria="a0">
         <form id="form">
+          <label for="chords" data-i18n="s3">
+            La tua progressione · separa gli accordi con spazi, virgole o |
+          </label>
           <div class="entry">
-            <div class="field">
-              <label for="chords" data-i18n="s3">
-                La tua progressione · separa gli accordi con spazi, virgole o |
-              </label>
-              <textarea id="chords" spellcheck="false" aria-describedby="error" rows="2">
+            <textarea id="chords" spellcheck="false" aria-describedby="error" rows="1">
 F7, C7</textarea>
-            </div>
-            <button class="primary" type="submit" data-i18n="s4">Mostra sulla tastiera ↗</button>
+            <button class="primary" type="submit" data-i18n="s4">Mostra</button>
           </div>
           <div class="examples">
+            <span data-i18n="s50">Esempi</span>
             <button type="button" data-chords="F7, C7">F7 / C7</button>
             <button type="button" data-chords="Dm7, G7, Cmaj7" data-i18n="s5">II–V–I in Do</button>
             <button type="button" data-chords="Am7, Dm7, E7">Am7 / Dm7 / E7</button>
@@ -62,54 +55,32 @@ F7, C7</textarea>
             </button>
           </div>
         </form>
-        <div class="settings">
-          <label>
-            <span data-i18n="s8">Basso / accordatura</span>
-            <select id="tuning">
-              <option value="4" data-i18n="s9">4 corde · E A D G</option>
-              <option value="5" data-i18n="s10">5 corde · B E A D G</option>
-              <option value="drop" data-i18n="s11">4 corde · Drop D</option>
-            </select>
-          </label>
-          <label>
-            <span data-i18n="s12">Tasti</span>
-            <select id="frets">
-              <option>12</option>
-              <option>15</option>
-              <option>24</option>
-            </select>
-          </label>
-          <label>
-            <span data-i18n="s13">Nei pallini</span>
-            <select id="labels">
-              <option value="notes" data-i18n="s14">Nome della nota</option>
-              <option value="degrees" data-i18n="s15">Grado nell’accordo</option>
-            </select>
-          </label>
-          <label>
-            <span data-i18n="s16">Note da mostrare</span>
-            <select id="toneFilter">
-              <option value="all" data-i18n="s17">Tutte le note dell’accordo</option>
-              <option value="triad" data-i18n="s18">Fondamentale, 3ª e 5ª</option>
-              <option value="root" data-i18n="s19">Solo fondamentali</option>
-              <option value="guide" data-i18n="s20">3ª e 7ª · guide tones</option>
-            </select>
-          </label>
-          <label class="check">
-            <input type="checkbox" id="commonOnly" />
-            <span data-i18n="s21">Solo note comuni</span>
-          </label>
-          <label class="check">
-            <input type="checkbox" id="others" />
-            <span data-i18n="s22">Tutte le altre note</span>
-          </label>
-        </div>
         <div id="error" role="alert"></div>
-        <div class="toolbar">
-          <button type="button" id="transposeDown" data-i18n="s23">−1 semitono</button>
-          <button type="button" id="transposeUp" data-i18n="s24">+1 semitono</button>
-          <button type="button" id="selectAll" data-i18n="s25">Confronta tutti</button>
-          <button type="button" id="selectNone" data-i18n="s26">Deseleziona</button>
+
+        <div class="sequence">
+          <div
+            class="progression"
+            id="progression"
+            aria-label="Accordi della progressione"
+            data-i18n-aria="a3"
+          ></div>
+          <div class="transport">
+            <button type="button" id="play" aria-pressed="false" data-i18n="s30">
+              ▶ Avvia base
+            </button>
+            <label for="bpm">
+              BPM
+              <input id="bpm" type="number" min="30" max="300" value="80" />
+            </label>
+            <div class="beat-meter" aria-hidden="true">
+              <span class="beat-light">1</span>
+              <span class="beat-light">2</span>
+              <span class="beat-light">3</span>
+              <span class="beat-light">4</span>
+            </div>
+          </div>
+        </div>
+        <div class="tools">
           <button
             type="button"
             id="previous"
@@ -128,25 +99,84 @@ F7, C7</textarea>
           >
             Successivo →
           </button>
+          <button type="button" id="selectAll" data-i18n="s25">Confronta tutti</button>
+          <button type="button" id="selectNone" data-i18n="s26">Deseleziona</button>
+          <span class="gap"></span>
+          <button type="button" id="transposeDown" data-i18n="s23">−1 semitono</button>
+          <button type="button" id="transposeUp" data-i18n="s24">+1 semitono</button>
+          <span id="playStatus" data-i18n="s32">Piano e batteria · pronti</span>
         </div>
-        <p style="font-size: 13px" data-i18n="s29">
+      </section>
+
+      <section class="panel board-panel">
+        <div class="board-head">
+          <h2 id="boardTitle" data-i18n="s39">Tastiera</h2>
+          <div class="view">
+            <label>
+              <span data-i18n="s8">Basso / accordatura</span>
+              <select id="tuning">
+                <option value="4" data-i18n="s9">4 corde · E A D G</option>
+                <option value="5" data-i18n="s10">5 corde · B E A D G</option>
+                <option value="drop" data-i18n="s11">4 corde · Drop D</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="s12">Tasti</span>
+              <select id="frets">
+                <option>12</option>
+                <option>15</option>
+                <option>24</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="s13">Nei pallini</span>
+              <select id="labels">
+                <option value="notes" data-i18n="s14">Nome della nota</option>
+                <option value="degrees" data-i18n="s15">Grado nell’accordo</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="s16">Note da mostrare</span>
+              <select id="toneFilter">
+                <option value="all" data-i18n="s17">Tutte le note dell’accordo</option>
+                <option value="triad" data-i18n="s18">Fondamentale, 3ª e 5ª</option>
+                <option value="root" data-i18n="s19">Solo fondamentali</option>
+                <option value="guide" data-i18n="s20">3ª e 7ª · guide tones</option>
+              </select>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="commonOnly" />
+              <span data-i18n="s21">Solo note comuni</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="others" />
+              <span data-i18n="s22">Tutte le altre note</span>
+            </label>
+          </div>
+        </div>
+        <div class="scroll" id="board"></div>
+        <div class="readout">
+          <div id="detail" role="status" data-i18n="s41">
+            Clicca un pallino per leggere i suoi gradi nei diversi accordi.
+          </div>
+          <div id="commonNotes"></div>
+        </div>
+        <div id="legend" class="legend"></div>
+        <p class="hint" data-i18n="s42">
+          Pallino diviso = nota comune a più accordi. Anello chiaro = fondamentale di almeno un
+          accordo. Passa sui pallini per i dettagli.
+        </p>
+        <p class="hint" data-i18n="s29">
           Clic su un accordo per studiarlo da solo. ⇧ Shift + clic per aggiungerlo o toglierlo dal
           confronto.
         </p>
-        <div
-          class="progression"
-          id="progression"
-          aria-label="Accordi della progressione"
-          data-i18n-aria="a3"
-        ></div>
         <div id="selectionStatus" role="status"></div>
-        <div class="toolbar">
-          <button type="button" id="play" aria-pressed="false" data-i18n="s30">▶ Avvia base</button>
-          <label for="bpm">
-            BPM
-            <input id="bpm" type="number" min="30" max="300" value="80" />
-          </label>
-          <label for="beats">
+      </section>
+
+      <details class="panel backing">
+        <summary data-i18n="s49">Impostazioni della base</summary>
+        <div class="audio-controls">
+          <label>
             <span data-i18n="s31">Beat per accordo</span>
             <select id="beats">
               <option value="2">2</option>
@@ -154,11 +184,6 @@ F7, C7</textarea>
               <option value="8">8</option>
             </select>
           </label>
-          <span id="playStatus" style="color: var(--muted); font-size: 13px" data-i18n="s32">
-            Piano e batteria · pronti
-          </span>
-        </div>
-        <div class="audio-controls">
           <label>
             <span data-i18n="s33">Ritmo · 4/4</span>
             <select id="groove">
@@ -182,36 +207,13 @@ F7, C7</textarea>
             <label for="drumsVolume" data-i18n="s37">Volume batteria</label>
             <input id="drumsVolume" type="range" min="0" max="100" value="45" />
           </div>
-          <div class="beat-meter" aria-hidden="true">
-            <span class="beat-light">1</span>
-            <span class="beat-light">2</span>
-            <span class="beat-light">3</span>
-            <span class="beat-light">4</span>
-          </div>
         </div>
         <p class="hint" data-i18n="s38">
           Premi Avvia base: il piano suona gli accordi, la batteria tiene il tempo. Puoi spegnere
           ogni strumento. Il registro basso è libero per te. Suoni sintetizzati, senza download.
         </p>
-      </section>
-      <section class="panel">
-        <div class="board-head">
-          <h2 id="boardTitle" data-i18n="s39">Tastiera</h2>
-          <p style="font-size: 13px" data-i18n="s40">
-            Corda più acuta in alto · tasto 0 = corda a vuoto
-          </p>
-        </div>
-        <div class="scroll" id="board"></div>
-        <div id="detail" role="status" data-i18n="s41">
-          Clicca un pallino per leggere i suoi gradi nei diversi accordi.
-        </div>
-        <div id="commonNotes"></div>
-        <div id="legend" class="legend"></div>
-        <p class="hint" data-i18n="s42">
-          Pallino diviso = nota comune a più accordi. Anello chiaro = fondamentale di almeno un
-          accordo. Passa sui pallini per i dettagli.
-        </p>
-      </section>
+      </details>
+
       <details class="support">
         <summary data-i18n="s43">Accordi supportati e come usarlo</summary>
         <p data-i18n="s44">
@@ -238,9 +240,7 @@ F7, C7</textarea>
       </details>
       <div class="footer">
         <span data-i18n="s46">Fatto per esplorare la tastiera, una nota alla volta.</span>
-        <button type="button" id="reset" style="padding: 4px 10px; font-size: 12px" data-i18n="s47">
-          Ripristina F7 / C7
-        </button>
+        <button type="button" id="reset" data-i18n="s47">Ripristina F7 / C7</button>
       </div>
     </main>
     <script src="app.js"></script>
