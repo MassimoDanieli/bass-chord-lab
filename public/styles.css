@@ -520,3 +520,222 @@ summary {
     min-width: 0;
   }
 }
+
+/* Song title, chart of bars, loop, songbook */
+.song {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin-bottom: 8px;
+}
+.song strong {
+  font-size: 18px;
+}
+.song span {
+  font-size: 13px;
+  color: var(--muted);
+}
+.secondary {
+  font-size: 15px;
+  padding: 0 16px;
+  white-space: nowrap;
+}
+.progression.chart {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 4px;
+  flex: 1 1 100%;
+  max-height: 212px;
+  overflow-y: auto;
+  position: relative;
+}
+.sequence:has(.chart) .transport {
+  order: -1;
+}
+.bar {
+  position: relative;
+  display: flex;
+  gap: 3px;
+  min-height: 46px;
+  padding: 3px 3px 3px 17px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.bar .num {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  font-size: 9px;
+  color: var(--muted);
+}
+.bar .step {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 4px 5px;
+  text-align: center;
+}
+.bar .step strong {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.step.rest {
+  color: var(--muted);
+  border-style: dashed;
+}
+.bar.looped {
+  background: #1f2f35;
+}
+.bar.now {
+  border-color: var(--mint);
+  box-shadow: inset 0 0 0 1px var(--mint);
+}
+.loop {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.loop[hidden] {
+  display: none;
+}
+.loop input {
+  width: 52px;
+  padding: 4px 6px;
+  font-size: 13px;
+}
+dialog {
+  width: min(720px, calc(100vw - 24px));
+  max-height: min(88vh, 860px);
+  padding: 18px 20px;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.62);
+}
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+#songSearch,
+#songPaste {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+#songPaste {
+  min-height: 0;
+  margin-top: 10px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.song-list {
+  max-height: 44vh;
+  overflow-y: auto;
+  margin: 10px 0;
+}
+.song-list h3 {
+  margin: 12px 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.song-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.song-row button:first-child {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  padding: 7px 10px;
+  text-align: left;
+}
+.song-row strong {
+  font-size: 14px;
+}
+.song-row small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.song-row .remove {
+  padding: 0 11px;
+  color: var(--muted);
+}
+.song-add-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.song-add-row .primary {
+  padding: 8px 18px;
+}
+.file {
+  position: relative;
+  padding: 6px 10px;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  background: var(--field);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+.file:hover {
+  border-color: var(--mint);
+}
+.file:focus-within {
+  outline: 2px solid var(--mint);
+  outline-offset: 2px;
+}
+.file input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+#songsStatus {
+  min-height: 20px;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--mint);
+}
+@media (max-width: 900px) {
+  .progression.chart {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media print {
+  .song {
+    margin-bottom: 0;
+  }
+  dialog,
+  .loop,
+  .secondary {
+    display: none;
+  }
+}
+textarea.long {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.entry {
+  align-items: flex-start;
+}
+.entry > button {
+  min-height: 46px;
+}

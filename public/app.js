@@ -5,7 +5,7 @@ const translations = {
   en: {
     s0: 'See the chords. Find the notes.',
     s1: 'Compare chords on your bass fretboard.',
-    s3: 'Your progression · separate chords with spaces, commas or |',
+    s3: 'Chords separated by spaces · with barlines | each stretch is one bar, shared by the chords in it',
     s4: 'Show',
     s5: 'II–V–I in C',
     s6: 'Blues in C · 12 bars',
@@ -39,6 +39,7 @@ const translations = {
     s34: 'Straight · pop / rock',
     s60: 'Shuffle · blues',
     s61: 'Ballad · slow',
+    s65: 'Jazz waltz · 3/4',
     s35: 'First instrument volume',
     s36: 'Drums',
     s37: 'Drum volume',
@@ -46,11 +47,11 @@ const translations = {
     s39: 'Fretboard',
     s40: 'Highest string at the top · fret 0 = open string',
     s41: 'Click a dot to see its degrees in each chord.',
-    s42: 'Split dot = a tone shared by several chords. Light ring = the root of at least one chord. Hover over dots for details.',
+    s42: 'Split dot = a tone shared by several chords. Light ring = the root of at least one chord. Dashed yellow ring = the bass note of a slash chord. Hover over dots for details.',
     s43: 'Supported chords and how to use it',
     s44: 'International notation: C, D, E, F, G, A, B. Sharps # and flats b, including ♯ and ♭. Examples: F7, Bbmaj7, F#m7.',
-    s45: 'Major, minor (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Slash chords (C/E) are not supported in this preview.',
-    s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4 with six grooves: Straight, Swing, Shuffle, Bossa nova, Funk and Ballad. It does not loop identically: drums and chords change from bar to bar, the drummer plays a short fill every four bars and a bigger one, followed by a crash, before the progression starts again. The chord instrument (grand piano, electric piano, acoustic or electric guitar) plays the notes that define each chord. A second instrument can play along, with its own figures and in a different register. The instrument samples (about 1.5 MB) are downloaded the first time you start the backing. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation required; without a connection the backing uses synthesized sounds. Your last settings are remembered in the browser when available.',
+    s45: 'Major, minor (m / min / −), 5, 6, 69, 7, maj7 (M7 / Δ7 / ^7), m7, mMaj7, dim (° / o), dim7, m7b5 (ø7 / h7), aug (+), sus2, sus4, add9, 9, 11, 13 and their maj and m forms, with alterations in any combination: b5, #5, b9, #9, #11, b13, alt. Slash chords (C/E, Dm7/G) show the bass note with a dashed ring.',
+    s48: 'Enter a progression of any length and press Show. Without barlines each chord lasts the selected number of beats. With barlines | you write a chart: each stretch is one bar, two chords in a bar share it, N.C. is a bar with no harmony, % repeats the bar before, and a time signature such as 3/4 at the start of a bar changes the bars from there on (3/4 plays as a jazz waltz, other meters as a plain pulse). Songs… opens your songbook: paste an iReal Pro link, lyrics with chords or ChordPro, or choose MusicXML and ChordPro files; repeats, endings, D.S. and codas are unrolled as played, and tempo and groove are taken from the song. Loop bars repeats a section. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4 with six grooves: Straight, Swing, Shuffle, Bossa nova, Funk and Ballad. It does not loop identically: drums and chords change from bar to bar, the drummer plays a short fill every four bars and a bigger one, followed by a crash, before the progression starts again. The chord instrument (grand piano, electric piano, acoustic or electric guitar) plays the notes that define each chord. A second instrument can play along, with its own figures and in a different register. The instrument samples (about 1.5 MB) are downloaded the first time you start the backing. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation required; without a connection the backing uses synthesized sounds. Your last settings are remembered in the browser when available.',
     s46: 'Explore the fretboard, one note at a time.',
     s47: 'Reset F7 / C7',
     s49: 'Backing track settings',
@@ -84,6 +85,35 @@ const translations = {
     synthFallback: 'synthesized sounds (samples unavailable)',
     paused: 'Playback stopped: press Start to resume.',
     playing: '{chord} · chord {index}/{total} · beat {beat}/{beats}',
+    playingBar: '{chord} · bar {bar}/{bars} · beat {beat}/{beats}',
+    tooMany: 'Too many chords in bar {bar}: {max} at most.',
+    songs: 'Songs…',
+    songsTitle: 'Songs',
+    songSearch: 'Search by title, author or style',
+    songMine: 'Your songbook',
+    songLibrary: 'Forms and loops',
+    songEmpty: 'No saved songs yet: add one below.',
+    songNoMatch: 'No saved song matches the search.',
+    songAddTitle: 'Add songs',
+    songPastePh: 'Paste an iReal Pro link, lyrics with the chords above them, or ChordPro',
+    songAdd: 'Add',
+    songFiles: 'Choose files…',
+    songBackup: 'Download backup',
+    songClose: 'Close',
+    songDelete: 'Delete {title}',
+    songDeleteConfirm: 'Delete “{title}” from your songbook?',
+    songAdded: '{n} songs added to your songbook.',
+    songNone: 'No chords found in that text.',
+    songLost: '{n} chords could not be kept and are shown as N.C. or left out.',
+    songBars: '{n} bars',
+    untitled: 'Untitled',
+    songAddHint:
+      'Files: MusicXML, ChordPro (.cho, .crd, .pro), text, iReal Pro playlists exported as HTML, songbook backups. Songs stay in this browser; nothing is uploaded.',
+    loopLabel: 'Loop bars',
+    loopFrom: 'From bar',
+    loopTo: 'To bar',
+    loopClear: 'Whole song',
+    noPrevious: 'The % sign in bar {bar} has no bar before it to repeat.',
     selection:
       '{total} chords in sequence · {selected} selected · {distinct} distinct chords on the fretboard',
     common: 'Common tones (at least two chords): ',
@@ -100,7 +130,7 @@ const translations = {
   it: {
     s0: 'Vedi gli accordi. Trova le note.',
     s1: 'Confronta gli accordi sulla tastiera del tuo basso.',
-    s3: 'La tua progressione · separa gli accordi con spazi, virgole o |',
+    s3: 'Accordi separati da spazi · con le stanghette | ogni tratto è una battuta, divisa tra gli accordi che contiene',
     s4: 'Mostra',
     s5: 'II–V–I in Do',
     s6: 'Blues in Do · 12 battute',
@@ -134,6 +164,7 @@ const translations = {
     s34: 'Dritto · pop / rock',
     s60: 'Shuffle · blues',
     s61: 'Ballad · lenta',
+    s65: 'Valzer jazz · 3/4',
     s35: 'Volume primo strumento',
     s36: 'Batteria',
     s37: 'Volume batteria',
@@ -141,11 +172,11 @@ const translations = {
     s39: 'Tastiera',
     s40: 'Corda più acuta in alto · tasto 0 = corda a vuoto',
     s41: 'Clicca un pallino per leggere i suoi gradi nei diversi accordi.',
-    s42: 'Pallino diviso = nota comune a più accordi. Anello chiaro = fondamentale di almeno un accordo. Passa sui pallini per i dettagli.',
+    s42: 'Pallino diviso = nota comune a più accordi. Anello chiaro = fondamentale di almeno un accordo. Anello giallo tratteggiato = nota di basso di uno slash chord. Passa sui pallini per i dettagli.',
     s43: 'Accordi supportati e come usarlo',
     s44: 'Notazione internazionale: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La, B = Si. Diesis # e bemolle b, anche ♯ e ♭. Esempi: F7, Bbmaj7, F#m7.',
-    s45: 'Maggiori, minori (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Gli accordi con basso indicato (C/E) non sono supportati in questa prova.',
-    s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4 con sei ritmi: Dritto, Swing, Shuffle, Bossa nova, Funk e Ballad. Non si ripete identica: batteria e accordi cambiano da una battuta all’altra, il batterista fa un breve fill ogni quattro battute e uno più grande, seguito da un piatto, prima che il giro ricominci. Lo strumento per gli accordi (pianoforte, piano elettrico, chitarra acustica o elettrica) suona le note che definiscono ogni accordo. Un secondo strumento può suonare insieme al primo, con figure sue e in un registro diverso. I campioni degli strumenti (circa 1,5 MB) si scaricano la prima volta che avvii la base. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione; senza connessione la base usa suoni sintetizzati. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
+    s45: 'Maggiori, minori (m / min / −), 5, 6, 69, 7, maj7 (M7 / Δ7 / ^7), m7, mMaj7, dim (° / o), dim7, m7b5 (ø7 / h7), aug (+), sus2, sus4, add9, 9, 11, 13 e le loro forme maj e m, con alterazioni in qualsiasi combinazione: b5, #5, b9, #9, #11, b13, alt. Gli accordi con basso indicato (C/E, Dm7/G) mostrano la nota di basso con un anello tratteggiato.',
+    s48: 'Inserisci una progressione di qualsiasi lunghezza e premi “Mostra”. Senza stanghette ogni accordo dura il numero di beat impostato. Con le stanghette | scrivi una griglia: ogni tratto è una battuta, due accordi nella stessa battuta la dividono, N.C. è una battuta senza armonia, % ripete la battuta precedente, e un metro come 3/4 all’inizio di una battuta cambia le battute da lì in poi (il 3/4 suona come valzer jazz, gli altri metri con una pulsazione semplice). “Brani…” apre il canzoniere: incolla un link iReal Pro, un testo con gli accordi o ChordPro, oppure scegli file MusicXML e ChordPro; ritornelli, finali, D.S. e code vengono srotolati come si suonano, e tempo e ritmo sono presi dal brano. “Loop battute” ripete una sezione. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4 con sei ritmi: Dritto, Swing, Shuffle, Bossa nova, Funk e Ballad. Non si ripete identica: batteria e accordi cambiano da una battuta all’altra, il batterista fa un breve fill ogni quattro battute e uno più grande, seguito da un piatto, prima che il giro ricominci. Lo strumento per gli accordi (pianoforte, piano elettrico, chitarra acustica o elettrica) suona le note che definiscono ogni accordo. Un secondo strumento può suonare insieme al primo, con figure sue e in un registro diverso. I campioni degli strumenti (circa 1,5 MB) si scaricano la prima volta che avvii la base. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione; senza connessione la base usa suoni sintetizzati. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
     s46: 'Fatto per esplorare la tastiera, una nota alla volta.',
     s47: 'Ripristina F7 / C7',
     s49: 'Impostazioni della base',
@@ -179,6 +210,35 @@ const translations = {
     synthFallback: 'suoni sintetizzati (campioni non disponibili)',
     paused: 'Riproduzione fermata: premi Avvia per riprendere.',
     playing: '{chord} · accordo {index}/{total} · beat {beat}/{beats}',
+    playingBar: '{chord} · battuta {bar}/{bars} · beat {beat}/{beats}',
+    tooMany: 'Troppi accordi nella battuta {bar}: al massimo {max}.',
+    songs: 'Brani…',
+    songsTitle: 'Brani',
+    songSearch: 'Cerca per titolo, autore o stile',
+    songMine: 'Il tuo canzoniere',
+    songLibrary: 'Giri e forme',
+    songEmpty: 'Nessun brano salvato: aggiungine uno qui sotto.',
+    songNoMatch: 'Nessun brano salvato corrisponde alla ricerca.',
+    songAddTitle: 'Aggiungi brani',
+    songPastePh: 'Incolla un link iReal Pro, un testo con gli accordi sopra le parole, o ChordPro',
+    songAdd: 'Aggiungi',
+    songFiles: 'Scegli file…',
+    songBackup: 'Scarica backup',
+    songClose: 'Chiudi',
+    songDelete: 'Elimina {title}',
+    songDeleteConfirm: 'Eliminare “{title}” dal canzoniere?',
+    songAdded: '{n} brani aggiunti al canzoniere.',
+    songNone: 'Non ho trovato accordi in quel testo.',
+    songLost: '{n} accordi non si sono potuti conservare: sono mostrati come N.C. oppure omessi.',
+    songBars: '{n} battute',
+    untitled: 'Senza titolo',
+    songAddHint:
+      'File: MusicXML, ChordPro (.cho, .crd, .pro), testo, playlist iReal Pro esportate in HTML, backup del canzoniere. I brani restano in questo browser; niente viene caricato in rete.',
+    loopLabel: 'Loop battute',
+    loopFrom: 'Dalla battuta',
+    loopTo: 'Alla battuta',
+    loopClear: 'Tutto il brano',
+    noPrevious: 'Il segno % nella battuta {bar} non ha una battuta prima da ripetere.',
     selection:
       '{total} accordi nella sequenza · {selected} selezionati · {distinct} accordi distinti sulla tastiera',
     common: 'Note comuni (almeno due accordi): ',
@@ -199,13 +259,15 @@ function tr(key, vars = {}) {
     (_, name) => String(vars[name] ?? ''),
   );
 }
-function playingStatus(chord, index, beat, perChord) {
-  const text = tr('playing', {
-    chord: chord.name,
-    index: index + 1,
+function playingStatus(at) {
+  const text = tr(chart ? 'playingBar' : 'playing', {
+    chord: at.slot.name,
+    index: at.slotIndex + 1,
     total: progression.length,
-    beat: (beat % perChord) + 1,
-    beats: perChord,
+    bar: at.barIndex + 1,
+    bars: chart?.length,
+    beat: at.slotBeat + 1,
+    beats: at.slot.beats,
   });
   return synthFallback ? `${text} · ${tr('synthFallback')}` : text;
 }
@@ -218,12 +280,12 @@ function applyLanguage() {
   document
     .querySelectorAll('[data-i18n-aria]')
     .forEach((el) => el.setAttribute('aria-label', tr(el.dataset.i18nAria)));
+  document
+    .querySelectorAll('[data-i18n-placeholder]')
+    .forEach((el) => el.setAttribute('placeholder', tr(el.dataset.i18nPlaceholder)));
   $('play').textContent = tr(timer === null ? 'play' : 'stop');
   if (timer === null) $('playStatus').textContent = tr('ready');
-  else if (visibleBeat >= 0) {
-    const per = beatsPerChord();
-    $('playStatus').textContent = playingStatus(progression[cursor], cursor, visibleBeat, per);
-  }
+  else if (visibleBeat >= 0) $('playStatus').textContent = playingStatus(locate(visibleBeat));
 }
 
 const palette = [
@@ -245,12 +307,6 @@ let progression = [],
 function colorAt(i) {
   return palette[i] ?? `hsl(${(i * 137.508) % 360} 65% 73%)`;
 }
-function tokenize() {
-  return $('chords')
-    .value.trim()
-    .split(/[\s,;|]+/)
-    .filter(Boolean);
-}
 function step(delta) {
   if (!progression.length) return;
   cursor = modIndex(cursor + delta, progression.length);
@@ -259,6 +315,131 @@ function step(delta) {
 }
 function modIndex(n, total) {
   return ((n % total) + total) % total;
+}
+// ---------------------------------------------------------------- the chart
+// What the text box holds, read into chords with a place in time.
+//   Without barlines every chord lasts "beats per chord": F7, C7
+//   With barlines each stretch between them is one bar, shared by the chords inside it:
+//     Dm7 | G7 | Cmaj7 A7 |      N.C. is a bar without harmony, % repeats the bar before,
+//     3/4 Dm7 | G7 | ...          and a time signature changes the bars from there on.
+const REST = /^n\.?c\.?$/i;
+function restChord() {
+  return {name: 'N.C.', rest: true, tones: [], root: 0, quality: '', accidental: ''};
+}
+// How the beats of a bar are shared out: evenly in pairs, the first chord taking what is left.
+function shareBeats(beats, count) {
+  if (count === 1) return [beats];
+  if (count === 2) return [Math.ceil(beats / 2), Math.floor(beats / 2)];
+  return [beats - count + 1, ...new Array(count - 1).fill(1)];
+}
+function readChart(text, perChord) {
+  const slots = [],
+    words = (part) =>
+      part
+        .trim()
+        .split(/[\s,;]+/)
+        .filter(Boolean),
+    chordOf = (token) => (REST.test(token) ? restChord() : parseChord(token));
+  if (!text.includes('|')) {
+    for (const token of words(text))
+      slots.push({...chordOf(token), start: slots.length * perChord, beats: perChord, bar: null});
+    if (!slots.length) throw Error(tr('empty'));
+    return {slots, bars: null, total: slots.length * perChord};
+  }
+  const bars = [];
+  let meter = 4,
+    total = 0;
+  for (const part of text.split('|')) {
+    let tokens = words(part);
+    const time = tokens[0]?.match(/^(\d{1,2})\/(\d{1,2})$/);
+    if (time) {
+      meter = Math.min(12, Math.max(1, Number(time[1])));
+      tokens = tokens.slice(1);
+    }
+    if (!tokens.length) continue;
+    const number = bars.length + 1;
+    let chords;
+    if (tokens.length === 1 && tokens[0] === '%') {
+      if (!bars.length) throw Error(tr('noPrevious', {bar: number}));
+      chords = bars.at(-1).slots.map((i) => ({...slots[i]}));
+    } else chords = tokens.map(chordOf);
+    if (chords.length > meter) throw Error(tr('tooMany', {bar: number, max: meter}));
+    const shares = shareBeats(meter, chords.length),
+      bar = {start: total, beats: meter, slots: []};
+    chords.forEach((chord, i) => {
+      bar.slots.push(slots.length);
+      slots.push({...chord, start: total, beats: shares[i], bar: bars.length});
+      total += shares[i];
+    });
+    bars.push(bar);
+  }
+  if (!slots.length) throw Error(tr('empty'));
+  return {slots, bars, total};
+}
+let chart = null, // the bars, when the text is written with barlines
+  totalBeats = 0,
+  slotAt = [], // for every beat of the piece, the chord sounding
+  barAt = [], // and, with barlines, the bar it falls in
+  loop = null, // {from, to}: bars to repeat, counted from 0
+  transportOffset = 0;
+function setChart(read) {
+  progression = read.slots;
+  chart = read.bars;
+  totalBeats = read.total;
+  slotAt = [];
+  barAt = [];
+  progression.forEach((slot, i) => {
+    for (let beat = 0; beat < slot.beats; beat++) {
+      slotAt.push(i);
+      barAt.push(slot.bar);
+    }
+  });
+  loop = null;
+}
+// The stretch that plays round: the looped bars, or everything.
+function playRange() {
+  if (!chart || !loop) return {start: 0, length: totalBeats, firstBar: 0, bars: chart?.length};
+  const first = chart[loop.from],
+    last = chart[loop.to];
+  return {
+    start: first.start,
+    length: last.start + last.beats - first.start,
+    firstBar: loop.from,
+    bars: loop.to - loop.from + 1,
+  };
+}
+// Bars of the groove when there are no barlines: they simply count from where playback began.
+function freeBarBeats() {
+  return currentGroove().beats ?? 4;
+}
+// Where a played beat falls: which chord, which bar, and how many bars have gone by. Beats
+// count from the start of playback, which begins `transportOffset` beats into the range.
+function locate(beat) {
+  const range = playRange(),
+    travelled = transportOffset + beat,
+    pos = range.start + modIndex(travelled, range.length),
+    slotIndex = slotAt[pos],
+    slot = progression[slotIndex],
+    here = {pos, slotIndex, slot, slotBeat: pos - slot.start};
+  if (!chart) {
+    const beats = freeBarBeats();
+    return {
+      ...here,
+      barIndex: null,
+      barBeat: modIndex(beat, beats),
+      barBeats: beats,
+      playedBar: Math.floor(beat / beats),
+    };
+  }
+  const barIndex = barAt[pos],
+    bar = chart[barIndex];
+  return {
+    ...here,
+    barIndex,
+    barBeat: pos - bar.start,
+    barBeats: bar.beats,
+    playedBar: Math.floor(travelled / range.length) * range.bars + barIndex - range.firstBar,
+  };
 }
 // Synthesized accompaniment: no downloaded samples, works offline.
 let audio = null,
@@ -273,7 +454,6 @@ let audioVoices = new Set(),
   playEpoch = 0,
   nextBeatAt = 0,
   transportBeat = 0,
-  transportStart = 0,
   visibleBeat = -1;
 // White noise for snare and kick click; a cluster of detuned square waves for cymbals,
 // whose inharmonic overtones are what makes a hi-hat sound metallic rather than like hiss.
@@ -585,7 +765,10 @@ function keysNote(midi, when, duration, level, strength, bus) {
 // the root below, then the notes that define the chord (3rd, 7th, alterations, top extension),
 // each kept inside one fixed octave so common tones stay put from chord to chord.
 function voicing(chord, low = 58, rootLow = BASS_CEILING) {
-  const tones = qualities[chord.quality].map(([semi, degree]) => ({semi, degree}));
+  const tones = (chord.intervals ?? qualities[chord.quality]).map(([semi, degree]) => ({
+    semi,
+    degree,
+  }));
   let upper = tones;
   if (tones.length > 3) {
     upper = tones.filter((t) => t.degree !== 1);
@@ -815,6 +998,20 @@ const grooves = {
     strumLength: 0.45,
     keysLength: 0.5,
   },
+  // Three beats to the bar, on a triplet grid.
+  waltz: {
+    grid: 3,
+    beats: 3,
+    energy: 0.7,
+    gentle: true,
+    drums: [
+      {ride: 'x..x.ox..', pedal: '...x..x..', kick: 'o........'},
+      {ride: 'x..x..x.o', pedal: '...x..x..', kick: 'o........', snare: '........g'},
+      {ride: 'x.ox..x..', pedal: '...x..x..', kick: 'o.....o..'},
+    ],
+    keys: ['X.....x..', 'X..x.....', 'X....x...', 'X.......a'],
+    strum: ['D..d..d..', 'D..d.ud..', 'D.....d..', 'D..d..d.a'],
+  },
   ballad: {
     grid: 4,
     energy: 0.6,
@@ -873,13 +1070,15 @@ function pick(list, avoid) {
   return index >= avoid ? index + 1 : index;
 }
 // Where the drummer marks the form. A long progression (five bars or more) gets its big fill
-// on the last bar, before it comes round again; a shorter one gets it every eight bars, or it
-// would never stop. Every other fourth bar ends with a small fill.
+// on the last bar, before it comes round again, and at the end of each eight-bar section when
+// it is long enough to have them; a shorter one gets it every eight bars, or it would never
+// stop. Every other fourth bar ends with a small fill.
 function fillKind(bar) {
-  const loopBars = (progression.length * beatsPerChord()) / 4,
+  const loopBars = chart ? playRange().bars : totalBeats / freeBarBeats(),
     period = Number.isInteger(loopBars) && loopBars >= 5 ? loopBars : 8,
-    inPeriod = bar % period;
+    inPeriod = modIndex(bar, period);
   if (inPeriod === period - 1) return 'big';
+  if (period >= 16 && inPeriod % 8 === 7) return 'big';
   return inPeriod % 4 === 3 ? 'small' : null;
 }
 const hits = (pattern) => [...pattern].map((letter) => HIT[letter] ?? 0);
@@ -888,22 +1087,44 @@ let plans = new Map(),
   plansFor = '',
   anticipated = new Set();
 const lastFill = {small: -1, big: -1};
+// A plain pulse for bars the grooves are not written for (5/4, 2/4, 6/8...): the downbeat on
+// the kick, every beat on the hi-hat, one chord per bar.
+const plainGrooves = {};
+function plainGroove(beats) {
+  const steps = beats * 4;
+  return (plainGrooves[beats] ??= {
+    grid: 4,
+    beats,
+    gentle: true,
+    plain: true,
+    drums: [{kick: 'X'.padEnd(steps, '.'), hat: 'x...'.padEnd(steps, 'o...')}],
+    keys: ['X'.padEnd(steps, '.')],
+    strum: ['D'.padEnd(steps, '.')],
+  });
+}
+// The groove a bar is played with: the chosen one when it is written for that many beats,
+// otherwise the waltz for three and the plain pulse for anything else.
+function grooveFor(beats) {
+  const chosen = currentGroove();
+  if ((chosen.beats ?? 4) === beats) return chosen;
+  if (beats === 4) return grooves.straight;
+  return beats === 3 ? grooves.waltz : plainGroove(beats);
+}
 // Everything that is decided once per bar: which version of each part is played, the fill,
 // the crash after a big fill, the register of the chords and how hard the bar is played.
-function barPlan(bar) {
-  const name = $('groove').value,
-    groove = currentGroove(),
-    guitar = Boolean(instruments[currentInstrument()].guitar),
-    key = `${name}|${guitar}|${beatsPerChord()}|${signature}`;
+// `at` says which bar (counted as played) and how many beats it has.
+function barPlan({playedBar: bar, barBeats}) {
+  const groove = grooveFor(barBeats),
+    key = `${$('groove').value}|${signature}|${loop?.from}-${loop?.to}`;
   if (plansFor !== key) {
     plans.clear();
     plansFor = key;
   }
   if (plans.has(bar)) return plans.get(bar);
-  const barSteps = groove.grid * 4,
+  const barSteps = groove.grid * barBeats,
     span = groove.span ?? 1,
-    held = bar % span !== 0 && plans.get(bar - 1),
     previous = plans.get(bar - 1),
+    held = bar % span !== 0 && previous?.groove === groove && previous,
     // Each four-bar phrase opens on the main beat; the versions come in between.
     choice = held
       ? held.choice
@@ -919,13 +1140,13 @@ function barPlan(bar) {
           strum2: pick(groove.strum, previous?.choice.strum2),
           register: bar === 0 ? 0 : pick(registers.keys, -1),
         },
-    from = (bar % span) * barSteps,
+    from = modIndex(bar, span) * barSteps,
     cut = (pattern) => pattern.slice(from, from + barSteps),
     drums = {};
-  for (const [part, pattern] of Object.entries(groove.drums[choice.drums]))
+  for (const [part, pattern] of Object.entries(groove.drums[choice.drums % groove.drums.length]))
     drums[part] = hits(cut(pattern));
   const energy = groove.energy ?? 1,
-    kind = fillKind(bar),
+    kind = groove.plain ? null : fillKind(bar),
     fill = kind && (groove.gentle ? 'small' : kind);
   if (fill) {
     const options = fills[groove.grid][fill],
@@ -946,23 +1167,24 @@ function barPlan(bar) {
     drums.crash[0] = 0.9 * energy;
     (drums.kick ??= new Array(barSteps).fill(0))[0] ||= 0.8;
   }
-  const comp = (pattern) => {
-    const letters = cut(pattern);
+  const comp = (list, index) => {
+    const letters = cut(list[index % list.length]);
     return {hits: hits(letters), push: [...letters].map((letter) => letter === 'a')};
   };
   // Two instruments playing the same figure would just be one louder instrument.
   if (choice.keys2 === choice.keys) choice.keys2 = (choice.keys + 1) % groove.keys.length;
   if (choice.strum2 === choice.strum) choice.strum2 = (choice.strum + 1) % groove.strum.length;
   const plan = {
+    groove,
     choice,
     fill,
     drums,
     comp: [
-      {keys: comp(groove.keys[choice.keys]), strum: comp(groove.strum[choice.strum])},
-      {keys: comp(groove.keys[choice.keys2]), strum: comp(groove.strum[choice.strum2])},
+      {keys: comp(groove.keys, choice.keys), strum: comp(groove.strum, choice.strum)},
+      {keys: comp(groove.keys, choice.keys2), strum: comp(groove.strum, choice.strum2)},
     ],
     // A phrase leans forward: each bar a little stronger than the one before.
-    scale: [0.94, 0.97, 1, 1.04][bar % 4],
+    scale: [0.94, 0.97, 1, 1.04][modIndex(bar, 4)],
   };
   plans.set(bar, plan);
   plans.delete(bar - 6);
@@ -985,56 +1207,62 @@ function beatSeconds() {
   return 60 / Math.min(300, Math.max(30, Number($('bpm').value) || 80));
 }
 function beatsPerChord() {
-  return [2, 4, 8].includes(Number($('beats').value)) ? Number($('beats').value) : 4;
+  return [2, 3, 4, 6, 8].includes(Number($('beats').value)) ? Number($('beats').value) : 4;
 }
 function scheduleBeat(beat, when, epoch) {
-  const perChord = beatsPerChord(),
-    index = modIndex(transportStart + Math.floor(beat / perChord), progression.length),
-    chord = progression[index],
-    barBeat = beat % 4,
+  const at = locate(beat),
+    chord = at.slot,
     seconds = beatSeconds(),
-    groove = currentGroove(),
+    plan = barPlan(at),
+    groove = plan.groove,
     grid = groove.grid,
-    plan = barPlan(Math.floor(beat / 4)),
     // Small random variation in how hard each hit lands.
     human = () => 0.92 + Math.random() * 0.16,
     stepSeconds = seconds / grid;
   if ($('drumsEnabled').checked)
     for (let sub = 0; sub < grid; sub++)
       for (const name of Object.keys(drumKit)) {
-        const v = plan.drums[name]?.[barBeat * grid + sub];
+        const v = plan.drums[name]?.[at.barBeat * grid + sub];
         if (v) playDrum(name, when + sub * stepSeconds, Math.min(1, v * plan.scale * human()));
       }
-  if ($('pianoEnabled').checked)
+  if ($('pianoEnabled').checked && !chord.rest)
     currentInstruments().forEach((voice, slot) => {
       const guitar = instruments[voice.name].guitar,
         part = (p) => p.comp[slot][guitar ? 'strum' : 'keys'],
         comp = part(plan),
         length = (guitar ? groove.strumLength : groove.keysLength) ?? 1,
-        ring = (steps) => Math.min(3.2, steps * stepSeconds * 0.94 * length),
+        // Lengths are in beats here: bars of different grooves can sit side by side.
+        ring = (beats) => Math.min(3.2, beats * seconds * 0.94 * length),
         register = registerFor(plan, slot, guitar),
         // The chord ends where the next one starts, or earlier if the next one is played ahead.
-        lastBeat = beat - (beat % perChord) + perChord - 1,
-        lastComp = part(barPlan(Math.floor(lastBeat / 4))),
-        canPush = progression.length > 1;
-      let chordEnd = (lastBeat + 1) * grid;
-      for (let sub = 0; sub < grid && canPush; sub++)
-        if (lastComp.push[(lastBeat % 4) * grid + sub]) chordEnd = lastBeat * grid + sub;
+        lastBeat = beat - at.slotBeat + chord.beats - 1,
+        last = locate(lastBeat),
+        lastPlan = barPlan(last),
+        next = locate(lastBeat + 1),
+        canPush = next.slotIndex !== at.slotIndex && !next.slot.rest;
+      let chordEnd = lastBeat + 1;
+      for (let sub = 0; sub < lastPlan.groove.grid && canPush; sub++)
+        if (part(lastPlan).push[last.barBeat * lastPlan.groove.grid + sub]) {
+          chordEnd = lastBeat + sub / lastPlan.groove.grid;
+          break;
+        }
       for (let sub = 0; sub < grid; sub++) {
-        const step = barBeat * grid + sub,
+        const step = at.barBeat * grid + sub,
           time = when + sub * stepSeconds,
-          steps = beat * grid + sub;
+          now = beat + sub / grid;
         // Held over from an anticipation: this beat's chord is already sounding.
         if (sub === 0 && anticipated.delete(`${slot}:${beat}`)) continue;
         if (comp.push[step] && canPush && beat === lastBeat) {
-          const nextComp = part(barPlan(Math.floor((beat + 1) / 4))),
-            afterLine = patternGap(nextComp.hits, ((beat + 1) % 4) * grid);
+          const nextPlan = barPlan(next),
+            afterLine =
+              patternGap(part(nextPlan).hits, next.barBeat * nextPlan.groove.grid) /
+              nextPlan.groove.grid;
           anticipated.add(`${slot}:${beat + 1}`);
           compChord(
             voice,
-            progression[modIndex(index + 1, progression.length)],
+            next.slot,
             time,
-            ring(Math.min(grid - sub + afterLine, grid - sub + perChord * grid)),
+            ring(1 - sub / grid + Math.min(afterLine, next.slot.beats)),
             HIT.a * plan.scale * human(),
             true,
             false,
@@ -1043,15 +1271,15 @@ function scheduleBeat(beat, when, epoch) {
           continue;
         }
         // A new chord is always stated on its first beat, whatever the pattern says.
-        const chordStart = sub === 0 && beat % perChord === 0,
+        const chordStart = sub === 0 && at.slotBeat === 0,
           velocity = Math.abs(comp.hits[step]) || (chordStart ? 0.9 : 0);
-        if (!velocity || steps >= chordEnd) continue;
+        if (!velocity || now >= chordEnd) continue;
         // Let the chord ring until the next hit, but never into the next chord.
         compChord(
           voice,
           chord,
           time,
-          ring(Math.min(patternGap(comp.hits, step), chordEnd - steps)),
+          ring(Math.min(patternGap(comp.hits, step) / grid, chordEnd - now)),
           Math.min(1, velocity * plan.scale * human()),
           chordStart,
           comp.hits[step] < 0,
@@ -1064,19 +1292,32 @@ function scheduleBeat(beat, when, epoch) {
       visualTimers.delete(callback);
       if (epoch !== playEpoch || timer === null) return;
       visibleBeat = beat;
-      cursor = index;
-      if (beat % perChord === 0) {
+      cursor = at.slotIndex;
+      if (at.slotBeat === 0) {
         selected = new Set([cursor]);
         draw();
       }
-      $('playStatus').textContent = playingStatus(chord, index, beat, perChord);
-      document
-        .querySelectorAll('.beat-light')
-        .forEach((light, i) => light.classList.toggle('on', i === barBeat));
+      markBar(at.barIndex);
+      $('playStatus').textContent = playingStatus(at);
+      beatLights(at.barBeats).forEach((light, i) => light.classList.toggle('on', i === at.barBeat));
     },
     Math.max(0, (when - audio.currentTime) * 1000),
   );
   visualTimers.add(callback);
+}
+// One light per beat of the bar being played.
+let lights = [];
+function beatLights(count) {
+  if (lights.length !== count) {
+    lights = Array.from({length: count}, (_, i) => {
+      const light = document.createElement('span');
+      light.className = 'beat-light';
+      light.textContent = i + 1;
+      return light;
+    });
+    $('beatMeter').replaceChildren(...lights);
+  }
+  return lights;
 }
 function schedule() {
   if (timer === null) return;
@@ -1112,7 +1353,7 @@ function stop() {
   $('play').classList.remove('play-active');
   $('play').setAttribute('aria-pressed', 'false');
   $('playStatus').textContent = tr('ready');
-  document.querySelectorAll('.beat-light').forEach((light) => light.classList.remove('on'));
+  lights.forEach((light) => light.classList.remove('on'));
 }
 async function start() {
   stop();
@@ -1139,7 +1380,12 @@ async function start() {
     master.gain.cancelScheduledValues(audio.currentTime);
     master.gain.setValueAtTime(0, audio.currentTime);
     master.gain.linearRampToValueAtTime(0.8, audio.currentTime + 0.03);
-    transportStart = cursor;
+    // Without barlines playback starts on the chosen chord; with them, on its bar, or at the
+    // top of the loop when the chord lies outside it.
+    const range = playRange(),
+      from = chart ? chart[progression[cursor].bar].start : progression[cursor].start;
+    transportOffset =
+      from >= range.start && from < range.start + range.length ? from - range.start : 0;
     transportBeat = 0;
     visibleBeat = -1;
     nextBeatAt = audio.currentTime + 0.065;
@@ -1154,18 +1400,36 @@ async function start() {
   }
 }
 
+// Moves every chord by `delta` semitones and leaves the rest of the text as it was written:
+// barlines, line breaks, N.C., % and time signatures.
 function transpose(delta) {
   try {
-    const parsed = tokenize().map(parseChord);
+    const pieces = $('chords').value.split(/(\s+|[,;|])/),
+      isChord = (piece) => /^[A-Ga-g]/.test(piece) && !REST.test(piece),
+      parsed = pieces.filter(isChord).map(parseChord);
     if (!parsed.length) throw Error(tr('empty'));
     stop();
     // Keep the writer's accidental preference: a progression written in sharps stays in sharps.
-    const accidentals = parsed.map((c) => c.accidental);
-    const useSharps = accidentals.includes('#') && !accidentals.includes('b');
-    const names = useSharps ? sharpNames : flatNames;
-    $('chords').value = parsed.map((c) => names[mod(c.root + delta)] + c.quality).join(' | ');
+    const accidentals = parsed.map((c) => c.accidental),
+      useSharps = accidentals.includes('#') && !accidentals.includes('b'),
+      names = useSharps ? sharpNames : flatNames;
+    let i = 0;
+    $('chords').value = pieces
+      .map((piece) => {
+        if (!isChord(piece)) return piece;
+        const chord = parsed[i++];
+        return (
+          names[mod(chord.root + delta)] +
+          chord.quality +
+          (chord.bassName ? '/' + names[mod(chord.bass + delta)] : '')
+        );
+      })
+      .join('');
+    const kept = loop;
     signature = '';
     render();
+    loop = kept;
+    draw();
   } catch (e) {
     $('error').textContent = e.message;
   }
@@ -1174,8 +1438,8 @@ function accepts(t) {
   const filter = $('toneFilter').value;
   return (
     filter === 'all' ||
-    (filter === 'root' && t.degree === 1) ||
-    (filter === 'triad' && [1, 3, 5].includes(t.degree)) ||
+    (filter === 'root' && (t.degree === 1 || t.bass)) ||
+    (filter === 'triad' && ([1, 3, 5].includes(t.degree) || t.bass)) ||
     (filter === 'guide' && [3, 7].includes(t.degree))
   );
 }
@@ -1416,23 +1680,129 @@ const aliases = {
   add2: 'add9',
 };
 function normalizeQuality(q) {
+  // iReal Pro's shorthand: ^ is the major-seventh triangle, - is minor, h is half-diminished.
+  if (q === '^') return 'maj7';
+  let out = q.replace(/\^/g, 'maj').replace(/^h9/, 'm9b5').replace(/^h7?/, 'm7b5');
   // Word-based qualities are case-insensitive (Maj7, MIN, Dim); single letters are not (M7 ≠ m7).
-  let out = /^(maj|min|dim|aug|sus|add)/i.test(q) ? q.toLowerCase() : q;
+  if (/^(maj|min|dim|aug|sus|add)/i.test(out)) out = out.toLowerCase();
   out = out.replace(/^(mi|-)maj7$/i, 'mMaj7');
   // Parenthesised alterations: 7(b9), m7(b5), 7(#5).
   out = out.replace(/\((b5|#5|b9|#9)\)$/, '$1');
-  return aliases[out] ?? out;
+  if (Object.hasOwn(aliases, out)) return aliases[out];
+  return out.replace(/^-/, 'm').replace(/^mmaj/, 'mMaj');
+}
+// Works out the tones of a quality the table does not list, by reading it piece by piece:
+// C7b13, Cmaj7#11, C13sus, Cm69, C7#9#5, Calt... Returns null when a piece makes no sense.
+function buildQuality(quality) {
+  let rest = quality.replace(/[()]/g, '').replace(/Maj/g, 'maj').replace(/6\/9/, '69');
+  const take = (pattern) => {
+    const found = rest.match(pattern);
+    if (found) rest = rest.slice(found[0].length);
+    return found;
+  };
+  let third = [4, 3],
+    fifth = [7, 5],
+    seventh = null,
+    major = false;
+  const added = new Map(); // degree -> semitones; 9 can hold two (b9 and #9)
+  const add = (degree, semi) => added.set(`${degree}:${semi}`, [semi, degree]);
+  if (take(/^(min|mi|m)(?!aj)/)) third = [3, 3];
+  if (take(/^dim|^o(?![a-z])/)) {
+    third = [3, 3];
+    fifth = [6, 5];
+    if (take(/^7/)) seventh = [9, 7];
+  }
+  if (take(/^aug|^\+/)) fifth = [8, 5];
+  if (take(/^(maj|ma|M)/)) major = true;
+  const number = take(/^(69|13|11|9|7|6|5|2|4)/);
+  const flat7 = () => (seventh ??= major ? [11, 7] : [10, 7]);
+  switch (number?.[0]) {
+    case '69':
+      add(6, 9);
+      add(9, 14);
+      break;
+    case '13':
+      flat7();
+      add(9, 14);
+      add(13, 21);
+      break;
+    case '11':
+      flat7();
+      add(9, 14);
+      add(11, 17);
+      break;
+    case '9':
+      flat7();
+      add(9, 14);
+      break;
+    case '7':
+      flat7();
+      break;
+    case '6':
+      add(6, 9);
+      break;
+    case '5':
+      third = null;
+      break;
+    case '2':
+      add(9, 14);
+      break;
+    case '4':
+      third = [5, 4];
+      break;
+  }
+  while (rest) {
+    let found;
+    if (take(/^sus2/)) third = [2, 2];
+    else if (take(/^sus4?/)) third = [5, 4];
+    else if ((found = take(/^add(\d+)/))) {
+      const semi = {2: 14, 3: 4, 4: 17, 6: 9, 9: 14, 11: 17, 13: 21}[found[1]];
+      if (semi === undefined) return null;
+      if (found[1] === '3') third = [4, 3];
+      else add({2: 9, 4: 11}[found[1]] ?? Number(found[1]), semi);
+    } else if (take(/^alt/)) {
+      // The altered dominant: no natural fifth or ninth.
+      flat7();
+      fifth = null;
+      add(9, 13);
+      add(9, 15);
+      add(13, 20);
+    } else if ((found = take(/^([b#])(\d+)/))) {
+      const shift = found[1] === '#' ? 1 : -1;
+      if (found[2] === '5') fifth = [7 + shift, 5];
+      else if (found[2] === '9') {
+        added.delete('9:14');
+        add(9, 14 + shift);
+      } else if (found[2] === '11' && shift > 0) {
+        added.delete('11:17');
+        add(11, 18);
+      } else if (found[2] === '13' && shift < 0) {
+        added.delete('13:21');
+        add(13, 20);
+      } else if (found[2] === '6' && shift < 0) add(6, 8);
+      else return null;
+    } else if (take(/^(maj|ma|M)7/)) seventh = [11, 7];
+    else if (take(/^7/)) flat7();
+    else return null;
+  }
+  const order = (a, b) => a[1] - b[1] || a[0] - b[0];
+  return [[0, 1], third, fifth, seventh, ...added.values()].filter(Boolean).sort(order);
 }
 function parseChord(raw) {
   const clean = raw.replaceAll('♭', 'b').replaceAll('♯', '#').replace(/[‒–—]/g, '-'),
-    match = clean.match(/^([A-Ga-g])([#b]?)(.*)$/);
+    // A slash chord names its bass after the stroke; the 6/9 quality has a digit there.
+    slash = clean.match(/^(.+)\/([A-Ga-g])([#b]?)$/),
+    match = (slash ? slash[1] : clean).match(/^([A-Ga-g])([#b]?)(.*)$/);
   if (!match) throw Error(tr('unknown', {raw}));
   const rootLetter = match[1].toUpperCase(),
     acc = match[2],
-    q = normalizeQuality(match[3]);
-  if (!Object.hasOwn(qualities, q)) throw Error(tr('unsupported', {raw}));
-  const root = mod(natural[rootLetter] + (acc === '#' ? 1 : acc === 'b' ? -1 : 0));
-  const tones = qualities[q].map(([semi, degree]) => {
+    q = normalizeQuality(match[3]),
+    intervals = Object.hasOwn(qualities, q) ? qualities[q] : buildQuality(q);
+  if (!intervals) throw Error(tr('unsupported', {raw}));
+  const pitch = (letter, accidental) =>
+      mod(natural[letter] + (accidental === '#' ? 1 : accidental === 'b' ? -1 : 0)),
+    root = pitch(rootLetter, acc);
+  const tones = intervals.map(([semi, degree]) => {
     const pc = mod(root + semi),
       letter = letters[(letters.indexOf(rootLetter) + degree - 1) % 7];
     let diff = mod(pc - natural[letter]);
@@ -1448,7 +1818,18 @@ function parseChord(raw) {
       label: degree === 1 ? 'R' : (delta > 0 ? '#'.repeat(delta) : 'b'.repeat(-delta)) + degree,
     };
   });
-  return {name: rootLetter + acc + q, root, accidental: acc, tones, quality: q};
+  const chord = {name: rootLetter + acc + q, root, accidental: acc, tones, quality: q, intervals};
+  if (slash) {
+    // The note under a slash chord is the bass player's note: it is marked on the fretboard,
+    // and added when it is not a chord tone (C/D).
+    const bassName = slash[2].toUpperCase() + slash[3],
+      bass = pitch(slash[2].toUpperCase(), slash[3]),
+      tone = tones.find((t) => t.pc === bass);
+    if (tone) tone.bass = true;
+    else tones.push({pc: bass, name: bassName, degree: 0, label: '/', bass: true});
+    Object.assign(chord, {name: `${chord.name}/${bassName}`, bass, bassName});
+  }
+  return chord;
 }
 function svgNode(tag, attrs = {}, text) {
   const n = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -1458,11 +1839,9 @@ function svgNode(tag, attrs = {}, text) {
 }
 // Reads the textarea into `progression`. Returns false (and shows the error) when it does not parse.
 function parseProgression() {
-  let parsed;
+  let read;
   try {
-    const tokens = tokenize();
-    if (!tokens.length) throw Error(tr('empty'));
-    parsed = tokens.map(parseChord);
+    read = readChart($('chords').value, beatsPerChord());
   } catch (e) {
     stop();
     $('error').textContent = e.message;
@@ -1471,13 +1850,21 @@ function parseProgression() {
   }
   $('error').textContent = '';
   $('chords').removeAttribute('aria-invalid');
-  const key = parsed.map((c) => c.name).join('|');
+  const key = read.bars
+    ? read.bars.map((bar) => bar.beats + ':' + bar.slots.map((i) => read.slots[i].name)).join('|')
+    : beatsPerChord() + '/' + read.slots.map((c) => c.name).join('|');
   if (key !== signature) {
+    // Changing only the beats per chord keeps the place and the selection.
+    const names = read.slots.map((c) => c.name).join('|'),
+      sameChords = !read.bars && !chart && names === progression.map((c) => c.name).join('|');
     stop();
     signature = key;
-    progression = parsed;
-    cursor = 0;
-    selected = new Set(parsed.length <= 3 ? parsed.map((_, i) => i) : [0]);
+    setChart(read);
+    $('loopFrom').value = $('loopTo').value = '';
+    if (!sameChords) {
+      cursor = 0;
+      selected = new Set(progression.length <= 3 ? progression.map((_, i) => i) : [0]);
+    }
   }
   return true;
 }
@@ -1488,57 +1875,89 @@ function render() {
   savePreferences();
   return true;
 }
-let drawnSignature = '';
+let drawnSignature = '',
+  stepButtons = [],
+  barBoxes = [];
+// Lights up the bar being played and keeps it in view inside the chart, without moving the page.
+function markBar(index) {
+  barBoxes.forEach((box, i) => box.classList.toggle('now', i === index));
+  const box = barBoxes[index],
+    list = $('progression');
+  if (!box || typeof box.offsetTop !== 'number') return;
+  const top = box.offsetTop - list.offsetTop;
+  if (top < list.scrollTop || top + box.offsetHeight > list.scrollTop + list.clientHeight)
+    list.scrollTop = Math.max(0, top - box.offsetHeight);
+}
 function drawProgression(unique) {
   const list = $('progression');
-  if (drawnSignature === signature && list.children.length === progression.length) {
+  if (drawnSignature === signature && stepButtons.length === progression.length) {
     // Same sequence as last time (e.g. the backing moved on): only the selection changed.
-    for (let i = 0; i < progression.length; i++)
-      list.children[i].setAttribute('aria-pressed', selected.has(i));
+    stepButtons.forEach((button, i) => button.setAttribute('aria-pressed', selected.has(i)));
     return;
   }
   drawnSignature = signature;
-  list.replaceChildren(
-    ...progression.map((c, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'step';
-      b.style.setProperty('--chord', colors[unique.indexOf(c.name)]);
-      b.setAttribute('aria-pressed', selected.has(i));
+  stepButtons = progression.map((c, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = c.rest ? 'step rest' : 'step';
+    b.style.setProperty('--chord', c.rest ? 'transparent' : colors[unique.indexOf(c.name)]);
+    b.setAttribute('aria-pressed', selected.has(i));
+    const title = document.createElement('strong');
+    title.textContent = c.name;
+    if (chart) b.append(title);
+    else {
       const small = document.createElement('small');
       small.textContent = `${i + 1} / ${progression.length}`;
-      const title = document.createElement('strong');
-      title.textContent = c.name;
       b.append(small, title);
-      b.addEventListener('click', (e) => {
-        stop();
-        cursor = i;
-        if (e.shiftKey) {
-          if (selected.has(i)) selected.delete(i);
-          else selected.add(i);
-        } else selected = new Set([i]);
-        render();
-      });
-      return b;
-    }),
-  );
+    }
+    b.addEventListener('click', (e) => {
+      stop();
+      cursor = i;
+      if (e.shiftKey) {
+        if (selected.has(i)) selected.delete(i);
+        else selected.add(i);
+      } else selected = new Set([i]);
+      render();
+    });
+    return b;
+  });
+  // With barlines the chords are laid out as a chart, bar by bar; without, as a row of steps.
+  barBoxes = (chart ?? []).map((bar, n) => {
+    const box = document.createElement('div'),
+      number = document.createElement('small');
+    box.className = 'bar';
+    number.className = 'num';
+    number.textContent = n + 1;
+    box.append(number, ...bar.slots.map((i) => stepButtons[i]));
+    return box;
+  });
+  list.className = chart ? 'progression chart' : 'progression';
+  list.replaceChildren(...(chart ? barBoxes : stepButtons));
 }
 // Draws the progression, fretboard and legend from the current state. No parsing, no storage.
 function draw() {
-  const unique = [...new Set(progression.map((c) => c.name))];
+  const unique = [...new Set(progression.filter((c) => !c.rest).map((c) => c.name))];
   colors = unique.map((_, i) => colorAt(i));
   const chords = [
     ...new Set(
       [...selected]
         .sort((a, b) => a - b)
-        .map((i) => progression[i]?.name)
-        .filter(Boolean),
+        .filter((i) => progression[i] && !progression[i].rest)
+        .map((i) => progression[i].name),
     ),
   ].map((name) => ({
     ...progression.find((c) => c.name === name),
     color: colors[unique.indexOf(name)],
   }));
   drawProgression(unique);
+  // A whole song in the box: show a few lines of it, in smaller type.
+  const lines = $('chords').value.trim().split('\n').length;
+  $('chords').rows = Math.min(4, lines);
+  $('chords').classList.toggle('long', lines > 1);
+  drawLoop();
+  drawSong();
+  if (timer === null) beatLights(chart ? chart[0].beats : freeBarBeats());
+  $('beats').disabled = Boolean(chart);
   $('selectionStatus').textContent = tr('selection', {
     total: progression.length,
     selected: selected.size,
@@ -1689,6 +2108,19 @@ function draw() {
             'stroke-width': 2,
           }),
         );
+      // The bass note of a slash chord: a dashed ring, outside the root ring when both apply.
+      if (matches.some((m) => m.tone.bass))
+        g.append(
+          svgNode('circle', {
+            cx: x,
+            cy: y,
+            r: radius + 7,
+            fill: 'none',
+            stroke: '#ffd166',
+            'stroke-width': 2.5,
+            'stroke-dasharray': '5 4',
+          }),
+        );
       const allLabels = [
         ...new Set(
           matches.map((m) => ($('labels').value === 'degrees' ? m.tone.label : m.tone.name)),
@@ -1751,9 +2183,222 @@ function draw() {
     }),
   );
 }
+// ---------------------------------------------------------------- songs
+// Songs come from the songbook kept in this browser, from the built-in forms, or from
+// whatever is pasted or dropped in (see songs.js). Loading one writes it into the text box
+// as a chart, so it can still be edited by hand.
+let song = null, // where the text came from: {id, title, composer, builtin}
+  songbook = [];
+const isChordSymbol = (token) => {
+  try {
+    parseChord(token);
+    return true;
+  } catch {
+    return false;
+  }
+};
+// A song as text for the box: four bars to a line, chords in this app's spelling. Symbols it
+// cannot read become N.C., and a bar keeps at most one chord per beat; both are counted.
+function chartText(source) {
+  let lost = 0,
+    meter = '',
+    beats = 4;
+  const bars = source.bars.map((bar) => {
+    let prefix = '';
+    if (bar.meter && bar.meter !== meter) {
+      if (meter || bar.meter !== '4/4') prefix = bar.meter + ' ';
+      meter = bar.meter;
+      beats = Math.min(12, Math.max(1, Number(meter.split('/')[0]) || 4));
+    }
+    const names = (bar.chords.length ? bar.chords : ['N.C.']).map((symbol) => {
+      if (REST.test(symbol)) return 'N.C.';
+      try {
+        return parseChord(symbol).name;
+      } catch {
+        lost++;
+        return 'N.C.';
+      }
+    });
+    lost += Math.max(0, names.length - beats);
+    return prefix + names.slice(0, beats).join(' ');
+  });
+  const lines = [];
+  for (let i = 0; i < bars.length; i += 4) lines.push(bars.slice(i, i + 4).join(' | ') + ' |');
+  return {text: lines.join('\n'), lost};
+}
+// The groove that suits a style as iReal and chord sites name them, or null to leave it alone.
+function grooveForStyle(style, beats) {
+  if (beats === 3) return 'waltz';
+  const name = (style || '').toLowerCase(),
+    table = [
+      [/waltz/, 'waltz'],
+      [/bossa|samba|latin|afro|cha|rumba|mambo|salsa|calypso/, 'bossa'],
+      [/ballad|slow/, 'ballad'],
+      [/funk|soul|r&b|rnb|disco|fusion|hip/, 'funk'],
+      [/swing|bop|jazz|stride|gypsy|dixie|modal|turnaround|ii-v|stud/, 'swing'],
+      [/shuffle|blues|12\/8|new orleans/, 'shuffle'],
+      [
+        /rock|pop|even|straight|country|folk|reggae|gospel|trad|classic|flamenco|tecnica/,
+        'straight',
+      ],
+    ];
+  return table.find(([pattern]) => pattern.test(name))?.[1] ?? null;
+}
+// Puts a song in the text box with its tempo and a groove to match. Returns how many chords
+// could not be kept.
+function loadSong(source) {
+  const {text, lost} = chartText(source),
+    firstMeter = source.bars.find((bar) => bar.meter)?.meter,
+    beats = firstMeter ? Number(firstMeter.split('/')[0]) : 4,
+    groove = source.settings?.groove ?? grooveForStyle(source.style, beats),
+    bpm = source.settings?.bpm ?? source.bpm;
+  stop();
+  $('chords').value = text;
+  song = {
+    id: source.id ?? Songs.idOf(source),
+    title: source.title || tr('untitled'),
+    composer: source.composer || '',
+    builtin: Boolean(source.builtin),
+  };
+  if (groove && Object.hasOwn(grooves, groove)) $('groove').value = groove;
+  if (bpm) $('bpm').value = String(Math.min(300, Math.max(30, Math.round(bpm))));
+  signature = '';
+  render();
+  return lost;
+}
+function drawSong() {
+  $('song').hidden = !song;
+  if (!song) return;
+  $('songTitle').textContent = song.title;
+  $('songInfo').textContent = [song.composer, chart ? tr('songBars', {n: chart.length}) : '']
+    .filter(Boolean)
+    .join(' · ');
+}
+// Reads pasted text or a file, saves what it finds and returns the saved songs.
+async function addSongs(text, name = '') {
+  const saved = [];
+  for (const found of Songs.read(text, isChordSymbol, name).songs) {
+    const record = await Songs.save({...found, title: found.title || tr('untitled')});
+    if (record) saved.push(record);
+  }
+  return saved;
+}
+function closeSongs() {
+  $('songsDialog').close?.();
+}
+// One song is opened straight away; several are just added to the list.
+async function importSongs(sources) {
+  const saved = [];
+  for (const [text, name] of sources) saved.push(...(await addSongs(text, name)));
+  songbook = await Songs.all();
+  if (!saved.length) $('songsStatus').textContent = tr('songNone');
+  else if (saved.length === 1) {
+    const lost = loadSong(saved[0]);
+    $('songsStatus').textContent = '';
+    $('error').textContent = lost ? tr('songLost', {n: lost}) : '';
+    closeSongs();
+  } else $('songsStatus').textContent = tr('songAdded', {n: saved.length});
+  drawSongs();
+  return saved;
+}
+function drawSongs() {
+  const query = $('songSearch').value,
+    row = (record, removable) => {
+      const item = document.createElement('div'),
+        open = document.createElement('button'),
+        title = document.createElement('strong'),
+        meta = document.createElement('small');
+      item.className = 'song-row';
+      open.type = 'button';
+      title.textContent = record.title;
+      meta.textContent = [record.composer, record.style, tr('songBars', {n: record.bars.length})]
+        .filter(Boolean)
+        .join(' · ');
+      open.append(title, meta);
+      open.addEventListener('click', () => {
+        const lost = loadSong(record);
+        $('error').textContent = lost ? tr('songLost', {n: lost}) : '';
+        closeSongs();
+      });
+      item.append(open);
+      if (removable) {
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'remove';
+        remove.textContent = '×';
+        remove.setAttribute('aria-label', tr('songDelete', {title: record.title}));
+        remove.addEventListener('click', async () => {
+          if (!window.confirm(tr('songDeleteConfirm', {title: record.title}))) return;
+          await Songs.remove(record.id);
+          songbook = await Songs.all();
+          drawSongs();
+        });
+        item.append(remove);
+      }
+      return item;
+    },
+    heading = (key) => {
+      const h = document.createElement('h3');
+      h.textContent = tr(key);
+      return h;
+    },
+    mine = Songs.search(songbook, query),
+    forms = Songs.search(Songs.library(language), query),
+    parts = [heading('songMine')];
+  if (mine.length) parts.push(...mine.map((record) => row(record, true)));
+  else {
+    const empty = document.createElement('p');
+    empty.className = 'hint';
+    empty.textContent = tr(songbook.length ? 'songNoMatch' : 'songEmpty');
+    parts.push(empty);
+  }
+  if (forms.length)
+    parts.push(heading('songLibrary'), ...forms.map((record) => row(record, false)));
+  $('songList').replaceChildren(...parts);
+}
+// Tempo and groove chosen for a saved song are kept with it.
+async function rememberSongSettings() {
+  if (!song || song.builtin) return;
+  const record = (await Songs.all()).find((saved) => saved.id === song.id);
+  if (record)
+    await Songs.save({
+      ...record,
+      settings: {bpm: Number($('bpm').value), groove: $('groove').value},
+    });
+}
+// The bars to repeat, from the two number boxes (counted from 1). Anything incomplete or out
+// of range means the whole piece.
+function readLoop() {
+  const from = Number($('loopFrom').value),
+    to = Number($('loopTo').value),
+    valid =
+      chart &&
+      Number.isInteger(from) &&
+      Number.isInteger(to) &&
+      from >= 1 &&
+      to >= from &&
+      to <= chart.length &&
+      !(from === 1 && to === chart.length);
+  loop = valid ? {from: from - 1, to: to - 1} : null;
+  if (timer !== null) start();
+  else draw();
+}
+function drawLoop() {
+  $('loopBox').hidden = !chart;
+  barBoxes.forEach((box, i) =>
+    box.classList.toggle('looped', Boolean(loop) && i >= loop.from && i <= loop.to),
+  );
+  if (!chart) return;
+  $('loopFrom').max = $('loopTo').max = String(chart.length);
+  // The boxes show the loop in force; a half-typed one is left alone until it is complete.
+  if (loop) {
+    $('loopFrom').value = String(loop.from + 1);
+    $('loopTo').value = String(loop.to + 1);
+  }
+}
 function savePreferences() {
   try {
-    const prefs = {language};
+    const prefs = {language, song};
     for (const id of [
       'chords',
       'tuning',
@@ -1816,7 +2461,10 @@ for (const id of [
 for (const id of ['bpm', 'beats', 'groove', 'instrument', 'instrument2'])
   $(id).addEventListener('change', () => {
     if (timer !== null) start();
+    // The beats per chord are part of how the text is read.
+    else if (id === 'beats') render();
     savePreferences();
+    if (id === 'bpm' || id === 'groove') rememberSongSettings();
   });
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) stop();
@@ -1836,11 +2484,13 @@ for (const id of ['tuning', 'frets', 'labels', 'others', 'toneFilter', 'commonOn
   $(id).addEventListener('change', render);
 document.querySelectorAll('[data-chords]').forEach((b) =>
   b.addEventListener('click', () => {
+    song = null;
     $('chords').value = b.dataset.chords;
     render();
   }),
 );
 $('reset').addEventListener('click', () => {
+  song = null;
   $('chords').value = 'F7, C7';
   $('tuning').value = '4';
   $('frets').value = '12';
@@ -1851,6 +2501,36 @@ $('reset').addEventListener('click', () => {
   stop();
   signature = '';
   render();
+});
+$('openSongs').addEventListener('click', async () => {
+  $('songsStatus').textContent = '';
+  songbook = await Songs.all();
+  drawSongs();
+  $('songsDialog').showModal?.();
+});
+$('songsClose').addEventListener('click', closeSongs);
+$('songSearch').addEventListener('input', drawSongs);
+$('songAdd').addEventListener('click', async () => {
+  const saved = await importSongs([[$('songPaste').value, '']]);
+  if (saved.length) $('songPaste').value = '';
+});
+$('songFiles').addEventListener('change', async () => {
+  const sources = [];
+  for (const file of $('songFiles').files) sources.push([await file.text(), file.name]);
+  $('songFiles').value = '';
+  await importSongs(sources);
+});
+$('songBackup').addEventListener('click', async () => {
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(new Blob([await Songs.backup()], {type: 'application/json'}));
+  link.download = 'bass-chord-lab-songs.json';
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+});
+for (const id of ['loopFrom', 'loopTo']) $(id).addEventListener('change', readLoop);
+$('loopClear').addEventListener('click', () => {
+  $('loopFrom').value = $('loopTo').value = '';
+  readLoop();
 });
 try {
   const prefs = JSON.parse(localStorage.getItem('bassChordLab.v1'));
@@ -1876,6 +2556,7 @@ try {
     $('commonOnly').checked = !!prefs.commonOnly;
     for (const id of ['pianoEnabled', 'drumsEnabled'])
       if (typeof prefs[id] === 'boolean') $(id).checked = prefs[id];
+    if (prefs.song && typeof prefs.song.title === 'string') song = prefs.song;
   }
 } catch {}
 applyLanguage();

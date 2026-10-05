@@ -34,6 +34,10 @@
       </header>
 
       <section class="compose" aria-label="Configurazione" data-i18n-aria="a0">
+        <div class="song" id="song" hidden>
+          <strong id="songTitle"></strong>
+          <span id="songInfo"></span>
+        </div>
         <form id="form">
           <label for="chords" data-i18n="s3">
             La tua progressione · separa gli accordi con spazi, virgole o |
@@ -49,6 +53,7 @@
             >
 F7, C7</textarea>
             <button class="primary" type="submit" data-i18n="s4">Mostra</button>
+            <button class="secondary" type="button" id="openSongs" data-i18n="songs">Brani…</button>
           </div>
           <div class="examples">
             <span data-i18n="s50">Esempi</span>
@@ -85,12 +90,7 @@ F7, C7</textarea>
               BPM
               <input id="bpm" type="number" min="30" max="300" value="80" />
             </label>
-            <div class="beat-meter" aria-hidden="true">
-              <span class="beat-light">1</span>
-              <span class="beat-light">2</span>
-              <span class="beat-light">3</span>
-              <span class="beat-light">4</span>
-            </div>
+            <div class="beat-meter" id="beatMeter" aria-hidden="true"></div>
           </div>
         </div>
         <div class="tools">
@@ -117,6 +117,27 @@ F7, C7</textarea>
           <span class="gap"></span>
           <button type="button" id="transposeDown" data-i18n="s23">−1 semitono</button>
           <button type="button" id="transposeUp" data-i18n="s24">+1 semitono</button>
+          <span class="loop" id="loopBox" hidden>
+            <label for="loopFrom" data-i18n="loopLabel">Loop battute</label>
+            <input
+              id="loopFrom"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              aria-label="Dalla battuta"
+              data-i18n-aria="loopFrom"
+            />
+            <span aria-hidden="true">–</span>
+            <input
+              id="loopTo"
+              type="number"
+              min="1"
+              inputmode="numeric"
+              aria-label="Alla battuta"
+              data-i18n-aria="loopTo"
+            />
+            <button type="button" id="loopClear" data-i18n="loopClear">Tutto il brano</button>
+          </span>
           <span id="playStatus" data-i18n="s32">Base · pronta</span>
         </div>
       </section>
@@ -194,7 +215,9 @@ F7, C7</textarea>
             <span data-i18n="s31">Beat per accordo</span>
             <select id="beats">
               <option value="2">2</option>
+              <option value="3">3</option>
               <option value="4" selected>4</option>
+              <option value="6">6</option>
               <option value="8">8</option>
             </select>
           </label>
@@ -207,6 +230,7 @@ F7, C7</textarea>
               <option value="bossa">Bossa nova</option>
               <option value="funk">Funk</option>
               <option value="ballad" data-i18n="s61">Ballad · lenta</option>
+              <option value="waltz" data-i18n="s65">Valzer jazz · 3/4</option>
             </select>
           </label>
           <label>
@@ -291,6 +315,49 @@ F7, C7</textarea>
         <button type="button" id="reset" data-i18n="s47">Ripristina F7 / C7</button>
       </div>
     </main>
+    <dialog id="songsDialog" aria-labelledby="songsHeading">
+      <div class="dialog-head">
+        <h2 id="songsHeading" data-i18n="songsTitle">Brani</h2>
+        <button type="button" id="songsClose" data-i18n="songClose">Chiudi</button>
+      </div>
+      <input
+        id="songSearch"
+        type="search"
+        placeholder="Cerca per titolo, autore o stile"
+        aria-label="Cerca per titolo, autore o stile"
+        data-i18n-placeholder="songSearch"
+        data-i18n-aria="songSearch"
+      />
+      <div id="songList" class="song-list"></div>
+      <details class="song-add" open>
+        <summary data-i18n="songAddTitle">Aggiungi brani</summary>
+        <textarea
+          id="songPaste"
+          rows="3"
+          spellcheck="false"
+          placeholder="Incolla un link iReal Pro, un testo con gli accordi sopra le parole, o ChordPro"
+          aria-label="Incolla un link iReal Pro, un testo con gli accordi sopra le parole, o ChordPro"
+          data-i18n-placeholder="songPastePh"
+          data-i18n-aria="songPastePh"
+        ></textarea>
+        <div class="song-add-row">
+          <button class="primary" type="button" id="songAdd" data-i18n="songAdd">Aggiungi</button>
+          <label class="file">
+            <span data-i18n="songFiles">Scegli file…</span>
+            <input
+              id="songFiles"
+              type="file"
+              multiple
+              accept=".musicxml,.xml,.cho,.crd,.pro,.chopro,.txt,.html,.htm,.json"
+            />
+          </label>
+          <button type="button" id="songBackup" data-i18n="songBackup">Scarica backup</button>
+        </div>
+        <p class="hint" data-i18n="songAddHint">I brani restano in questo browser.</p>
+      </details>
+      <p id="songsStatus" role="status"></p>
+    </dialog>
+    <script src="songs.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
