@@ -37,6 +37,8 @@ const translations = {
     s32: 'Backing · ready',
     s33: 'Groove · 4/4',
     s34: 'Straight · pop / rock',
+    s60: 'Shuffle · blues',
+    s61: 'Ballad · slow',
     s35: 'Chords volume',
     s36: 'Drums',
     s37: 'Drum volume',
@@ -48,7 +50,7 @@ const translations = {
     s43: 'Supported chords and how to use it',
     s44: 'International notation: C, D, E, F, G, A, B. Sharps # and flats b, including ♯ and ♭. Examples: F7, Bbmaj7, F#m7.',
     s45: 'Major, minor (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Slash chords (C/E) are not supported in this preview.',
-    s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4 with three grooves: Straight (kick, snare on 2 and 4, eighth-note hi-hat), Swing (ride cymbal, hi-hat on 2 and 4, delayed second eighth note) and Bossa nova (two-bar clave on the rim). The chord instrument (grand piano, electric piano, acoustic or electric guitar) plays the notes that define each chord. The instrument samples (about 1.5 MB) are downloaded the first time you start the backing. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation required; without a connection the backing uses synthesized sounds. Your last settings are remembered in the browser when available.',
+    s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4 with six grooves: Straight, Swing, Shuffle, Bossa nova, Funk and Ballad. It does not loop identically: drums and chords change from bar to bar, the drummer plays a short fill every four bars and a bigger one, followed by a crash, before the progression starts again. The chord instrument (grand piano, electric piano, acoustic or electric guitar) plays the notes that define each chord. The instrument samples (about 2 MB) are downloaded the first time you start the backing. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation required; without a connection the backing uses synthesized sounds. Your last settings are remembered in the browser when available.',
     s46: 'Explore the fretboard, one note at a time.',
     s47: 'Reset F7 / C7',
     s49: 'Backing track settings',
@@ -127,6 +129,8 @@ const translations = {
     s32: 'Base · pronta',
     s33: 'Ritmo · 4/4',
     s34: 'Dritto · pop / rock',
+    s60: 'Shuffle · blues',
+    s61: 'Ballad · lenta',
     s35: 'Volume accordi',
     s36: 'Batteria',
     s37: 'Volume batteria',
@@ -138,7 +142,7 @@ const translations = {
     s43: 'Accordi supportati e come usarlo',
     s44: 'Notazione internazionale: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La, B = Si. Diesis # e bemolle b, anche ♯ e ♭. Esempi: F7, Bbmaj7, F#m7.',
     s45: 'Maggiori, minori (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Gli accordi con basso indicato (C/E) non sono supportati in questa prova.',
-    s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4 con tre ritmi: Dritto (cassa, rullante su 2 e 4, hi-hat a ottavi), Swing (piatto ride, hi-hat su 2 e 4, secondo ottavo ritardato) e Bossa nova (clave di due battute sul bordo). Lo strumento per gli accordi (pianoforte, piano elettrico, chitarra acustica o elettrica) suona le note che definiscono ogni accordo. I campioni degli strumenti (circa 1,5 MB) si scaricano la prima volta che avvii la base. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione; senza connessione la base usa suoni sintetizzati. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
+    s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4 con sei ritmi: Dritto, Swing, Shuffle, Bossa nova, Funk e Ballad. Non si ripete identica: batteria e accordi cambiano da una battuta all’altra, il batterista fa un breve fill ogni quattro battute e uno più grande, seguito da un piatto, prima che il giro ricominci. Lo strumento per gli accordi (pianoforte, piano elettrico, chitarra acustica o elettrica) suona le note che definiscono ogni accordo. I campioni degli strumenti (circa 2 MB) si scaricano la prima volta che avvii la base. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione; senza connessione la base usa suoni sintetizzati. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
     s46: 'Fatto per esplorare la tastiera, una nota alla volta.',
     s47: 'Ripristina F7 / C7',
     s49: 'Impostazioni della base',
@@ -361,7 +365,7 @@ function trackVoice(source, nodes) {
 const instruments = {
   piano: {
     folder: 'piano',
-    notes: [45, 48, 51, 54, 57, 60, 63, 66, 69],
+    notes: [45, 48, 51, 54, 57, 60, 63, 66, 69, 72],
     layers: 2,
     low: 58,
     rootLow: 44,
@@ -392,8 +396,31 @@ const instruments = {
   },
 };
 // Takes available per dynamic layer: soft first, then hard where the kit has one.
-const drumSamples = {kick: [2, 2], snare: [2, 2], rim: [2], hat: [3, 3], pedal: [3], ride: [3, 3]};
-const drumLevel = {kick: 1, snare: 0.8, rim: 0.75, hat: 0.7, pedal: 2, ride: 1.8};
+const drumSamples = {
+  kick: [2, 2],
+  snare: [2, 2],
+  rim: [2],
+  hat: [3, 3],
+  openhat: [2],
+  pedal: [3],
+  ride: [3, 3],
+  crash: [1, 2],
+  tom1: [2, 2],
+  tom2: [2, 2],
+};
+const drumLevel = {
+  kick: 1,
+  snare: 0.8,
+  rim: 0.75,
+  hat: 0.7,
+  openhat: 0.9,
+  pedal: 2,
+  ride: 1.8,
+  crash: 1.1,
+  tom1: 0.8,
+  tom2: 1,
+};
+let openHat = null;
 const banks = {};
 let synthFallback = false;
 function currentInstrument() {
@@ -451,6 +478,7 @@ function playBuffer(buffer, when, rate, level, bus, end, release) {
   trackVoice(source, [env]);
   source.start(when);
   source.stop(end === undefined ? when + buffer.duration / rate + 0.05 : end + release * 7);
+  return env;
 }
 function sampleNote(name, midi, when, duration, level, hard) {
   const set = instruments[name],
@@ -475,7 +503,11 @@ function playDrum(name, when, v) {
     take = 'abc'[Math.floor(Math.random() * layers[layer - 1])],
     // The soft layer is quiet as recorded; it is not turned down as far again.
     gain = drumLevel[name] * (layer === 2 || layers.length === 1 ? v : 0.6 + v);
-  playBuffer(bank.buffers[`drums/${name}-${layer}${take}.mp3`], when, 1, gain, drumBus);
+  // Closing the hi-hat cuts an open one short, as the pedal does on a real kit.
+  if (openHat && (name === 'hat' || name === 'pedal' || name === 'openhat'))
+    openHat.gain.setTargetAtTime(0, when, 0.012);
+  const env = playBuffer(bank.buffers[`drums/${name}-${layer}${take}.mp3`], when, 1, gain, drumBus);
+  if (name === 'openhat') openHat = env;
 }
 
 // Keys fallback and electric piano: a two-operator FM electric piano. The modulation index falls quickly after the attack,
@@ -542,11 +574,12 @@ function voicing(chord, low = 58, rootLow = 44) {
     notes: [...new Set(notes)].sort((a, b) => a - b),
   };
 }
-function compChord(chord, when, duration, velocity, withRoot, upStroke) {
+function compChord(chord, when, duration, velocity, withRoot, upStroke, register = 0) {
   const name = currentInstrument(),
     set = instruments[name],
     sampled = banks[name]?.ready,
-    {root, notes} = voicing(chord, set.low, set.rootLow),
+    // The register shifts from bar to bar, so a returning chord is not always the same shape.
+    {root, notes} = voicing(chord, set.low + register, set.rootLow),
     note = (midi, time, gain, strength) =>
       sampled
         ? sampleNote(name, midi, time, duration, set.level * gain, strength >= 0.85)
@@ -630,47 +663,276 @@ const drumKit = {
     thump('triangle', 830, 780, 0.02, when, 0.045, 0.3 * v);
     burst(noiseBuffer, when, 0.03, 0.2 * v, [['bandpass', 2600, 2]]);
   },
+  openhat(when, v) {
+    burst(metalBuffer, when, 0.3, 0.3 * v, [['highpass', 6500]]);
+  },
+  crash(when, v) {
+    burst(metalBuffer, when, 1.3, 0.34 * v, [['highpass', 3800]]);
+  },
+  tom1(when, v) {
+    thump('sine', 210, 140, 0.12, when, 0.32, 0.6 * v);
+  },
+  tom2(when, v) {
+    thump('sine', 140, 88, 0.14, when, 0.4, 0.7 * v);
+  },
 };
-// One entry per eighth note; the number is how hard the hit is played (0 = rest).
+// Grooves are written the way a drummer would chart them: one letter per subdivision.
+//   .  rest      g  ghost note     o  soft     x  normal     X  accent
+//   D d  guitar down stroke (loud, soft)       U u  up stroke
+//   a  the next chord, played early and held over the bar line
+// `grid` is the subdivisions per beat: 4 for straight sixteenths, 3 for a triplet feel, where
+// the swung off-beat is the third triplet. Each groove lists several versions of every part;
+// a different one is chosen as the bars go by, so the backing does not loop identically.
+const HIT = {X: 1, x: 0.8, o: 0.5, g: 0.28, D: 1, d: 0.7, U: -0.8, u: -0.5, a: 0.8};
 const grooves = {
   straight: {
-    swing: false,
-    keys: [1, 0, 0, 0.7, 0, 0, 0.8, 0],
-    // Guitar: down, down-up, up-down-up. Negative numbers are up strokes.
-    strum: [1, 0, 0.8, -0.5, 0, -0.5, 0.8, -0.5],
-    kick: [1, 0, 0, 0.5, 0.9, 0, 0, 0],
-    snare: [0, 0, 1, 0, 0, 0, 1, 0],
-    hat: [0.8, 0.4, 0.7, 0.4, 0.8, 0.4, 0.7, 0.5],
+    grid: 4,
+    drums: [
+      {kick: 'X.....x.X.......', snare: '....X.......X...', hat: 'x.o.x.o.x.o.x.o.'},
+      {kick: 'X.......X.x.....', snare: '....X.......X...', hat: 'x.o.x.o.x.o.x.o.'},
+      {kick: 'X.....x...x.....', snare: '....X..g....X...', hat: 'x.o.x.o.x.o.x.o.'},
+      {
+        kick: 'X.......X.....x.',
+        snare: '....X.......X..g',
+        hat: 'x.o.x.o.x.o.x...',
+        openhat: '..............x.',
+      },
+    ],
+    keys: ['X.....x.....x...', 'X.......x.....x.', 'X.....x...x.....', 'X.....x.......a.'],
+    strum: ['D...d.u...u.d.u.', 'D...d...d.u.d.u.', 'D.....u.d.u...u.', 'D...d.u...u.d.a.'],
   },
   swing: {
-    swing: true,
-    keys: [1, 0, 0, 0.75, 0, 0, 0, 0],
-    // Guitar: four short chords to the bar, leaning on 2 and 4.
-    strum: [0.7, 0, 0.9, 0, 0.7, 0, 0.9, 0],
+    grid: 3,
+    energy: 0.75,
+    drums: [
+      {ride: 'x..x.ox..x.o', pedal: '...x.....x..', kick: 'o.....o.....'},
+      {ride: 'x..x.ox..x.o', pedal: '...x.....x..', kick: 'o.....o.....', snare: '.....g......'},
+      {ride: 'x..x.ox.ox.o', pedal: '...x.....x..', kick: 'o..........o', snare: '..g.........'},
+      {ride: 'x..x..x..x.o', pedal: '...x.....x..', kick: 'o.....o.....', snare: '.....o..g...'},
+    ],
+    keys: ['X....x......', 'X.......x...', 'x....x...x..', 'X....x.....a', '..x..x......'],
+    // Four short chords to the bar, leaning on 2 and 4.
+    strum: ['d..D..d..D..', 'd..D..d..D.u', 'd..D..d..D.a'],
     strumLength: 0.5,
-    kick: [0.55, 0, 0, 0, 0.45, 0, 0, 0],
-    ride: [0.8, 0, 0.9, 0.5, 0.8, 0, 0.9, 0.5],
-    pedal: [0, 0, 0.8, 0, 0, 0, 0.8, 0],
+  },
+  shuffle: {
+    grid: 3,
+    drums: [
+      {kick: 'X.....X.....', snare: '...X.....X..', hat: 'x.ox.ox.ox.o'},
+      {kick: 'X....oX.....', snare: '...X.....X..', hat: 'x.ox.ox.ox.o'},
+      {kick: 'X.....X....o', snare: '...X.....X.g', hat: 'x.ox.ox.ox.o'},
+      {kick: 'X.....X.....', snare: '...X.....X..', ride: 'x.ox.ox.ox.o', pedal: '...x.....x..'},
+    ],
+    keys: ['X....x...x..', 'X.o..x......', 'x.ox.o...x..', 'X....x.....a'],
+    strum: ['D.dD.dD.dD.d', 'D.dD.d...D.d', 'D.uD.uD.uD.u', 'D.dD.dD.dD.a'],
+    strumLength: 0.7,
   },
   // Two bars, so the cross-stick can play the 3-2 clave.
   bossa: {
-    swing: false,
-    keys: [1, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.75, 0, 0, 0.7, 0, 0],
-    // Guitar: the same figure, plucked together rather than strummed.
-    strum: [1, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.75, 0, 0, 0.7, 0, 0],
+    grid: 4,
+    span: 2,
+    energy: 0.6,
+    gentle: true,
+    drums: [
+      {
+        kick: 'x.....o.x.....o.x.....o.x.....o.',
+        rim: 'x.....x.....x.......x.....x.....',
+        hat: 'o.g.o.g.o.g.o.g.o.g.o.g.o.g.o.g.',
+      },
+      {
+        kick: 'x.....o.x.....o.x.....o.x...o.o.',
+        rim: 'x.....x.....x.......x.....x.....',
+        hat: 'ogogogogogogogogogogogogogogogog',
+      },
+      {
+        kick: 'x.....o.x.....o.x.....o.x.....o.',
+        rim: 'x.....x.....x.......x.....x...x.',
+        hat: 'o.g.o.g.o.g.o.g.o.g.o.g.o.g.o.g.',
+      },
+    ],
+    keys: [
+      'X.....x.....x.......x.....x.....',
+      'X.....x.......x.....x.....x.....',
+      'X.....x...x.........x.....x...a.',
+    ],
+    // The same figures, plucked together rather than strummed.
+    strum: [
+      'D.....d.....d.......d.....d.....',
+      'D.....d.......d.....d.....d.....',
+      'D.....d...d.........d.....d...a.',
+    ],
     strumSpread: 0.004,
-    kick: [0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45],
-    rim: [0.8, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.7, 0, 0, 0.8, 0, 0],
-    hat: [0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3],
+  },
+  funk: {
+    grid: 4,
+    drums: [
+      {kick: 'X..x......x..x..', snare: '....X..g.g..X...', hat: 'xoxoxoxoxoxoxoxo'},
+      {
+        kick: 'X.....x..xx.....',
+        snare: '....X.......X..g',
+        hat: 'xoxoxoxoxoxox...',
+        openhat: '..............x.',
+      },
+      {kick: 'X..x...x..x.....', snare: '....X..g....X.g.', hat: 'x.x.x.x.x.x.x.x.'},
+      {kick: 'X..x......x..x..', snare: '....X..g.g..X..g', hat: 'xoxoxoxoxoxoxoxo'},
+    ],
+    keys: ['X..x..x.....x.x.', '..x..x..X.....x.', 'X.....x..x....x.', 'x..x........x.a.'],
+    // Sixteenth-note scratching: short, tight chords.
+    strum: ['D.du.uD..u.ud.u.', 'D..u.uD.d..u.ud.', 'D.du..D..u.ud...', 'D.du.uD..u.ud.a.'],
+    strumLength: 0.45,
+    keysLength: 0.5,
+  },
+  ballad: {
+    grid: 4,
+    energy: 0.6,
+    gentle: true,
+    drums: [
+      {kick: 'X.........x.....', rim: '....x.......x...', hat: 'o.g.o.g.o.g.o.g.'},
+      {
+        kick: 'X.....o...x.....',
+        rim: '....x.......x...',
+        ride: 'o...o...o...o...',
+        pedal: '....o.......o...',
+      },
+      {kick: 'X.........x...o.', snare: '....o.......o...', hat: 'o.g.o.g.o.g.o.g.'},
+    ],
+    keys: ['X...............', 'X.......x.......', 'X.....o.x.......', 'X.......x.....a.'],
+    // Arpeggiated: the strings are spread out instead of struck together.
+    strum: ['D.......d.......', 'D...d...d...d...', 'D.......d...d...', 'D.......d.....a.'],
+    strumSpread: 0.045,
+  },
+};
+// Fills replace the end of a bar: the last beat (small) or the last two (big).
+const fills = {
+  4: {
+    small: [
+      {snare: 'x.xx'},
+      {snare: 'ooxX'},
+      {tom1: 'xx..', tom2: '..xx'},
+      {snare: 'x.x.', tom2: '...x'},
+    ],
+    big: [
+      {kick: 'x.......', snare: 'x.xxx.xx'},
+      {kick: 'x.......', snare: 'xxx.....', tom1: '...xx...', tom2: '.....xxX'},
+      {kick: 'x.......', snare: '..x.x.xx'},
+      {kick: 'x.......', snare: 'x..x..x.', tom1: '.x..x...', tom2: '......xx'},
+    ],
+  },
+  3: {
+    small: [{snare: 'xxx'}, {snare: '.xx'}, {tom1: 'x..', tom2: '.xx'}, {snare: 'x.x'}],
+    big: [
+      {kick: 'x.....', snare: 'x.xxxx'},
+      {snare: 'xxx...', tom1: '...xx.', tom2: '.....x'},
+      {kick: 'x.....', snare: 'x..x.x'},
+      {snare: '..xxxx'},
+    ],
   },
 };
 function currentGroove() {
   return grooves[$('groove').value] ?? grooves.straight;
 }
-// Eighth notes from `step` to the next hit of a chord pattern.
+// A random index into `list`, never the one used last time.
+function pick(list, avoid) {
+  if (list.length < 2) return 0;
+  if (avoid === undefined || avoid < 0 || avoid >= list.length)
+    return Math.floor(Math.random() * list.length);
+  const index = Math.floor(Math.random() * (list.length - 1));
+  return index >= avoid ? index + 1 : index;
+}
+// Where the drummer marks the form. A long progression (five bars or more) gets its big fill
+// on the last bar, before it comes round again; a shorter one gets it every eight bars, or it
+// would never stop. Every other fourth bar ends with a small fill.
+function fillKind(bar) {
+  const loopBars = (progression.length * beatsPerChord()) / 4,
+    period = Number.isInteger(loopBars) && loopBars >= 5 ? loopBars : 8,
+    inPeriod = bar % period;
+  if (inPeriod === period - 1) return 'big';
+  return inPeriod % 4 === 3 ? 'small' : null;
+}
+const hits = (pattern) => [...pattern].map((letter) => HIT[letter] ?? 0);
+const registers = {keys: [0, 0, 4, -3], guitar: [0, 0, 5]};
+let plans = new Map(),
+  plansFor = '',
+  anticipated = new Set();
+const lastFill = {small: -1, big: -1};
+// Everything that is decided once per bar: which version of each part is played, the fill,
+// the crash after a big fill, the register of the chords and how hard the bar is played.
+function barPlan(bar) {
+  const name = $('groove').value,
+    groove = currentGroove(),
+    guitar = Boolean(instruments[currentInstrument()].guitar),
+    key = `${name}|${guitar}|${beatsPerChord()}|${signature}`;
+  if (plansFor !== key) {
+    plans.clear();
+    plansFor = key;
+  }
+  if (plans.has(bar)) return plans.get(bar);
+  const barSteps = groove.grid * 4,
+    span = groove.span ?? 1,
+    held = bar % span !== 0 && plans.get(bar - 1),
+    previous = plans.get(bar - 1),
+    // Each four-bar phrase opens on the main beat; the versions come in between.
+    choice = held
+      ? held.choice
+      : {
+          drums:
+            Math.floor(bar / span) % (4 / span) === 0
+              ? 0
+              : pick(groove.drums, previous?.choice.drums),
+          keys: bar === 0 ? 0 : pick(groove.keys, previous?.choice.keys),
+          strum: bar === 0 ? 0 : pick(groove.strum, previous?.choice.strum),
+          register: bar === 0 ? 0 : pick(registers.keys, -1),
+        },
+    from = (bar % span) * barSteps,
+    cut = (pattern) => pattern.slice(from, from + barSteps),
+    drums = {};
+  for (const [part, pattern] of Object.entries(groove.drums[choice.drums]))
+    drums[part] = hits(cut(pattern));
+  const energy = groove.energy ?? 1,
+    kind = fillKind(bar),
+    fill = kind && (groove.gentle ? 'small' : kind);
+  if (fill) {
+    const options = fills[groove.grid][fill],
+      parts = options[(lastFill[fill] = pick(options, lastFill[fill]))],
+      length = Object.values(parts)[0].length,
+      start = barSteps - length;
+    for (const part of Object.values(drums)) part.fill(0, start);
+    for (const [part, pattern] of Object.entries(parts)) {
+      drums[part] ??= new Array(barSteps).fill(0);
+      // A fill grows towards the bar line.
+      hits(pattern).forEach(
+        (v, i) => (drums[part][start + i] = v * energy * (0.8 + (0.3 * i) / length)),
+      );
+    }
+  }
+  if (fillKind(bar - 1) === 'big' && !groove.gentle && bar > 0) {
+    drums.crash = new Array(barSteps).fill(0);
+    drums.crash[0] = 0.9 * energy;
+    (drums.kick ??= new Array(barSteps).fill(0))[0] ||= 0.8;
+  }
+  const comp = (pattern) => {
+    const letters = cut(pattern);
+    return {hits: hits(letters), push: [...letters].map((letter) => letter === 'a')};
+  };
+  const set = guitar ? registers.guitar : registers.keys,
+    plan = {
+      choice,
+      fill,
+      drums,
+      keys: comp(groove.keys[choice.keys]),
+      strum: comp(groove.strum[choice.strum]),
+      register: set[choice.register % set.length],
+      // A phrase leans forward: each bar a little stronger than the one before.
+      scale: [0.94, 0.97, 1, 1.04][bar % 4],
+    };
+  plans.set(bar, plan);
+  plans.delete(bar - 6);
+  return plan;
+}
+// Subdivisions from `step` to the next chord hit in the same bar, or to the bar line.
 function patternGap(part, step) {
-  for (let gap = 1; gap < part.length; gap++) if (part[(step + gap) % part.length]) return gap;
-  return part.length;
+  for (let next = step + 1; next < part.length; next++) if (part[next]) return next - step;
+  return part.length - step;
 }
 function beatSeconds() {
   return 60 / Math.min(300, Math.max(30, Number($('bpm').value) || 80));
@@ -685,36 +947,66 @@ function scheduleBeat(beat, when, epoch) {
     barBeat = beat % 4,
     seconds = beatSeconds(),
     groove = currentGroove(),
+    grid = groove.grid,
+    plan = barPlan(Math.floor(beat / 4)),
     keysOn = $('pianoEnabled').checked,
     drumsOn = $('drumsEnabled').checked,
     guitar = instruments[currentInstrument()].guitar,
-    part = guitar ? groove.strum : groove.keys,
-    // A beat is two eighth notes; swing delays the second one.
-    times = [when, when + seconds * (groove.swing ? 2 / 3 : 1 / 2)];
-  for (let half = 0; half < 2; half++) {
-    const step = (beat * 2 + half) % groove.keys.length,
-      time = times[half],
-      // Small random variation in how hard each hit lands.
-      human = () => 0.92 + Math.random() * 0.16;
+    comp = guitar ? plan.strum : plan.keys,
+    length = (guitar ? groove.strumLength : groove.keysLength) ?? 1,
+    // Small random variation in how hard each hit lands.
+    human = () => 0.92 + Math.random() * 0.16,
+    stepSeconds = seconds / grid,
+    ring = (steps) => Math.min(3.2, steps * stepSeconds * 0.94 * length);
+  // The chord ends where the next one starts, or earlier if the next one is played ahead.
+  const lastBeat = beat - (beat % perChord) + perChord - 1,
+    lastPlan = barPlan(Math.floor(lastBeat / 4)),
+    lastComp = guitar ? lastPlan.strum : lastPlan.keys,
+    canPush = progression.length > 1;
+  let chordEnd = (lastBeat + 1) * grid;
+  for (let sub = 0; sub < grid && canPush; sub++)
+    if (lastComp.push[(lastBeat % 4) * grid + sub]) chordEnd = lastBeat * grid + sub;
+  for (let sub = 0; sub < grid; sub++) {
+    const step = barBeat * grid + sub,
+      time = when + sub * stepSeconds;
     if (drumsOn)
-      for (const name of Object.keys(drumKit))
-        if (groove[name]?.[step]) playDrum(name, time, groove[name][step] * human());
+      for (const name of Object.keys(drumKit)) {
+        const v = plan.drums[name]?.[step];
+        if (v) playDrum(name, time, Math.min(1, v * plan.scale * human()));
+      }
     if (!keysOn) continue;
+    // Held over from an anticipation: this beat's chord is already sounding.
+    if (sub === 0 && anticipated.delete(beat)) continue;
+    const steps = beat * grid + sub;
+    if (comp.push[step] && canPush && beat === lastBeat) {
+      const nextPlan = barPlan(Math.floor((beat + 1) / 4)),
+        nextComp = guitar ? nextPlan.strum : nextPlan.keys,
+        afterLine = patternGap(nextComp.hits, ((beat + 1) % 4) * grid);
+      anticipated.add(beat + 1);
+      compChord(
+        progression[modIndex(index + 1, progression.length)],
+        time,
+        ring(Math.min(grid - sub + afterLine, grid - sub + perChord * grid)),
+        HIT.a * plan.scale * human(),
+        true,
+        false,
+        plan.register,
+      );
+      continue;
+    }
     // A new chord is always stated on its first beat, whatever the pattern says.
-    const chordStart = half === 0 && beat % perChord === 0,
-      velocity = Math.abs(part[step]) || (chordStart ? 0.9 : 0);
-    if (!velocity) continue;
-    // Let the chord ring until the next stab, but never across a chord change.
-    const eighthsLeft = perChord * 2 - ((beat % perChord) * 2 + half),
-      eighths = Math.min(patternGap(part, step), eighthsLeft),
-      length = guitar ? (groove.strumLength ?? 1) : 1;
+    const chordStart = sub === 0 && beat % perChord === 0,
+      velocity = Math.abs(comp.hits[step]) || (chordStart ? 0.9 : 0);
+    if (!velocity || steps >= chordEnd) continue;
+    // Let the chord ring until the next hit, but never into the next chord.
     compChord(
       chord,
       time,
-      Math.min(2.4, (eighths * seconds) / 2) * 0.94 * length,
-      velocity * human(),
+      ring(Math.min(patternGap(comp.hits, step), chordEnd - steps)),
+      Math.min(1, velocity * plan.scale * human()),
       chordStart,
-      part[step] < 0,
+      comp.hits[step] < 0,
+      plan.register,
     );
   }
   const callback = setTimeout(
@@ -751,6 +1043,8 @@ function schedule() {
 }
 function stop() {
   playEpoch++;
+  plans.clear();
+  anticipated.clear();
   if (timer !== null) clearInterval(timer);
   timer = null;
   for (const timeout of visualTimers) clearTimeout(timeout);

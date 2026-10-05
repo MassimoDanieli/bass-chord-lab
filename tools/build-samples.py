@@ -78,7 +78,7 @@ def main(raw):
     # Piano: two dynamics per note, sampled every minor third.
     for layer, (source_layer, target) in enumerate([(6, 0.5), (11, 0.95)], start=1):
         group = {}
-        for name in ['A2', 'C3', 'Ds3', 'Fs3', 'A3', 'C4', 'Ds4', 'Fs4', 'A4']:
+        for name in ['A2', 'C3', 'Ds3', 'Fs3', 'A3', 'C4', 'Ds4', 'Fs4', 'A4', 'C5']:
             group[OUT / 'piano' / f'{midi(name)}-{layer}.mp3'] = shape(
                 decode(raw / 'piano' / f'{name}v{source_layer}.flac', 2), 4.5, 1.2)
         report.append((f'piano layer {layer}', write_group(group, target, 4)))
@@ -114,6 +114,13 @@ def main(raw):
         'pedal': (0.35, 0.15, [[drum(f'oh_pedal_rr{r}.flac') for r in (1, 2, 3)]], 0.4),
         'ride': (3.0, 1.5, [[drum(f'oh_ride_vl2_rr{r}.flac') for r in (1, 2, 3)],
                             [drum(f'oh_ride_vl3_rr{r}.flac') for r in (1, 2, 3)]], 0.7),
+        'openhat': (0.7, 0.3, [[drum(f'oh_openhat_rr{r}.flac') for r in (1, 2)]], 0.6),
+        'crash': (2.6, 1.6, [[drum('oh_crash_vl2_rr1.flac')],
+                             [drum(f'oh_crash_vl3_rr{r}.flac') for r in (1, 2)]], 0.7),
+        'tom1': (0.9, 0.4, [[drum(f'oh_tom1_vl{v}.flac') for v in (6, 7)],
+                            [drum(f'oh_tom1_vl{v}.flac') for v in (13, 14)]], 0.7),
+        'tom2': (1.0, 0.45, [[drum(f'oh_tom2_vl{v}.flac') for v in (6, 7)],
+                             [drum(f'oh_tom2_vl{v}.flac') for v in (13, 14)]], 0.7),
     }
     for sound, (seconds, fade, layers, target) in kit.items():
         group = {}

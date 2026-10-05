@@ -14,11 +14,12 @@ Features:
 - Four or five strings, Drop D, and 12 / 15 / 24 frets.
 - Chord colors, split dots for shared notes, root rings and note names or degrees.
 - Root, triad, guide-tone and common-tone filters; semitone transposition.
-- Looping backing track with recorded instruments: grand piano, acoustic or electric guitar (or a synthesized electric piano) and a jazz drum kit, in three grooves: straight, swing and bossa nova.
+- Backing track with recorded instruments: grand piano, acoustic or electric guitar (or a synthesized electric piano) and a jazz drum kit, in six grooves: straight, swing, shuffle, bossa nova, funk and ballad.
+- The backing does not loop identically: drum and chord figures change from bar to bar, phrases end with fills, a crash marks the return of the progression, chords are sometimes played ahead of the beat and in different registers.
 - Adjustable BPM and 2 / 4 / 8 beats per chord, with independent volumes and instrument mutes.
 - Bilingual labels, help, errors, tooltips and transport status.
 
-Press **Start backing** to enable Web Audio. The chord instrument and the drums are recorded samples (about 1.5 MB, downloaded the first time the backing starts; see `public/samples/CREDITS.txt`). The chord instrument plays the notes that define each chord (3rd, 7th, alterations, top extension) inside one octave; guitars strum them, down and up strokes included. Straight has kick, snare on 2 and 4 and eighth-note hi-hats; swing has a ride cymbal, hi-hat on 2 and 4 and a delayed second eighth note; bossa nova has a two-bar clave on the rim. When the samples cannot be loaded, for example when the page is opened from disk, the backing falls back to synthesized sounds. The low register is left for live bass. Changing BPM, beats or groove restarts at the current chord. Editing the progression or switching tabs stops playback.
+Press **Start backing** to enable Web Audio. The chord instrument and the drums are recorded samples (about 2 MB, downloaded the first time the backing starts; see `public/samples/CREDITS.txt`). The chord instrument plays the notes that define each chord (3rd, 7th, alterations, top extension) inside one octave; guitars strum them, down and up strokes included. Grooves are charted in `public/app.js` one letter per subdivision, with several versions of each part; a plan made bar by bar chooses among them, adds a small fill every four bars and a big one before the progression comes round again, and varies the register of the chords. When the samples cannot be loaded, for example when the page is opened from disk, the backing falls back to synthesized sounds. The low register is left for live bass. Changing BPM, beats or groove restarts at the current chord. Editing the progression or switching tabs stops playback.
 
 Chord symbols use international notation with sharps and flats. Supported chord types and aliases are listed in the app. Slash chords such as `C/E` are not supported yet.
 
@@ -59,7 +60,8 @@ Scarica il repository e apri `public/index.html` con Safari o Chrome. Non servon
 - Clic su un accordo per studiarlo; Shift + clic per confrontare più accordi.
 - Trasposizione della progressione per semitoni.
 - Accompagnamento in loop di piano sintetizzato e batteria, sincronizzato con la tastiera.
-- Base con strumenti reali campionati: pianoforte, chitarra acustica o elettrica (oppure un piano elettrico sintetizzato) e batteria jazz; tre ritmi (dritto, swing, bossa nova), BPM regolabili e 2, 4 o 8 beat per accordo.
+- Base con strumenti reali campionati: pianoforte, chitarra acustica o elettrica (oppure un piano elettrico sintetizzato) e batteria jazz; sei ritmi (dritto, swing, shuffle, bossa nova, funk, ballad), BPM regolabili e 2, 4 o 8 beat per accordo.
+- La base non si ripete identica: le figure di batteria e accordi cambiano da una battuta all'altra, le frasi finiscono con un fill, un piatto segna il ritorno del giro, gli accordi sono a volte anticipati e suonati in registri diversi.
 - Volume e mute separati per piano e batteria; indicatore dei quattro beat.
 - Impostazioni ricordate nel browser quando lo storage locale è disponibile.
 
@@ -73,9 +75,9 @@ Gli slash chords, come C/E, non sono ancora supportati.
 
 ### Audio
 
-Web Audio API. Lo strumento per gli accordi e la batteria sono campioni di strumenti reali (circa 1,5 MB, scaricati al primo avvio della base; crediti in `public/samples/CREDITS.txt`). Lo strumento suona le note che definiscono ogni accordo (3ª, 7ª, alterazioni, estensione più alta) dentro un'ottava; le chitarre le suonano a pennata, in giù e in su. Se i campioni non si possono caricare, per esempio aprendo la pagina da disco, la base usa suoni sintetizzati.
+Web Audio API. Lo strumento per gli accordi e la batteria sono campioni di strumenti reali (circa 2 MB, scaricati al primo avvio della base; crediti in `public/samples/CREDITS.txt`). Lo strumento suona le note che definiscono ogni accordo (3ª, 7ª, alterazioni, estensione più alta) dentro un'ottava; le chitarre le suonano a pennata, in giù e in su. Se i campioni non si possono caricare, per esempio aprendo la pagina da disco, la base usa suoni sintetizzati.
 
-La base è in 4/4. Dritto: cassa, rullante su 2 e 4, hi-hat a ottavi. Swing: piatto ride, hi-hat su 2 e 4, secondo ottavo ritardato. Bossa nova: clave di due battute sul bordo del rullante. Cambiare BPM, beat per accordo o ritmo riavvia la base dall'accordo corrente. Modificare la progressione o passare a un'altra scheda ferma la riproduzione.
+La base è in 4/4. I ritmi sono scritti in `public/app.js` una lettera per suddivisione, con più versioni di ogni parte; un piano fatto battuta per battuta sceglie tra queste, aggiunge un piccolo fill ogni quattro battute e uno grande prima che il giro ricominci, e cambia il registro degli accordi. Cambiare BPM, beat per accordo o ritmo riavvia la base dall'accordo corrente. Modificare la progressione o passare a un'altra scheda ferma la riproduzione.
 
 ### Sviluppo e verifica
 
