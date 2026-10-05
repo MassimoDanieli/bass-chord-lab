@@ -7,7 +7,7 @@ piano/            Salamander Grand Piano V3 (Yamaha C5), by Alexander Holm.
                   Licence: Creative Commons Attribution 3.0 (CC BY 3.0),
                   https://creativecommons.org/licenses/by/3.0/
                   Source: https://github.com/sfzinstruments/SalamanderGrandPiano
-                  Changes: two of the sixteen dynamics, nine notes, 4.5 seconds each.
+                  Changes: two of the sixteen dynamics, eight notes from E-flat 3 up, 4.5 seconds each.
 
 drums/            Virtuosity Drums, by Versilian Studios, played by Austin McMahon.
                   Licence: CC0 1.0 (public domain).

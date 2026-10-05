@@ -75,18 +75,19 @@ def main(raw):
     raw = Path(raw)
     report = []
 
+    # Only notes from E3 up are used: everything below is left to the bass.
     # Piano: two dynamics per note, sampled every minor third.
     for layer, (source_layer, target) in enumerate([(6, 0.5), (11, 0.95)], start=1):
         group = {}
-        for name in ['A2', 'C3', 'Ds3', 'Fs3', 'A3', 'C4', 'Ds4', 'Fs4', 'A4', 'C5']:
+        for name in ['Ds3', 'Fs3', 'A3', 'C4', 'Ds4', 'Fs4', 'A4', 'C5']:
             group[OUT / 'piano' / f'{midi(name)}-{layer}.mp3'] = shape(
                 decode(raw / 'piano' / f'{name}v{source_layer}.flac', 2), 4.5, 1.2)
         report.append((f'piano layer {layer}', write_group(group, target, 4)))
 
     # Guitars: one dynamic, mono.
     for folder, out, names in [
-        ('ag', 'guitar-acoustic', ['E2', 'G2', 'As2', 'Cs3', 'E3', 'G3', 'As3', 'Cs4', 'E4', 'G4']),
-        ('eg', 'guitar-electric', ['E2', 'Fs2', 'A2', 'C3', 'Ds3', 'Fs3', 'A3', 'C4', 'Ds4', 'Fs4']),
+        ('ag', 'guitar-acoustic', ['E3', 'G3', 'As3', 'Cs4', 'E4', 'G4']),
+        ('eg', 'guitar-electric', ['Ds3', 'Fs3', 'A3', 'C4', 'Ds4', 'Fs4']),
     ]:
         group = {OUT / out / f'{midi(name)}-1.mp3': shape(decode(raw / folder / f'{name}.mp3', 1), 3.5, 1.0)
                  for name in names}
