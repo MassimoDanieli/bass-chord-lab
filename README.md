@@ -4,7 +4,7 @@
 
 ## English
 
-Download the repository and open `public/index.html` in Safari or Chrome. No installation, build, external samples or Internet connection is required. Select **EN / IT** at the top; English is the initial language and the chosen language is remembered when browser storage is available.
+Download the repository and open `public/index.html` in Safari or Chrome. No installation or build is required; opened from disk the backing uses synthesized sounds, served over HTTP it uses the recorded instruments. Select **EN / IT** at the top; English is the initial language and the chosen language is remembered when browser storage is available.
 
 Enter a progression such as `Dm7 | G7 | Cmaj7` and press **Show on fretboard**, or Cmd/Ctrl + Enter. Click a chord to study it alone; Shift + click adds or removes chords from a comparison.
 
@@ -14,11 +14,11 @@ Features:
 - Four or five strings, Drop D, and 12 / 15 / 24 frets.
 - Chord colors, split dots for shared notes, root rings and note names or degrees.
 - Root, triad, guide-tone and common-tone filters; semitone transposition.
-- Looping synthesized electric piano and drums in three grooves: straight, swing and bossa nova.
+- Looping backing track with recorded instruments: grand piano, acoustic or electric guitar (or a synthesized electric piano) and a jazz drum kit, in three grooves: straight, swing and bossa nova.
 - Adjustable BPM and 2 / 4 / 8 beats per chord, with independent volumes and instrument mutes.
 - Bilingual labels, help, errors, tooltips and transport status.
 
-Press **Start backing** to enable Web Audio. Everything is synthesized, with no recorded samples: an FM electric piano through a short synthetic room, and a drum kit built from oscillators and filtered noise. The piano plays the notes that define each chord (3rd, 7th, alterations, top extension) inside one octave, with the root only on chord changes. Straight has kick, snare on 2 and 4 and eighth-note hi-hats; swing has a ride cymbal, hi-hat on 2 and 4 and a delayed second eighth note; bossa nova has a two-bar clave on the rim. The low register is left for live bass. Changing BPM, beats or groove restarts at the current chord. Editing the progression or switching tabs stops playback.
+Press **Start backing** to enable Web Audio. The chord instrument and the drums are recorded samples (about 1.5 MB, downloaded the first time the backing starts; see `public/samples/CREDITS.txt`). The chord instrument plays the notes that define each chord (3rd, 7th, alterations, top extension) inside one octave; guitars strum them, down and up strokes included. Straight has kick, snare on 2 and 4 and eighth-note hi-hats; swing has a ride cymbal, hi-hat on 2 and 4 and a delayed second eighth note; bossa nova has a two-bar clave on the rim. When the samples cannot be loaded, for example when the page is opened from disk, the backing falls back to synthesized sounds. The low register is left for live bass. Changing BPM, beats or groove restarts at the current chord. Editing the progression or switching tabs stops playback.
 
 Chord symbols use international notation with sharps and flats. Supported chord types and aliases are listed in the app. Slash chords such as `C/E` are not supported yet.
 
@@ -29,6 +29,8 @@ Production code lives in `public/` (`index.html`, `styles.css`, `app.js`) and ha
 ```sh
 npm test
 ```
+
+`tools/build-samples.py` rebuilds `public/samples/` from the original libraries (needs ffmpeg and numpy; not part of the site build).
 
 Tests simulate the DOM and Web Audio APIs to check chord spelling, sequencing, audio scheduling, cancellation and EN / IT behavior, including language changes during playback. Layout and sound still need checks in a real browser.
 
@@ -46,7 +48,7 @@ Una piccola app offline per studiare gli accordi sulla tastiera del basso e suon
 
 ### Avvio
 
-Scarica il repository e apri `public/index.html` con Safari o Chrome. Non servono installazioni, servizi esterni o una connessione Internet. Usa il selettore **EN / IT** in alto: la lingua iniziale è inglese e la scelta viene ricordata quando lo storage locale è disponibile. Premi **Avvia base** per abilitare l'audio.
+Scarica il repository e apri `public/index.html` con Safari o Chrome. Non servono installazioni; aperta da disco la base usa suoni sintetizzati, servita via HTTP usa gli strumenti campionati. Usa il selettore **EN / IT** in alto: la lingua iniziale è inglese e la scelta viene ricordata quando lo storage locale è disponibile. Premi **Avvia base** per abilitare l'audio.
 
 ### Funzioni
 
@@ -57,7 +59,7 @@ Scarica il repository e apri `public/index.html` con Safari o Chrome. Non servon
 - Clic su un accordo per studiarlo; Shift + clic per confrontare più accordi.
 - Trasposizione della progressione per semitoni.
 - Accompagnamento in loop di piano sintetizzato e batteria, sincronizzato con la tastiera.
-- Tre ritmi (dritto, swing, bossa nova), BPM regolabili e 2, 4 o 8 beat per accordo.
+- Base con strumenti reali campionati: pianoforte, chitarra acustica o elettrica (oppure un piano elettrico sintetizzato) e batteria jazz; tre ritmi (dritto, swing, bossa nova), BPM regolabili e 2, 4 o 8 beat per accordo.
 - Volume e mute separati per piano e batteria; indicatore dei quattro beat.
 - Impostazioni ricordate nel browser quando lo storage locale è disponibile.
 
@@ -71,7 +73,7 @@ Gli slash chords, come C/E, non sono ancora supportati.
 
 ### Audio
 
-Web Audio API, senza campioni scaricati. Il piano è un piano elettrico in sintesi FM, con un breve riverbero sintetico; la batteria combina oscillatori e rumore filtrato. Il piano suona le note che definiscono ogni accordo (3ª, 7ª, alterazioni, estensione più alta) dentro un'ottava, con la fondamentale solo ai cambi di accordo. Resta una base sintetica, non strumenti campionati.
+Web Audio API. Lo strumento per gli accordi e la batteria sono campioni di strumenti reali (circa 1,5 MB, scaricati al primo avvio della base; crediti in `public/samples/CREDITS.txt`). Lo strumento suona le note che definiscono ogni accordo (3ª, 7ª, alterazioni, estensione più alta) dentro un'ottava; le chitarre le suonano a pennata, in giù e in su. Se i campioni non si possono caricare, per esempio aprendo la pagina da disco, la base usa suoni sintetizzati.
 
 La base è in 4/4. Dritto: cassa, rullante su 2 e 4, hi-hat a ottavi. Swing: piatto ride, hi-hat su 2 e 4, secondo ottavo ritardato. Bossa nova: clave di due battute sul bordo del rullante. Cambiare BPM, beat per accordo o ritmo riavvia la base dall'accordo corrente. Modificare la progressione o passare a un'altra scheda ferma la riproduzione.
 

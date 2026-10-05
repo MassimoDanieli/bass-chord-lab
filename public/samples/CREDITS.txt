@@ -1,0 +1,25 @@
+Bass Chord Lab — instrument samples
+
+The files in this folder are short excerpts of the libraries below, trimmed, level-matched
+and encoded as MP3 by tools/build-samples.py.
+
+piano/            Salamander Grand Piano V3 (Yamaha C5), by Alexander Holm.
+                  Licence: Creative Commons Attribution 3.0 (CC BY 3.0),
+                  https://creativecommons.org/licenses/by/3.0/
+                  Source: https://github.com/sfzinstruments/SalamanderGrandPiano
+                  Changes: two of the sixteen dynamics, nine notes, 4.5 seconds each.
+
+drums/            Virtuosity Drums, by Versilian Studios, played by Austin McMahon.
+                  Licence: CC0 1.0 (public domain).
+                  Source: https://github.com/sfzinstruments/virtuosity_drums
+                  Changes: overhead microphones, with the close microphone mixed in on
+                  kick, snare and cross-stick.
+
+guitar-acoustic/  University of Iowa Musical Instrument Samples (Electronic Music Studios).
+                  "May be downloaded and used for any projects, without restrictions."
+                  Source: https://theremin.music.uiowa.edu/MIS.html
+                  via https://github.com/nbrosowsky/tonejs-instruments
+
+guitar-electric/  Karoryfer Samples. Licence: CC0 1.0 (public domain).
+                  Source: https://www.karoryfer.com/karoryfer-samples
+                  via https://github.com/nbrosowsky/tonejs-instruments

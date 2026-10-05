@@ -34,13 +34,13 @@ const translations = {
     s29: 'Click a chord to study it on its own. ⇧ Shift + click to add it to or remove it from the comparison.',
     s30: '▶ Start backing',
     s31: 'Beats per chord',
-    s32: 'Piano and drums · ready',
+    s32: 'Backing · ready',
     s33: 'Groove · 4/4',
     s34: 'Straight · pop / rock',
-    s35: 'Piano volume',
+    s35: 'Chords volume',
     s36: 'Drums',
     s37: 'Drum volume',
-    s38: 'Press Start backing: an electric piano plays the chords and drums keep time. You can mute either instrument. The low register is left for you. Synthesized sounds, no downloads.',
+    s38: 'Press Start backing: the instrument you choose plays the chords and drums keep time. You can mute either. The low register is left for you. Recorded instruments; without a connection the backing falls back to synthesized sounds.',
     s39: 'Fretboard',
     s40: 'Highest string at the top · fret 0 = open string',
     s41: 'Click a dot to see its degrees in each chord.',
@@ -48,12 +48,19 @@ const translations = {
     s43: 'Supported chords and how to use it',
     s44: 'International notation: C, D, E, F, G, A, B. Sharps # and flats b, including ♯ and ♭. Examples: F7, Bbmaj7, F#m7.',
     s45: 'Major, minor (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Slash chords (C/E) are not supported in this preview.',
-    s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4 with three grooves: Straight (kick, snare on 2 and 4, eighth-note hi-hat), Swing (ride cymbal, hi-hat on 2 and 4, delayed second eighth note) and Bossa nova (two-bar clave on the rim). The electric piano plays the notes that define each chord, with the root only on chord changes. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation or Internet connection required. Your last settings are remembered in the browser when available.',
+    s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4 with three grooves: Straight (kick, snare on 2 and 4, eighth-note hi-hat), Swing (ride cymbal, hi-hat on 2 and 4, delayed second eighth note) and Bossa nova (two-bar clave on the rim). The chord instrument (grand piano, electric piano, acoustic or electric guitar) plays the notes that define each chord. The instrument samples (about 1.5 MB) are downloaded the first time you start the backing. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation required; without a connection the backing uses synthesized sounds. Your last settings are remembered in the browser when available.',
     s46: 'Explore the fretboard, one note at a time.',
     s47: 'Reset F7 / C7',
     s49: 'Backing track settings',
     s50: 'Examples',
     s51: 'Manico: transcribe and study bass lines',
+    s53: 'Samples: Salamander Grand Piano by Alexander Holm (CC BY 3.0); Virtuosity Drums by Versilian Studios (CC0); acoustic guitar from the University of Iowa Musical Instrument Samples; electric guitar by Karoryfer Samples (CC0).',
+    s54: 'Chord instrument',
+    s55: 'Grand piano',
+    s56: 'Electric piano',
+    s57: 'Acoustic guitar',
+    s58: 'Electric guitar',
+    s59: 'Chords',
     s52: 'Source on GitHub',
     a0: 'Configuration',
     a1: 'Previous chord',
@@ -67,7 +74,9 @@ const translations = {
     unsupported: 'Unsupported chord type: {raw}. See the list below the fretboard.',
     play: '▶ Start backing',
     stop: '■ Stop backing',
-    ready: 'Piano and drums · ready',
+    ready: 'Backing · ready',
+    loadingSamples: 'Loading the instruments…',
+    synthFallback: 'synthesized sounds (samples unavailable)',
     paused: 'Playback stopped: press Start to resume.',
     playing: '{chord} · chord {index}/{total} · beat {beat}/{beats}',
     selection:
@@ -115,13 +124,13 @@ const translations = {
     s29: 'Clic su un accordo per studiarlo da solo. ⇧ Shift + clic per aggiungerlo o toglierlo dal confronto.',
     s30: '▶ Avvia base',
     s31: 'Beat per accordo',
-    s32: 'Piano e batteria · pronti',
+    s32: 'Base · pronta',
     s33: 'Ritmo · 4/4',
     s34: 'Dritto · pop / rock',
-    s35: 'Volume piano',
+    s35: 'Volume accordi',
     s36: 'Batteria',
     s37: 'Volume batteria',
-    s38: 'Premi Avvia base: un piano elettrico suona gli accordi, la batteria tiene il tempo. Puoi spegnere ogni strumento. Il registro basso è libero per te. Suoni sintetizzati, senza download.',
+    s38: 'Premi Avvia base: lo strumento che scegli suona gli accordi, la batteria tiene il tempo. Puoi spegnere ciascuno dei due. Il registro basso è libero per te. Strumenti reali campionati; senza connessione la base usa suoni sintetizzati.',
     s39: 'Tastiera',
     s40: 'Corda più acuta in alto · tasto 0 = corda a vuoto',
     s41: 'Clicca un pallino per leggere i suoi gradi nei diversi accordi.',
@@ -129,12 +138,19 @@ const translations = {
     s43: 'Accordi supportati e come usarlo',
     s44: 'Notazione internazionale: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La, B = Si. Diesis # e bemolle b, anche ♯ e ♭. Esempi: F7, Bbmaj7, F#m7.',
     s45: 'Maggiori, minori (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Gli accordi con basso indicato (C/E) non sono supportati in questa prova.',
-    s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4 con tre ritmi: Dritto (cassa, rullante su 2 e 4, hi-hat a ottavi), Swing (piatto ride, hi-hat su 2 e 4, secondo ottavo ritardato) e Bossa nova (clave di due battute sul bordo). Il piano elettrico suona le note che definiscono ogni accordo, con la fondamentale solo ai cambi. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione e nessuna connessione necessaria. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
+    s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4 con tre ritmi: Dritto (cassa, rullante su 2 e 4, hi-hat a ottavi), Swing (piatto ride, hi-hat su 2 e 4, secondo ottavo ritardato) e Bossa nova (clave di due battute sul bordo). Lo strumento per gli accordi (pianoforte, piano elettrico, chitarra acustica o elettrica) suona le note che definiscono ogni accordo. I campioni degli strumenti (circa 1,5 MB) si scaricano la prima volta che avvii la base. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione; senza connessione la base usa suoni sintetizzati. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
     s46: 'Fatto per esplorare la tastiera, una nota alla volta.',
     s47: 'Ripristina F7 / C7',
     s49: 'Impostazioni della base',
     s50: 'Esempi',
     s51: 'Manico: trascrivi e studia le linee di basso',
+    s53: 'Campioni: Salamander Grand Piano di Alexander Holm (CC BY 3.0); Virtuosity Drums di Versilian Studios (CC0); chitarra acustica dai Musical Instrument Samples dell’Università dell’Iowa; chitarra elettrica di Karoryfer Samples (CC0).',
+    s54: 'Strumento per gli accordi',
+    s55: 'Pianoforte',
+    s56: 'Piano elettrico',
+    s57: 'Chitarra acustica',
+    s58: 'Chitarra elettrica',
+    s59: 'Accordi',
     s52: 'Codice su GitHub',
     a0: 'Configurazione',
     a1: 'Accordo precedente',
@@ -148,7 +164,9 @@ const translations = {
     unsupported: 'Tipo di accordo non supportato: {raw}. Vedi l’elenco sotto la tastiera.',
     play: '▶ Avvia base',
     stop: '■ Ferma base',
-    ready: 'Piano e batteria · pronti',
+    ready: 'Base · pronta',
+    loadingSamples: 'Carico gli strumenti…',
+    synthFallback: 'suoni sintetizzati (campioni non disponibili)',
     paused: 'Riproduzione fermata: premi Avvia per riprendere.',
     playing: '{chord} · accordo {index}/{total} · beat {beat}/{beats}',
     selection:
@@ -171,6 +189,16 @@ function tr(key, vars = {}) {
     (_, name) => String(vars[name] ?? ''),
   );
 }
+function playingStatus(chord, index, beat, perChord) {
+  const text = tr('playing', {
+    chord: chord.name,
+    index: index + 1,
+    total: progression.length,
+    beat: (beat % perChord) + 1,
+    beats: perChord,
+  });
+  return synthFallback ? `${text} · ${tr('synthFallback')}` : text;
+}
 function applyLanguage() {
   document.documentElement.lang = language;
   $('language').value = language;
@@ -184,13 +212,7 @@ function applyLanguage() {
   if (timer === null) $('playStatus').textContent = tr('ready');
   else if (visibleBeat >= 0) {
     const per = beatsPerChord();
-    $('playStatus').textContent = tr('playing', {
-      chord: progression[cursor].name,
-      index: cursor + 1,
-      total: progression.length,
-      beat: (visibleBeat % per) + 1,
-      beats: per,
-    });
+    $('playStatus').textContent = playingStatus(progression[cursor], cursor, visibleBeat, per);
   }
 }
 
@@ -299,7 +321,7 @@ function initAudio() {
     pianoSend = audio.createGain(),
     drumSend = audio.createGain();
   room.buffer = roomImpulse();
-  pianoSend.gain.value = 0.22;
+  pianoSend.gain.value = 0.16;
   drumSend.gain.value = 0.09;
   pianoBus.connect(pianoSend);
   drumBus.connect(drumSend);
@@ -333,7 +355,130 @@ function trackVoice(source, nodes) {
   };
 }
 
-// Keys: a two-operator FM electric piano. The modulation index falls quickly after the attack,
+// Sampled instruments, recorded from real ones (see samples/CREDITS.txt). They are fetched on
+// the first Start; when they cannot be (page opened from disk, no connection) the synthesized
+// sounds below take over.
+const instruments = {
+  piano: {
+    folder: 'piano',
+    notes: [45, 48, 51, 54, 57, 60, 63, 66, 69],
+    layers: 2,
+    low: 58,
+    rootLow: 44,
+    level: 0.62,
+    release: 0.1,
+  },
+  // No samples: the FM electric piano is the instrument.
+  epiano: {low: 58, rootLow: 44},
+  'guitar-acoustic': {
+    folder: 'guitar-acoustic',
+    notes: [40, 43, 46, 49, 52, 55, 58, 61, 64, 67],
+    layers: 1,
+    low: 52,
+    rootLow: 40,
+    level: 0.34,
+    release: 0.12,
+    guitar: true,
+  },
+  'guitar-electric': {
+    folder: 'guitar-electric',
+    notes: [40, 42, 45, 48, 51, 54, 57, 60, 63, 66],
+    layers: 1,
+    low: 52,
+    rootLow: 40,
+    level: 0.46,
+    release: 0.12,
+    guitar: true,
+  },
+};
+// Takes available per dynamic layer: soft first, then hard where the kit has one.
+const drumSamples = {kick: [2, 2], snare: [2, 2], rim: [2], hat: [3, 3], pedal: [3], ride: [3, 3]};
+const drumLevel = {kick: 1, snare: 0.8, rim: 0.75, hat: 0.7, pedal: 2, ride: 1.8};
+const banks = {};
+let synthFallback = false;
+function currentInstrument() {
+  const name = $('instrument').value;
+  return Object.hasOwn(instruments, name) ? name : 'piano';
+}
+function bankFiles(name) {
+  if (name === 'drums')
+    return Object.entries(drumSamples).flatMap(([sound, layers]) =>
+      layers.flatMap((takes, layer) =>
+        Array.from({length: takes}, (_, take) => `drums/${sound}-${layer + 1}${'abc'[take]}.mp3`),
+      ),
+    );
+  const set = instruments[name];
+  if (!set?.folder) return [];
+  return set.notes.flatMap((midi) =>
+    Array.from({length: set.layers}, (_, layer) => `${set.folder}/${midi}-${layer + 1}.mp3`),
+  );
+}
+// Resolves to true when every file of the bank is decoded. A failed load is not remembered,
+// so the next Start tries again.
+function loadBank(name) {
+  const files = bankFiles(name);
+  if (!files.length) return Promise.resolve(true);
+  const bank = (banks[name] ??= {ready: false, loading: null, buffers: {}});
+  if (bank.ready) return Promise.resolve(true);
+  bank.loading ??= Promise.all(
+    files.map(async (file) => {
+      const response = await fetch(`samples/${file}`);
+      if (!response.ok) throw Error(file);
+      const data = await response.arrayBuffer();
+      bank.buffers[file] = await new Promise((resolve, reject) =>
+        audio.decodeAudioData(data, resolve, reject),
+      );
+    }),
+  ).then(
+    () => (bank.ready = true),
+    () => {
+      bank.loading = null;
+      return false;
+    },
+  );
+  return bank.loading;
+}
+// Plays one decoded sample. With `end` the note is damped there; without, it rings out.
+function playBuffer(buffer, when, rate, level, bus, end, release) {
+  const source = audio.createBufferSource(),
+    env = audio.createGain();
+  source.buffer = buffer;
+  source.playbackRate.value = rate;
+  env.gain.setValueAtTime(level, when);
+  if (end !== undefined) env.gain.setTargetAtTime(0, end, release);
+  source.connect(env);
+  env.connect(bus);
+  trackVoice(source, [env]);
+  source.start(when);
+  source.stop(end === undefined ? when + buffer.duration / rate + 0.05 : end + release * 7);
+}
+function sampleNote(name, midi, when, duration, level, hard) {
+  const set = instruments[name],
+    // The nearest recorded note, retuned by at most a semitone or two.
+    nearest = set.notes.reduce((a, b) => (Math.abs(b - midi) < Math.abs(a - midi) ? b : a)),
+    layer = hard && set.layers > 1 ? 2 : 1;
+  playBuffer(
+    banks[name].buffers[`${set.folder}/${nearest}-${layer}.mp3`],
+    when,
+    Math.pow(2, (midi - nearest) / 12),
+    level,
+    pianoBus,
+    when + duration,
+    set.release,
+  );
+}
+function playDrum(name, when, v) {
+  const bank = banks.drums;
+  if (!bank?.ready) return drumKit[name](when, v);
+  const layers = drumSamples[name],
+    layer = layers.length > 1 && v >= 0.62 ? 2 : 1,
+    take = 'abc'[Math.floor(Math.random() * layers[layer - 1])],
+    // The soft layer is quiet as recorded; it is not turned down as far again.
+    gain = drumLevel[name] * (layer === 2 || layers.length === 1 ? v : 0.6 + v);
+  playBuffer(bank.buffers[`drums/${name}-${layer}${take}.mp3`], when, 1, gain, drumBus);
+}
+
+// Keys fallback and electric piano: a two-operator FM electric piano. The modulation index falls quickly after the attack,
 // so each note starts bright and mellows, and a fast high-ratio modulator adds the tine "ping".
 function keysNote(midi, when, duration, level, strength) {
   const frequency = 440 * Math.pow(2, (midi - 69) / 12),
@@ -375,7 +520,7 @@ function keysNote(midi, when, duration, level, strength) {
 // What a pianist would play instead of stacking every chord tone from the root:
 // the root below, then the notes that define the chord (3rd, 7th, alterations, top extension),
 // each kept inside one fixed octave so common tones stay put from chord to chord.
-function voicing(chord) {
+function voicing(chord, low = 58, rootLow = 44) {
   const tones = qualities[chord.quality].map(([semi, degree]) => ({semi, degree}));
   let upper = tones;
   if (tones.length > 3) {
@@ -391,17 +536,34 @@ function voicing(chord) {
       drop((t) => t.degree === 3);
     for (const degree of [11, 9, 5]) if (upper.length > 4) drop((t) => t.degree === degree);
   }
-  const low = 58,
-    notes = upper.map((t) => low + mod(chord.root + t.semi - low));
-  return {root: 44 + mod(chord.root - 44), notes: [...new Set(notes)].sort((a, b) => a - b)};
+  const notes = upper.map((t) => low + mod(chord.root + t.semi - low));
+  return {
+    root: rootLow + mod(chord.root - rootLow),
+    notes: [...new Set(notes)].sort((a, b) => a - b),
+  };
 }
-function keysChord(chord, when, duration, velocity, withRoot) {
-  const {root, notes} = voicing(chord),
-    level = (0.15 * velocity) / Math.sqrt(notes.length);
+function compChord(chord, when, duration, velocity, withRoot, upStroke) {
+  const name = currentInstrument(),
+    set = instruments[name],
+    sampled = banks[name]?.ready,
+    {root, notes} = voicing(chord, set.low, set.rootLow),
+    note = (midi, time, gain, strength) =>
+      sampled
+        ? sampleNote(name, midi, time, duration, set.level * gain, strength >= 0.85)
+        : keysNote(midi, time, duration, 0.15 * gain, strength);
+  if (set.guitar) {
+    // A down stroke sweeps every string from the bass note; an up stroke catches the top three.
+    const strings = upStroke ? notes.slice(-3).reverse() : [root, ...notes],
+      spread = currentGroove().strumSpread ?? 0.014,
+      gain = velocity / Math.sqrt(strings.length);
+    strings.forEach((midi, i) => note(midi, when + i * spread, gain, velocity));
+    return;
+  }
+  const gain = velocity / Math.sqrt(notes.length);
   // The root only marks each chord change; repeating it on every stab muddies the low end.
-  if (withRoot) keysNote(root, when, duration, level * 1.15, velocity * 0.6);
+  if (withRoot) note(root, when, gain * 1.15, velocity * 0.6);
   // A few milliseconds between notes, bottom to top, like fingers landing.
-  notes.forEach((midi, i) => keysNote(midi, when + i * 0.006, duration, level, velocity));
+  notes.forEach((midi, i) => note(midi, when + i * 0.006, gain, velocity));
 }
 
 // Drums
@@ -474,6 +636,8 @@ const grooves = {
   straight: {
     swing: false,
     keys: [1, 0, 0, 0.7, 0, 0, 0.8, 0],
+    // Guitar: down, down-up, up-down-up. Negative numbers are up strokes.
+    strum: [1, 0, 0.8, -0.5, 0, -0.5, 0.8, -0.5],
     kick: [1, 0, 0, 0.5, 0.9, 0, 0, 0],
     snare: [0, 0, 1, 0, 0, 0, 1, 0],
     hat: [0.8, 0.4, 0.7, 0.4, 0.8, 0.4, 0.7, 0.5],
@@ -481,6 +645,9 @@ const grooves = {
   swing: {
     swing: true,
     keys: [1, 0, 0, 0.75, 0, 0, 0, 0],
+    // Guitar: four short chords to the bar, leaning on 2 and 4.
+    strum: [0.7, 0, 0.9, 0, 0.7, 0, 0.9, 0],
+    strumLength: 0.5,
     kick: [0.55, 0, 0, 0, 0.45, 0, 0, 0],
     ride: [0.8, 0, 0.9, 0.5, 0.8, 0, 0.9, 0.5],
     pedal: [0, 0, 0.8, 0, 0, 0, 0.8, 0],
@@ -489,6 +656,9 @@ const grooves = {
   bossa: {
     swing: false,
     keys: [1, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.75, 0, 0, 0.7, 0, 0],
+    // Guitar: the same figure, plucked together rather than strummed.
+    strum: [1, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.75, 0, 0, 0.7, 0, 0],
+    strumSpread: 0.004,
     kick: [0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45],
     rim: [0.8, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.7, 0, 0, 0.8, 0, 0],
     hat: [0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3],
@@ -497,11 +667,10 @@ const grooves = {
 function currentGroove() {
   return grooves[$('groove').value] ?? grooves.straight;
 }
-// Eighth notes from `step` to the next keys hit of the pattern.
-function keysGap(groove, step) {
-  const length = groove.keys.length;
-  for (let gap = 1; gap < length; gap++) if (groove.keys[(step + gap) % length]) return gap;
-  return length;
+// Eighth notes from `step` to the next hit of a chord pattern.
+function patternGap(part, step) {
+  for (let gap = 1; gap < part.length; gap++) if (part[(step + gap) % part.length]) return gap;
+  return part.length;
 }
 function beatSeconds() {
   return 60 / Math.min(300, Math.max(30, Number($('bpm').value) || 80));
@@ -518,6 +687,8 @@ function scheduleBeat(beat, when, epoch) {
     groove = currentGroove(),
     keysOn = $('pianoEnabled').checked,
     drumsOn = $('drumsEnabled').checked,
+    guitar = instruments[currentInstrument()].guitar,
+    part = guitar ? groove.strum : groove.keys,
     // A beat is two eighth notes; swing delays the second one.
     times = [when, when + seconds * (groove.swing ? 2 / 3 : 1 / 2)];
   for (let half = 0; half < 2; half++) {
@@ -526,22 +697,24 @@ function scheduleBeat(beat, when, epoch) {
       // Small random variation in how hard each hit lands.
       human = () => 0.92 + Math.random() * 0.16;
     if (drumsOn)
-      for (const [name, play] of Object.entries(drumKit))
-        if (groove[name]?.[step]) play(time, groove[name][step] * human());
+      for (const name of Object.keys(drumKit))
+        if (groove[name]?.[step]) playDrum(name, time, groove[name][step] * human());
     if (!keysOn) continue;
     // A new chord is always stated on its first beat, whatever the pattern says.
     const chordStart = half === 0 && beat % perChord === 0,
-      velocity = groove.keys[step] || (chordStart ? 0.9 : 0);
+      velocity = Math.abs(part[step]) || (chordStart ? 0.9 : 0);
     if (!velocity) continue;
     // Let the chord ring until the next stab, but never across a chord change.
     const eighthsLeft = perChord * 2 - ((beat % perChord) * 2 + half),
-      eighths = Math.min(keysGap(groove, step), eighthsLeft);
-    keysChord(
+      eighths = Math.min(patternGap(part, step), eighthsLeft),
+      length = guitar ? (groove.strumLength ?? 1) : 1;
+    compChord(
       chord,
       time,
-      Math.min(2.4, (eighths * seconds) / 2) * 0.94,
+      Math.min(2.4, (eighths * seconds) / 2) * 0.94 * length,
       velocity * human(),
       chordStart,
+      part[step] < 0,
     );
   }
   const callback = setTimeout(
@@ -554,13 +727,7 @@ function scheduleBeat(beat, when, epoch) {
         selected = new Set([cursor]);
         draw();
       }
-      $('playStatus').textContent = tr('playing', {
-        chord: chord.name,
-        index: index + 1,
-        total: progression.length,
-        beat: (beat % perChord) + 1,
-        beats: perChord,
-      });
+      $('playStatus').textContent = playingStatus(chord, index, beat, perChord);
       document
         .querySelectorAll('.beat-light')
         .forEach((light, i) => light.classList.toggle('on', i === barBeat));
@@ -617,6 +784,11 @@ async function start() {
     await audio.resume();
     if (epoch !== playEpoch) return;
     if (audio.state !== 'running') throw Error(tr('audioUnavailable'));
+    const missing = [currentInstrument(), 'drums'].filter((name) => !banks[name]?.ready);
+    if (missing.some((name) => bankFiles(name).length))
+      $('playStatus').textContent = tr('loadingSamples');
+    synthFallback = (await Promise.all(missing.map(loadBank))).includes(false);
+    if (epoch !== playEpoch) return;
     updateMix();
     master.gain.cancelScheduledValues(audio.currentTime);
     master.gain.setValueAtTime(0, audio.currentTime);
@@ -1245,6 +1417,7 @@ function savePreferences() {
       'bpm',
       'beats',
       'groove',
+      'instrument',
       'pianoVolume',
       'drumsVolume',
     ])
@@ -1286,7 +1459,7 @@ for (const id of ['pianoEnabled', 'drumsEnabled', 'pianoVolume', 'drumsVolume'])
     updateMix();
     savePreferences();
   });
-for (const id of ['bpm', 'beats', 'groove'])
+for (const id of ['bpm', 'beats', 'groove', 'instrument'])
   $(id).addEventListener('change', () => {
     if (timer !== null) start();
     savePreferences();
@@ -1338,6 +1511,7 @@ try {
       'bpm',
       'beats',
       'groove',
+      'instrument',
       'pianoVolume',
       'drumsVolume',
     ])

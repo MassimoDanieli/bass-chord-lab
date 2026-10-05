@@ -117,7 +117,7 @@ F7, C7</textarea>
           <span class="gap"></span>
           <button type="button" id="transposeDown" data-i18n="s23">−1 semitono</button>
           <button type="button" id="transposeUp" data-i18n="s24">+1 semitono</button>
-          <span id="playStatus" data-i18n="s32">Piano e batteria · pronti</span>
+          <span id="playStatus" data-i18n="s32">Base · pronta</span>
         </div>
       </section>
 
@@ -206,12 +206,21 @@ F7, C7</textarea>
               <option value="bossa">Bossa nova</option>
             </select>
           </label>
+          <label>
+            <span data-i18n="s54">Strumento per gli accordi</span>
+            <select id="instrument">
+              <option value="piano" data-i18n="s55">Pianoforte</option>
+              <option value="epiano" data-i18n="s56">Piano elettrico</option>
+              <option value="guitar-acoustic" data-i18n="s57">Chitarra acustica</option>
+              <option value="guitar-electric" data-i18n="s58">Chitarra elettrica</option>
+            </select>
+          </label>
           <div class="instrument">
             <label class="check">
               <input type="checkbox" id="pianoEnabled" checked />
-              Piano
+              <span data-i18n="s59">Accordi</span>
             </label>
-            <label for="pianoVolume" data-i18n="s35">Volume piano</label>
+            <label for="pianoVolume" data-i18n="s35">Volume accordi</label>
             <input id="pianoVolume" type="range" min="0" max="100" value="65" />
           </div>
           <div class="instrument">
@@ -252,6 +261,7 @@ F7, C7</textarea>
           Nessuna installazione e nessuna connessione necessaria. Le tue ultime impostazioni vengono
           ricordate nel browser, quando disponibile.
         </p>
+        <p data-i18n="s53">Campioni: Salamander Grand Piano di Alexander Holm (CC BY 3.0).</p>
       </details>
       <div class="footer">
         <span data-i18n="s46">Fatto per esplorare la tastiera, una nota alla volta.</span>
