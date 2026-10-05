@@ -423,6 +423,11 @@ summary {
   font-size: 12px;
   color: var(--muted);
 }
+.footer .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
 .footer button {
   font-size: 12px;
   padding: 4px 10px;
