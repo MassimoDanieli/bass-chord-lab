@@ -40,7 +40,7 @@ const translations = {
     s35: 'Piano volume',
     s36: 'Drums',
     s37: 'Drum volume',
-    s38: 'Press Start backing: piano plays the chords and drums keep time. You can mute either instrument. The low register is left for you. Synthesized sounds, no downloads.',
+    s38: 'Press Start backing: an electric piano plays the chords and drums keep time. You can mute either instrument. The low register is left for you. Synthesized sounds, no downloads.',
     s39: 'Fretboard',
     s40: 'Highest string at the top · fret 0 = open string',
     s41: 'Click a dot to see its degrees in each chord.',
@@ -48,7 +48,7 @@ const translations = {
     s43: 'Supported chords and how to use it',
     s44: 'International notation: C, D, E, F, G, A, B. Sharps # and flats b, including ♯ and ♭. Examples: F7, Bbmaj7, F#m7.',
     s45: 'Major, minor (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Slash chords (C/E) are not supported in this preview.',
-    s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4: kick on 1 and 3, snare on 2 and 4, hi-hat on eighth notes. Swing delays the second eighth note. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation or Internet connection required. Your last settings are remembered in the browser when available.',
+    s48: 'Enter a progression of any length and press Show. Each step lasts the selected number of beats, then the sequence loops. Use | to separate chords. Repeated chords are preserved. Select two or three chords with Shift + click for a clear comparison, or compare them all. The common tones filter shows notes present in at least two distinct selected chords. The backing is in 4/4 with three grooves: Straight (kick, snare on 2 and 4, eighth-note hi-hat), Swing (ride cymbal, hi-hat on 2 and 4, delayed second eighth note) and Bossa nova (two-bar clave on the rim). The electric piano plays the notes that define each chord, with the root only on chord changes. Changing BPM, beats or groove restarts from the current chord. Audio starts only after pressing Start backing and stops when you switch tabs. No installation or Internet connection required. Your last settings are remembered in the browser when available.',
     s46: 'Explore the fretboard, one note at a time.',
     s47: 'Reset F7 / C7',
     s49: 'Backing track settings',
@@ -121,7 +121,7 @@ const translations = {
     s35: 'Volume piano',
     s36: 'Batteria',
     s37: 'Volume batteria',
-    s38: 'Premi Avvia base: il piano suona gli accordi, la batteria tiene il tempo. Puoi spegnere ogni strumento. Il registro basso è libero per te. Suoni sintetizzati, senza download.',
+    s38: 'Premi Avvia base: un piano elettrico suona gli accordi, la batteria tiene il tempo. Puoi spegnere ogni strumento. Il registro basso è libero per te. Suoni sintetizzati, senza download.',
     s39: 'Tastiera',
     s40: 'Corda più acuta in alto · tasto 0 = corda a vuoto',
     s41: 'Clicca un pallino per leggere i suoi gradi nei diversi accordi.',
@@ -129,7 +129,7 @@ const translations = {
     s43: 'Accordi supportati e come usarlo',
     s44: 'Notazione internazionale: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La, B = Si. Diesis # e bemolle b, anche ♯ e ♭. Esempi: F7, Bbmaj7, F#m7.',
     s45: 'Maggiori, minori (m / min / −), 5, 6, m6, 7, maj7 (M7 / Δ7), m7, mMaj7, dim (°), dim7, m7b5 / ø7, aug / +, 7#5 / 7+, sus2, sus4, 7sus4, add9, m(add9), 9, maj9, m9, 11, m11, 13, m13, 7b5, 7b9, 7#9. Gli accordi con basso indicato (C/E) non sono supportati in questa prova.',
-    s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4: cassa su 1 e 3, rullante su 2 e 4, hi-hat a ottavi. Swing ritarda il secondo ottavo. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione e nessuna connessione necessaria. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
+    s48: 'Inserisci una progressione senza limite numerico di accordi e premi “Mostra”. Ogni elemento della sequenza dura il numero di beat impostato; la sequenza si ripete. Puoi usare | per separare gli accordi. Anche gli accordi ripetuti sono conservati. Per un confronto pulito seleziona due o tre accordi con Shift + clic; in alternativa confrontali tutti. Il filtro “note comuni” mostra le note presenti in almeno due accordi distinti selezionati. La base è in 4/4 con tre ritmi: Dritto (cassa, rullante su 2 e 4, hi-hat a ottavi), Swing (piatto ride, hi-hat su 2 e 4, secondo ottavo ritardato) e Bossa nova (clave di due battute sul bordo). Il piano elettrico suona le note che definiscono ogni accordo, con la fondamentale solo ai cambi. Cambiare BPM, beat o ritmo riavvia dall’accordo corrente. L’audio parte solo dopo il clic su Avvia base; si ferma se passi a un’altra scheda. Nessuna installazione e nessuna connessione necessaria. Le tue ultime impostazioni vengono ricordate nel browser, quando disponibile.',
     s46: 'Fatto per esplorare la tastiera, una nota alla volta.',
     s47: 'Ripristina F7 / C7',
     s49: 'Impostazioni della base',
@@ -233,8 +233,8 @@ let audio = null,
   master = null,
   pianoBus = null,
   drumBus = null,
-  pianoWave = null,
-  noiseBuffer = null;
+  noiseBuffer = null,
+  metalBuffer = null;
 let audioVoices = new Set(),
   visualTimers = new Set(),
   playEpoch = 0,
@@ -242,6 +242,39 @@ let audioVoices = new Set(),
   transportBeat = 0,
   transportStart = 0,
   visibleBeat = -1;
+// White noise for snare and kick click; a cluster of detuned square waves for cymbals,
+// whose inharmonic overtones are what makes a hi-hat sound metallic rather than like hiss.
+function fillBuffers() {
+  const rate = audio.sampleRate;
+  noiseBuffer = audio.createBuffer(1, rate, rate);
+  const noise = noiseBuffer.getChannelData(0);
+  for (let i = 0; i < noise.length; i++) noise[i] = Math.random() * 2 - 1;
+  metalBuffer = audio.createBuffer(1, rate, rate);
+  const metal = metalBuffer.getChannelData(0);
+  const partials = [205.3, 304.4, 369.6, 522.7, 540, 800];
+  for (let i = 0; i < metal.length; i++) {
+    let sum = 0;
+    for (const f of partials) sum += Math.sin((2 * Math.PI * f * i) / rate) >= 0 ? 1 : -1;
+    metal[i] = sum / partials.length;
+  }
+}
+// A short synthetic room. Completely dry oscillators sound like a test tone.
+function roomImpulse() {
+  const rate = audio.sampleRate,
+    length = Math.floor(rate * 1.1),
+    impulse = audio.createBuffer(2, length, rate);
+  for (let channel = 0; channel < 2; channel++) {
+    const data = impulse.getChannelData(channel);
+    let smooth = 0;
+    for (let i = 0; i < length; i++) {
+      const t = i / rate,
+        fade = Math.pow(1 - i / length, 2) * Math.exp(-3.4 * t);
+      smooth += 0.4 * ((Math.random() * 2 - 1) * fade - smooth);
+      data[i] = smooth;
+    }
+  }
+  return impulse;
+}
 function initAudio() {
   if (audio) return;
   const AudioCtor = window.AudioContext || window.webkitAudioContext;
@@ -261,13 +294,18 @@ function initAudio() {
   drumBus.connect(master);
   master.connect(limiter);
   limiter.connect(audio.destination);
-  pianoWave = audio.createPeriodicWave(
-    new Float32Array(9),
-    new Float32Array([0, 1, 0.36, 0.16, 0.09, 0.05, 0.028, 0.018, 0.012]),
-  );
-  noiseBuffer = audio.createBuffer(1, audio.sampleRate, audio.sampleRate);
-  const data = noiseBuffer.getChannelData(0);
-  for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+  fillBuffers();
+  const room = audio.createConvolver(),
+    pianoSend = audio.createGain(),
+    drumSend = audio.createGain();
+  room.buffer = roomImpulse();
+  pianoSend.gain.value = 0.22;
+  drumSend.gain.value = 0.09;
+  pianoBus.connect(pianoSend);
+  drumBus.connect(drumSend);
+  pianoSend.connect(room);
+  drumSend.connect(room);
+  room.connect(master);
   updateMix();
   audio.addEventListener('statechange', () => {
     if (audio.state !== 'running' && timer !== null) stop();
@@ -286,6 +324,7 @@ function updateMix() {
     0.015,
   );
 }
+// Every started source goes through here, so stop() can silence whatever is still scheduled.
 function trackVoice(source, nodes) {
   audioVoices.add(source);
   source.onended = () => {
@@ -293,80 +332,176 @@ function trackVoice(source, nodes) {
     for (const node of [source, ...nodes]) node.disconnect();
   };
 }
-function pianoNote(midi, when, duration, velocity) {
-  const osc = audio.createOscillator(),
+
+// Keys: a two-operator FM electric piano. The modulation index falls quickly after the attack,
+// so each note starts bright and mellows, and a fast high-ratio modulator adds the tine "ping".
+function keysNote(midi, when, duration, level, strength) {
+  const frequency = 440 * Math.pow(2, (midi - 69) / 12),
+    carrier = audio.createOscillator(),
+    body = audio.createOscillator(),
+    bodyDepth = audio.createGain(),
+    tine = audio.createOscillator(),
+    tineDepth = audio.createGain(),
     env = audio.createGain(),
-    filter = audio.createBiquadFilter();
-  osc.setPeriodicWave(pianoWave);
-  osc.frequency.value = 440 * Math.pow(2, (midi - 69) / 12);
-  filter.type = 'lowpass';
-  filter.frequency.setValueAtTime(4300, when);
-  filter.frequency.exponentialRampToValueAtTime(1100, when + duration);
-  filter.Q.value = 0.35;
+    end = when + duration,
+    // Higher notes get less modulation, or they turn glassy.
+    index = (0.45 + 1.5 * strength) * Math.min(1, 0.35 + 300 / frequency);
+  carrier.type = body.type = tine.type = 'sine';
+  carrier.frequency.value = frequency;
+  body.frequency.value = frequency;
+  tine.frequency.value = frequency * 14;
+  bodyDepth.gain.setValueAtTime(frequency * index, when);
+  bodyDepth.gain.exponentialRampToValueAtTime(frequency * 0.22, when + 0.4);
+  tineDepth.gain.setValueAtTime(frequency * 1.1 * strength, when);
+  tineDepth.gain.exponentialRampToValueAtTime(frequency * 0.002, when + 0.08);
   env.gain.setValueAtTime(0, when);
-  env.gain.linearRampToValueAtTime(velocity, when + 0.004);
-  env.gain.exponentialRampToValueAtTime(0.0001, when + duration);
-  osc.connect(filter);
-  filter.connect(env);
+  env.gain.linearRampToValueAtTime(level, when + 0.005);
+  env.gain.setTargetAtTime(level * 0.4, when + 0.005, 0.45);
+  env.gain.setTargetAtTime(0, end, 0.07);
+  body.connect(bodyDepth);
+  bodyDepth.connect(carrier.frequency);
+  tine.connect(tineDepth);
+  tineDepth.connect(carrier.frequency);
+  carrier.connect(env);
   env.connect(pianoBus);
-  trackVoice(osc, [filter, env]);
-  osc.start(when);
-  osc.stop(when + duration + 0.02);
+  trackVoice(carrier, [env]);
+  trackVoice(body, [bodyDepth]);
+  trackVoice(tine, [tineDepth]);
+  for (const osc of [carrier, body, tine]) {
+    osc.start(when);
+    osc.stop(end + 0.45);
+  }
 }
-function pianoChord(chord, when, seconds, accent) {
-  // Root in the middle register; chord tones above it leave room for live bass.
-  const rootMidi = 48 + chord.root;
-  const notes = chord.tones.map((tone, i) =>
-    i === 0 ? rootMidi : rootMidi + qualities[chord.quality][i][0],
-  );
-  const duration = Math.min(2.1, seconds * 2.5),
-    volume = (accent ? 0.15 : 0.105) / Math.sqrt(notes.length);
-  notes.forEach((midi, i) => pianoNote(midi, when + i * 0.007, duration, volume));
+// What a pianist would play instead of stacking every chord tone from the root:
+// the root below, then the notes that define the chord (3rd, 7th, alterations, top extension),
+// each kept inside one fixed octave so common tones stay put from chord to chord.
+function voicing(chord) {
+  const tones = qualities[chord.quality].map(([semi, degree]) => ({semi, degree}));
+  let upper = tones;
+  if (tones.length > 3) {
+    upper = tones.filter((t) => t.degree !== 1);
+    const drop = (test) => {
+      upper = upper.filter((t) => !test(t));
+    };
+    if (tones.length > 4) drop((t) => t.degree === 5 && t.semi === 7);
+    // A 13th chord leaves the 11th out; on a dominant 11th it is the major 3rd that goes,
+    // because the two clash.
+    if (upper.some((t) => t.degree === 13)) drop((t) => t.degree === 11);
+    if (upper.some((t) => t.degree === 11) && upper.some((t) => t.semi === 4))
+      drop((t) => t.degree === 3);
+    for (const degree of [11, 9, 5]) if (upper.length > 4) drop((t) => t.degree === degree);
+  }
+  const low = 58,
+    notes = upper.map((t) => low + mod(chord.root + t.semi - low));
+  return {root: 44 + mod(chord.root - 44), notes: [...new Set(notes)].sort((a, b) => a - b)};
 }
-function kick(when) {
-  const osc = audio.createOscillator(),
-    env = audio.createGain();
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(135, when);
-  osc.frequency.exponentialRampToValueAtTime(46, when + 0.13);
-  env.gain.setValueAtTime(0.65, when);
-  env.gain.exponentialRampToValueAtTime(0.0001, when + 0.25);
-  osc.connect(env);
-  env.connect(drumBus);
-  trackVoice(osc, [env]);
-  osc.start(when);
-  osc.stop(when + 0.27);
+function keysChord(chord, when, duration, velocity, withRoot) {
+  const {root, notes} = voicing(chord),
+    level = (0.15 * velocity) / Math.sqrt(notes.length);
+  // The root only marks each chord change; repeating it on every stab muddies the low end.
+  if (withRoot) keysNote(root, when, duration, level * 1.15, velocity * 0.6);
+  // A few milliseconds between notes, bottom to top, like fingers landing.
+  notes.forEach((midi, i) => keysNote(midi, when + i * 0.006, duration, level, velocity));
 }
-function noiseHit(when, duration, level, cutoff, type) {
-  const src = audio.createBufferSource(),
-    filter = audio.createBiquadFilter(),
-    env = audio.createGain();
-  src.buffer = noiseBuffer;
-  filter.type = type;
-  filter.frequency.value = cutoff;
-  filter.Q.value = 0.7;
+
+// Drums
+function burst(buffer, when, decay, level, filters) {
+  const source = audio.createBufferSource(),
+    env = audio.createGain(),
+    nodes = [env];
+  source.buffer = buffer;
+  let last = source;
+  for (const [type, frequency, q = 0.7] of filters) {
+    const filter = audio.createBiquadFilter();
+    filter.type = type;
+    filter.frequency.value = frequency;
+    filter.Q.value = q;
+    last.connect(filter);
+    last = filter;
+    nodes.push(filter);
+  }
   env.gain.setValueAtTime(level, when);
-  env.gain.exponentialRampToValueAtTime(0.0001, when + duration);
-  src.connect(filter);
-  filter.connect(env);
+  env.gain.exponentialRampToValueAtTime(0.0001, when + decay);
+  last.connect(env);
   env.connect(drumBus);
-  trackVoice(src, [filter, env]);
-  src.start(when);
-  src.stop(when + duration + 0.015);
+  trackVoice(source, nodes);
+  // A random offset into the buffer: no two hits are sample-identical.
+  source.start(when, Math.random() * 0.4);
+  source.stop(when + decay + 0.02);
 }
-function snare(when) {
-  noiseHit(when, 0.16, 0.24, 1500, 'highpass');
+function thump(type, from, to, sweep, when, decay, level) {
   const osc = audio.createOscillator(),
     env = audio.createGain();
-  osc.type = 'triangle';
-  osc.frequency.value = 180;
-  env.gain.setValueAtTime(0.14, when);
-  env.gain.exponentialRampToValueAtTime(0.0001, when + 0.1);
+  osc.type = type;
+  osc.frequency.setValueAtTime(from, when);
+  osc.frequency.exponentialRampToValueAtTime(to, when + sweep);
+  env.gain.setValueAtTime(level, when);
+  env.gain.exponentialRampToValueAtTime(0.0001, when + decay);
   osc.connect(env);
   env.connect(drumBus);
   trackVoice(osc, [env]);
   osc.start(when);
-  osc.stop(when + 0.12);
+  osc.stop(when + decay + 0.02);
+}
+const drumKit = {
+  kick(when, v) {
+    thump('sine', 150, 46, 0.1, when, 0.3, 0.85 * v);
+    burst(noiseBuffer, when, 0.012, 0.22 * v, [['lowpass', 2600]]);
+  },
+  snare(when, v) {
+    thump('triangle', 195, 150, 0.07, when, 0.13, 0.28 * v);
+    burst(noiseBuffer, when, 0.19, 0.4 * v, [
+      ['highpass', 1500],
+      ['lowpass', 9000],
+    ]);
+  },
+  hat(when, v) {
+    burst(metalBuffer, when, 0.05, 0.3 * v, [['highpass', 7500]]);
+  },
+  pedal(when, v) {
+    burst(metalBuffer, when, 0.032, 0.36 * v, [['highpass', 8500]]);
+  },
+  ride(when, v) {
+    burst(metalBuffer, when, 0.42, 0.32 * v, [['highpass', 5200]]);
+  },
+  rim(when, v) {
+    thump('triangle', 830, 780, 0.02, when, 0.045, 0.3 * v);
+    burst(noiseBuffer, when, 0.03, 0.2 * v, [['bandpass', 2600, 2]]);
+  },
+};
+// One entry per eighth note; the number is how hard the hit is played (0 = rest).
+const grooves = {
+  straight: {
+    swing: false,
+    keys: [1, 0, 0, 0.7, 0, 0, 0.8, 0],
+    kick: [1, 0, 0, 0.5, 0.9, 0, 0, 0],
+    snare: [0, 0, 1, 0, 0, 0, 1, 0],
+    hat: [0.8, 0.4, 0.7, 0.4, 0.8, 0.4, 0.7, 0.5],
+  },
+  swing: {
+    swing: true,
+    keys: [1, 0, 0, 0.75, 0, 0, 0, 0],
+    kick: [0.55, 0, 0, 0, 0.45, 0, 0, 0],
+    ride: [0.8, 0, 0.9, 0.5, 0.8, 0, 0.9, 0.5],
+    pedal: [0, 0, 0.8, 0, 0, 0, 0.8, 0],
+  },
+  // Two bars, so the cross-stick can play the 3-2 clave.
+  bossa: {
+    swing: false,
+    keys: [1, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.75, 0, 0, 0.7, 0, 0],
+    kick: [0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45, 0.8, 0, 0, 0.45],
+    rim: [0.8, 0, 0, 0.7, 0, 0, 0.8, 0, 0, 0, 0.7, 0, 0, 0.8, 0, 0],
+    hat: [0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3, 0.5, 0.3, 0.4, 0.3],
+  },
+};
+function currentGroove() {
+  return grooves[$('groove').value] ?? grooves.straight;
+}
+// Eighth notes from `step` to the next keys hit of the pattern.
+function keysGap(groove, step) {
+  const length = groove.keys.length;
+  for (let gap = 1; gap < length; gap++) if (groove.keys[(step + gap) % length]) return gap;
+  return length;
 }
 function beatSeconds() {
   return 60 / Math.min(300, Math.max(30, Number($('bpm').value) || 80));
@@ -379,15 +514,35 @@ function scheduleBeat(beat, when, epoch) {
     index = modIndex(transportStart + Math.floor(beat / perChord), progression.length),
     chord = progression[index],
     barBeat = beat % 4,
-    seconds = beatSeconds();
-  if ($('pianoEnabled').checked && (beat % perChord === 0 || barBeat === 0 || barBeat === 2))
-    pianoChord(chord, when, seconds, beat % perChord === 0);
-  if ($('drumsEnabled').checked) {
-    if (barBeat === 0 || barBeat === 2) kick(when);
-    if (barBeat === 1 || barBeat === 3) snare(when);
-    noiseHit(when, 0.045, barBeat === 0 ? 0.1 : 0.065, 6500, 'highpass');
-    const offbeat = $('groove').value === 'swing' ? 2 / 3 : 1 / 2;
-    noiseHit(when + seconds * offbeat, 0.035, 0.042, 6500, 'highpass');
+    seconds = beatSeconds(),
+    groove = currentGroove(),
+    keysOn = $('pianoEnabled').checked,
+    drumsOn = $('drumsEnabled').checked,
+    // A beat is two eighth notes; swing delays the second one.
+    times = [when, when + seconds * (groove.swing ? 2 / 3 : 1 / 2)];
+  for (let half = 0; half < 2; half++) {
+    const step = (beat * 2 + half) % groove.keys.length,
+      time = times[half],
+      // Small random variation in how hard each hit lands.
+      human = () => 0.92 + Math.random() * 0.16;
+    if (drumsOn)
+      for (const [name, play] of Object.entries(drumKit))
+        if (groove[name]?.[step]) play(time, groove[name][step] * human());
+    if (!keysOn) continue;
+    // A new chord is always stated on its first beat, whatever the pattern says.
+    const chordStart = half === 0 && beat % perChord === 0,
+      velocity = groove.keys[step] || (chordStart ? 0.9 : 0);
+    if (!velocity) continue;
+    // Let the chord ring until the next stab, but never across a chord change.
+    const eighthsLeft = perChord * 2 - ((beat % perChord) * 2 + half),
+      eighths = Math.min(keysGap(groove, step), eighthsLeft);
+    keysChord(
+      chord,
+      time,
+      Math.min(2.4, (eighths * seconds) / 2) * 0.94,
+      velocity * human(),
+      chordStart,
+    );
   }
   const callback = setTimeout(
     () => {
@@ -465,7 +620,7 @@ async function start() {
     updateMix();
     master.gain.cancelScheduledValues(audio.currentTime);
     master.gain.setValueAtTime(0, audio.currentTime);
-    master.gain.linearRampToValueAtTime(0.7, audio.currentTime + 0.03);
+    master.gain.linearRampToValueAtTime(0.8, audio.currentTime + 0.03);
     transportStart = cursor;
     transportBeat = 0;
     visibleBeat = -1;

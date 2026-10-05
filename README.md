@@ -14,11 +14,11 @@ Features:
 - Four or five strings, Drop D, and 12 / 15 / 24 frets.
 - Chord colors, split dots for shared notes, root rings and note names or degrees.
 - Root, triad, guide-tone and common-tone filters; semitone transposition.
-- Looping synthesized piano and drums with straight or swing eighth notes.
+- Looping synthesized electric piano and drums in three grooves: straight, swing and bossa nova.
 - Adjustable BPM and 2 / 4 / 8 beats per chord, with independent volumes and instrument mutes.
 - Bilingual labels, help, errors, tooltips and transport status.
 
-Press **Start backing** to enable Web Audio. The piano uses synthesized harmonics, not recorded piano samples. Drums play in 4/4 with kick on 1 and 3, snare on 2 and 4, and eighth-note hi-hats. The low register is left for live bass. Changing BPM, beats or groove restarts at the current chord. Editing the progression or switching tabs stops playback.
+Press **Start backing** to enable Web Audio. Everything is synthesized, with no recorded samples: an FM electric piano through a short synthetic room, and a drum kit built from oscillators and filtered noise. The piano plays the notes that define each chord (3rd, 7th, alterations, top extension) inside one octave, with the root only on chord changes. Straight has kick, snare on 2 and 4 and eighth-note hi-hats; swing has a ride cymbal, hi-hat on 2 and 4 and a delayed second eighth note; bossa nova has a two-bar clave on the rim. The low register is left for live bass. Changing BPM, beats or groove restarts at the current chord. Editing the progression or switching tabs stops playback.
 
 Chord symbols use international notation with sharps and flats. Supported chord types and aliases are listed in the app. Slash chords such as `C/E` are not supported yet.
 
@@ -57,7 +57,7 @@ Scarica il repository e apri `public/index.html` con Safari o Chrome. Non servon
 - Clic su un accordo per studiarlo; Shift + clic per confrontare più accordi.
 - Trasposizione della progressione per semitoni.
 - Accompagnamento in loop di piano sintetizzato e batteria, sincronizzato con la tastiera.
-- Ritmo dritto o swing, BPM regolabili e 2, 4 o 8 beat per accordo.
+- Tre ritmi (dritto, swing, bossa nova), BPM regolabili e 2, 4 o 8 beat per accordo.
 - Volume e mute separati per piano e batteria; indicatore dei quattro beat.
 - Impostazioni ricordate nel browser quando lo storage locale è disponibile.
 
@@ -71,9 +71,9 @@ Gli slash chords, come C/E, non sono ancora supportati.
 
 ### Audio
 
-Web Audio API, senza campioni scaricati. Il piano usa armoniche sintetizzate; la batteria combina oscillatori e rumore filtrato. Il timbro è quello di una base sintetica di prova, non di un pianoforte campionato.
+Web Audio API, senza campioni scaricati. Il piano è un piano elettrico in sintesi FM, con un breve riverbero sintetico; la batteria combina oscillatori e rumore filtrato. Il piano suona le note che definiscono ogni accordo (3ª, 7ª, alterazioni, estensione più alta) dentro un'ottava, con la fondamentale solo ai cambi di accordo. Resta una base sintetica, non strumenti campionati.
 
-La batteria è in 4/4: cassa su 1 e 3, rullante su 2 e 4, hi-hat a ottavi. Lo swing ritarda il secondo ottavo. Cambiare BPM, beat per accordo o ritmo riavvia la base dall'accordo corrente. Modificare la progressione o passare a un'altra scheda ferma la riproduzione.
+La base è in 4/4. Dritto: cassa, rullante su 2 e 4, hi-hat a ottavi. Swing: piatto ride, hi-hat su 2 e 4, secondo ottavo ritardato. Bossa nova: clave di due battute sul bordo del rullante. Cambiare BPM, beat per accordo o ritmo riavvia la base dall'accordo corrente. Modificare la progressione o passare a un'altra scheda ferma la riproduzione.
 
 ### Sviluppo e verifica
 
