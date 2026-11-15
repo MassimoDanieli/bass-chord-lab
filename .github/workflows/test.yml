@@ -1,0 +1,30 @@
+name: Test
+
+# Cloudflare deploys every push to main through its Git integration; this
+# runs the same checks first, so a red mark shows up on the PR / commit.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 22]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+      - name: Wrangler config is valid JSON with comments stripped
+        run: node -e "JSON.parse(require('fs').readFileSync('wrangler.jsonc','utf8').replace(/^\s*\/\/.*$/gm,''))"
